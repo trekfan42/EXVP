@@ -40,13 +40,13 @@ func load_thumb(picPath):
 
 
 func queue_check(_type , _itemData):
-	if Signals.activeIndex == self.get_index():
+	if Global.activeIndex == self.get_index():
 		%SelectVideoButton.text = "✅"
 	else:
 		%SelectVideoButton.text = "🔳"
 
 func parse_crop(index):
-	if Signals.activeItem == self:
+	if Global.activeItem == self:
 		if index == 1:
 			itemData["fit"] = true
 			itemData["crop"] = false
@@ -64,18 +64,18 @@ func parse_crop(index):
 			Signals.updateSlideOptions.emit("fit",true)
 
 func _on_remove_video_button_button_up():
-	if self.get_index() == Signals.activeIndex:
-		Signals.activeIndex = null
-		Signals.activeItem = null
-		Signals.activeType = null
+	if self.get_index() == Global.activeIndex:
+		Global.activeIndex = null
+		Global.activeItem = null
+		Global.activeType = null
 		Signals.removeItem.emit(type)
 	self.queue_free()
 
 func _on_select_video_button_button_up():
 	Signals.slideshow.emit(self)
-	Signals.activeIndex = self.get_index()
-	Signals.activeItem = self
-	Signals.activeType = type
+	Global.activeIndex = self.get_index()
+	Global.activeItem = self
+	Global.activeType = type
 	
 	var picture = thumb.texture
 	Signals.queueItem.emit(type,itemData)
@@ -92,7 +92,7 @@ func _on_gui_input(event):
 				print("clicked " + title)
 			if event.is_released():
 				print("released " + title)
-				if Signals.deleteReady == true:
+				if Global.deleteReady == true:
 					Signals.deletePopup.emit(false)
 					%Timer.start()
 				else:

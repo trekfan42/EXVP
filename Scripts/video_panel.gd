@@ -28,7 +28,7 @@ func _ready():
 		main = true
 	else: main = false
 	
-	if !Signals.showTips:
+	if !Global.showTips:
 		%Tips.hide()
 	
 
@@ -54,7 +54,7 @@ func queue_item(type,itemData): # [path,startPoint,endPoint,length,width,height,
 	if type == "video":
 		videoBox.visible = true
 		slideshowPanel.visible = false
-		var resource := Signals.playbackEngine.new()
+		var resource := Global.playbackEngine.new()
 		resource.file = itemData["path"]
 		print("resource: ", resource.file)
 		videoBox.stream = resource
@@ -70,7 +70,7 @@ func queue_item(type,itemData): # [path,startPoint,endPoint,length,width,height,
 	if type == "slideshow": # [pics,holdTime,fadeTime,crop,bgColor]
 		videoBox.visible = false
 		slideshowPanel.visible = true
-		slideshowPanel.slideshowOptions = Signals.activeItem.itemData
+		slideshowPanel.slideshowOptions = Global.activeItem.itemData
 		slideshowPanel.stop_timers()
 		slideshowPanel.clear_slideshow()
 		
@@ -95,17 +95,17 @@ func remove_item(type):
 		for p in slideshowPanel.get_children():
 			if p.name != "HoldTimer":
 				p.queue_free()
-		Signals.slideshowRunning = false
+		Global.slideshowRunning = false
 	Global.app.reset_play_icon()
 
 
 func update_canvas():
-	%VideoSubViewport.size.x = Signals.outputResolution.x
-	%VideoSubViewport.size.y = Signals.outputResolution.y
-	slideshowPanel.size.x = Signals.outputResolution.x
-	slideshowPanel.size.y = Signals.outputResolution.y
-	%CanvasBG.size.x = Signals.outputResolution.x
-	%CanvasBG.size.y = Signals.outputResolution.y
+	%VideoSubViewport.size.x = Global.outputResolution.x
+	%VideoSubViewport.size.y = Global.outputResolution.y
+	slideshowPanel.size.x = Global.outputResolution.x
+	slideshowPanel.size.y = Global.outputResolution.y
+	%CanvasBG.size.x = Global.outputResolution.x
+	%CanvasBG.size.y = Global.outputResolution.y
 
 
 func set_aspect(aspect):
@@ -165,8 +165,8 @@ func _on_tips_gui_input(event: InputEvent) -> void:
 
 
 func _on_tips_never_button_up() -> void:
-	Signals.showTips = !Signals.showTips
-	if Signals.showTips:
+	Global.showTips = !Global.showTips
+	if Global.showTips:
 		%TipsNever.text = "🔳"
 	else:
 		%TipsNever.text = "✅"

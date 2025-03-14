@@ -12,7 +12,7 @@ func _ready():
 	Signals.loadThumbs.connect(load_thumbs)
 
 func check_self(_type,_pics):
-	if parent == Signals.activeItem:
+	if parent == Global.activeItem:
 		$Button.disabled = false
 	else:
 		$Button.disabled = true
@@ -33,8 +33,8 @@ func image_loaded(imageTexture):
 
 
 func _on_button_button_up():
-	if Signals.playIcon:
+	if Global.playIcon:
 		Signals.setSlide.emit(self.get_index(),true)
-		Signals.slideshowRunning = !Signals.slideshowRunning
+		Global.slideshowRunning = !Global.slideshowRunning
 	else:
 		Signals.setSlide.emit(self.get_index(),false)

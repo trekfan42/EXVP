@@ -2,13 +2,13 @@ extends Panel
 
 const NDI_OUTPUT_SCENE = preload("res://Scenes/ndi_output_scene.tscn")
 
-const APP_BG = preload("res://AppBG.jpg")
+const APP_BG = preload("res://UI/AppBG.jpg")
 
 var ndiNode
 
 func _ready() -> void:
-	%UIScaleEdit.text = str(Signals.uiScale)
-	Signals.uiScale = float(%UIScaleEdit.text)
+	%UIScaleEdit.text = str(Global.uiScale)
+	Global.uiScale = float(%UIScaleEdit.text)
 	%ResetBG.hide()
 
 func _on_settings_close_button_button_up() -> void:
@@ -35,10 +35,10 @@ func show_options(settings):
 
 func _on_option_button_item_selected(index: int) -> void:
 	if index == 0:
-		Signals.playbackEngine = FFmpegVideoStream
+		Global.playbackEngine = FFmpegVideoStream
 	elif index == 1:
-		Signals.playbackEngine = VideoStreamVLC
-	Signals.setPlaybackEngine.emit(Signals.playbackEngine)
+		Global.playbackEngine = VideoStreamVLC
+	Signals.setPlaybackEngine.emit(Global.playbackEngine)
 
 
 func _on_ndi_toggle_button_up() -> void:
@@ -57,17 +57,17 @@ func _on_ndi_toggle_button_up() -> void:
 
 
 func _on_res_width_text_submitted(new_text: String) -> void:
-	Signals.outputResolution.x = int(new_text)
+	Global.outputResolution.x = int(new_text)
 
 
 func _on_res_height_text_submitted(new_text: String) -> void:
-	Signals.outputResolution.y = int(new_text)
+	Global.outputResolution.y = int(new_text)
 
 
 
 func _on_ui_scale_edit_text_submitted(new_text: String) -> void:
 	if float(new_text): 
-		Signals.uiScale = float(new_text)
+		Global.uiScale = float(new_text)
 	else:
 		%UIScaleEdit.self_modulate = Color.RED
 
@@ -78,36 +78,36 @@ func _on_timer_timeout() -> void:
 
 func _on_scale_up_button_button_up() -> void:
 	if float(%UIScaleEdit.text):
-		if Signals.uiScale < 1.4:
-			Signals.uiScale += 0.1
-			%UIScaleEdit.text = str(Signals.uiScale)
+		if Global.uiScale < 1.4:
+			Global.uiScale += 0.1
+			%UIScaleEdit.text = str(Global.uiScale)
 	else:
 		%UIScaleEdit.self_modulate = Color.RED
 
 
 func _on_scale_down_button_button_up() -> void:
 	if float(%UIScaleEdit.text):
-		if Signals.uiScale > 0.6:
-			Signals.uiScale -= 0.1
-			%UIScaleEdit.text = str(Signals.uiScale)
+		if Global.uiScale > 0.6:
+			Global.uiScale -= 0.1
+			%UIScaleEdit.text = str(Global.uiScale)
 	else:
 		%UIScaleEdit.self_modulate = Color.RED
 
 
 func _on_res_height_focus_exited() -> void:
-	Signals.outputResolution.y = int(%ResHeight.text)
+	Global.outputResolution.y = int(%ResHeight.text)
 
 
 func _on_res_width_focus_exited() -> void:
-	Signals.outputResolution.y = int(%ResWidth.text)
+	Global.outputResolution.y = int(%ResWidth.text)
 
 
 func _on_fps_text_submitted(new_text: String) -> void:
-	Signals.outputFPS = int(new_text)
+	Global.outputFPS = int(new_text)
 
 
 func _on_fps_focus_exited() -> void:
-	Signals.outputFPS = int(%FPS.text)
+	Global.outputFPS = int(%FPS.text)
 
 
 func _on_open_still_file_dialog_file_selected(path: String) -> void:

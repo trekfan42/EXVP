@@ -30,17 +30,17 @@ func run_command(rxCommand):
 		if rxCommand == "play":
 			Signals.pauseToggle.emit()
 		if rxCommand == "next":
-			Signals.app.go_to_video(rxCommand)
+			Global.app.go_to_video(rxCommand)
 		if rxCommand == "previous":
-			Signals.app.go_to_video(rxCommand)
+			Global.app.go_to_video(rxCommand)
 		if rxCommand == "SetIn":
-			Signals.app.trim_point(rxCommand)
+			Global.app.trim_point(rxCommand)
 		if rxCommand == "SetOut":
-			Signals.app.trim_point(rxCommand)
+			Global.app.trim_point(rxCommand)
 		if rxCommand == "VolUp":
-			Signals.app.adj_vol(rxCommand)
+			Global.app.adj_vol(rxCommand)
 		if rxCommand == "VolDown":
-			Signals.app.adj_vol(rxCommand)
+			Global.app.adj_vol(rxCommand)
 
 var http1Active = false
 var http2Active = false

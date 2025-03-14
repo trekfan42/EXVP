@@ -3,7 +3,7 @@ extends Panel
 
 func _ready():
 	Signals.validation.connect(update)
-	%SoftwareIdValue.text = Signals.shortId
+	%SoftwareIdValue.text = Auth.shortId
 
 
 func _on_help_codecs_button_up():
@@ -38,7 +38,7 @@ func hide_all():
 
 
 func _on_license_check_button_up():
-	Signals.check_key(%LicenseEdit.text)
+	Auth.check_key(%LicenseEdit.text)
 
 
 func update(status):

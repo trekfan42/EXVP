@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-@onready var app = Global.app
+
 
 var videoItem = preload("res://Scenes/playlist_video_item.tscn")
 var slideshowItem = preload("res://Scenes/playlist_slideshow_item.tscn")
@@ -27,10 +27,10 @@ func check_file_ext(path):
 	var listExts = ["exvp"]
 	var ext = path.get_extension()
 	print(ext)
-	if ext in Signals.videoExts:
+	if ext in Global.videoExts:
 		print("video loaded")
 		load_video(path)
-	if ext in Signals.picExts:
+	if ext in Global.picExts:
 		print("image loaded")
 		load_image(path)
 	if ext in listExts:

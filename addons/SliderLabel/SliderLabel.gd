@@ -87,9 +87,9 @@ func update_label():
 	
 	if custom_format.is_empty():
 		if self.get_parent().name != "Volume":
-			if Signals.activeType == "video":
+			if Global.activeType == "video":
 				text = secondsToMMSS(slider.value)
-			if Signals.activeType == "slideshow":
+			if Global.activeType == "slideshow":
 				text = str(slider.value)
 		else:
 			text = str(slider.value) + " dB"

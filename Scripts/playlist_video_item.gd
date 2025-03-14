@@ -102,25 +102,25 @@ func _process(_delta):
 
 
 func queue_check(_type,_itemData):
-	if Signals.activeIndex == self.get_index():
+	if Global.activeIndex == self.get_index():
 		%SelectVideoButton.text = "✅"
 	else:
 		%SelectVideoButton.text = "🔳"
 
 
 func _on_remove_video_button_button_up():
-	if self.get_index() == Signals.activeIndex:
-		Signals.activeIndex = null
-		Signals.activeItem = null
-		Signals.activeType = null
-		Signals.removeItem.emit(type)
+	if self.get_index() == Global.activeIndex:
+		Global.activeIndex = null
+		Global.activeItem = null
+		Global.activeType = null
+		Global.removeItem.emit(type)
 	self.queue_free()
 
 
 func _on_select_video_button_button_up():
-	Signals.activeIndex = self.get_index()
-	Signals.activeItem = self
-	Signals.activeType = type
+	Global.activeIndex = self.get_index()
+	Global.activeItem = self
+	Global.activeType = type
 	Signals.queueItem.emit(type,itemData)
 
 func _on_move_down_button_button_up():
@@ -290,7 +290,7 @@ func _on_drag_handle_gui_input(event: InputEvent) -> void:
 				print("clicked " + title)
 			if event.is_released():
 				print("released " + title)
-				if Signals.deleteReady == true:
+				if Global.deleteReady == true:
 					Signals.deletePopup.emit(false)
 					%Timer.start()
 				else:

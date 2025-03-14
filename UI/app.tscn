@@ -1,38 +1,38 @@
 [gd_scene load_steps=53 format=3 uid="uid://bsh644wahgog1"]
 
-[ext_resource type="Script" uid="uid://c5a4exqhv1vm2" path="res://Scripts/App.gd" id="1_dm8na"]
-[ext_resource type="Script" uid="uid://bvhr7xs4d4y5n" path="res://Scripts/network_control.gd" id="2_7bxad"]
-[ext_resource type="Texture2D" uid="uid://b2ugpxq1704r4" path="res://AppBG.jpg" id="3_aarq4"]
-[ext_resource type="Script" uid="uid://dn5xjbyaj00he" path="res://Scripts/Header.gd" id="3_liy7v"]
-[ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="4_n1wyc"]
-[ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="5_y3ypb"]
-[ext_resource type="Theme" uid="uid://badl71unfh8t8" path="res://UI/Blur UI Theme_digi_popup.tres" id="6_iqhk6"]
-[ext_resource type="FontFile" uid="uid://plebch4bpsf7" path="res://UI/Fonts/digital-7 (mono).ttf" id="7_cnnul"]
-[ext_resource type="Texture2D" uid="uid://by6hpm1vi7wim" path="res://UI/Icons/Output.png" id="8_algrx"]
-[ext_resource type="Script" uid="uid://bikc1i02sthhk" path="res://Scripts/Playlist.gd" id="9_adtiu"]
-[ext_resource type="Texture2D" uid="uid://bxjstnxgrqhfl" path="res://UI/Icons/loop off.png" id="10_b4yjt"]
-[ext_resource type="Texture2D" uid="uid://oh7hp12kh874" path="res://UI/Icons/auto off.png" id="11_baywj"]
-[ext_resource type="PackedScene" uid="uid://cyecs3e3rri12" path="res://Scenes/deleter.tscn" id="12_vp36t"]
-[ext_resource type="Script" uid="uid://cjfpni6vdw5bg" path="res://addons/ReorderableContainer/reorderable_vbox.gd" id="13_eaoon"]
-[ext_resource type="Script" uid="uid://dkpxgtqwnqnal" path="res://addons/ResizeableUI/handle.gd" id="14_qpsv4"]
-[ext_resource type="Script" uid="uid://bqqtwuif7cfn0" path="res://Scripts/HelpPanel.gd" id="14_ybhub"]
-[ext_resource type="FontFile" uid="uid://lfva2bj268gt" path="res://UI/Fonts/Quapox.otf" id="15_b84e3"]
-[ext_resource type="Texture2D" uid="uid://bblymoej002b4" path="res://LogoDS.png" id="16_6ch2h"]
-[ext_resource type="FontFile" uid="uid://cwaruj73w8llk" path="res://UI/Fonts/OCR A Std Regular.ttf" id="17_73a11"]
-[ext_resource type="StyleBox" uid="uid://fkdqfgpwqg38" path="res://UI/TealPanelSemi.tres" id="18_yynkn"]
-[ext_resource type="Script" uid="uid://doxfvaxqbt2tn" path="res://Scripts/video_panel.gd" id="19_c80v4"]
-[ext_resource type="Script" uid="uid://crx7j3snaarxx" path="res://Scripts/SlideShow.gd" id="20_dtap0"]
-[ext_resource type="Material" uid="uid://de57w5nfql88n" path="res://UI/Blur_Panel.tres" id="21_nkj0m"]
-[ext_resource type="PackedScene" uid="uid://dkecct1lxik27" path="res://Scenes/test_pattern.tscn" id="22_2ysod"]
-[ext_resource type="Script" uid="uid://fyk2pl01y4" path="res://addons/SliderLabel/SliderLabel.gd" id="22_s707o"]
-[ext_resource type="Texture2D" uid="uid://344jxy082shd" path="res://UI/Icons/play on.png" id="24_3xif0"]
-[ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="26_g43w0"]
-[ext_resource type="StyleBox" uid="uid://cico20v4xewji" path="res://UI/PopupPanelBG.tres" id="26_i77su"]
-[ext_resource type="Script" uid="uid://b67sxgvwxs7sa" path="res://Scripts/settings_popup.gd" id="27_7bxad"]
-[ext_resource type="Script" uid="uid://ci7xk2do2ymju" path="res://Scripts/SplashAnimationPlayer.gd" id="27_wiy3n"]
-[ext_resource type="Texture2D" uid="uid://b3yx41hdirdkt" path="res://UI/Icons/quitIcon.png" id="30_fr0lj"]
-[ext_resource type="Theme" uid="uid://cdbrut6wovxlv" path="res://UI/Pink_Button_theme.tres" id="31_aarq4"]
-[ext_resource type="Texture2D" uid="uid://bhmsvb2u32p6x" path="res://UI/Icons/loop on.png" id="33_7kyky"]
+[ext_resource type="Script" uid="uid://c5a4exqhv1vm2" path="res://Scripts/App.gd" id="1_ppeiy"]
+[ext_resource type="Script" uid="uid://bvhr7xs4d4y5n" path="res://Scripts/network_control.gd" id="2_rk4uy"]
+[ext_resource type="Texture2D" uid="uid://b2ugpxq1704r4" path="res://UI/AppBG.jpg" id="3_tqbqh"]
+[ext_resource type="Material" uid="uid://de57w5nfql88n" path="res://UI/Blur_Panel.tres" id="4_0cp3q"]
+[ext_resource type="Script" uid="uid://dn5xjbyaj00he" path="res://Scripts/Header.gd" id="5_ps8iq"]
+[ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="6_1ecek"]
+[ext_resource type="Theme" uid="uid://badl71unfh8t8" path="res://UI/Blur UI Theme_digi_popup.tres" id="7_v6puv"]
+[ext_resource type="FontFile" uid="uid://plebch4bpsf7" path="res://UI/Fonts/digital-7 (mono).ttf" id="8_ebo8a"]
+[ext_resource type="Texture2D" uid="uid://by6hpm1vi7wim" path="res://UI/Icons/Output.png" id="9_6bisl"]
+[ext_resource type="Script" uid="uid://bikc1i02sthhk" path="res://Scripts/Playlist.gd" id="10_ie54u"]
+[ext_resource type="Texture2D" uid="uid://bxjstnxgrqhfl" path="res://UI/Icons/loop off.png" id="11_5l31f"]
+[ext_resource type="Texture2D" uid="uid://oh7hp12kh874" path="res://UI/Icons/auto off.png" id="12_c1m1y"]
+[ext_resource type="PackedScene" uid="uid://cyecs3e3rri12" path="res://Scenes/deleter.tscn" id="13_alckx"]
+[ext_resource type="Script" uid="uid://cjfpni6vdw5bg" path="res://addons/ReorderableContainer/reorderable_vbox.gd" id="14_vpbto"]
+[ext_resource type="Script" uid="uid://dkpxgtqwnqnal" path="res://addons/ResizeableUI/handle.gd" id="15_jhlnk"]
+[ext_resource type="Script" uid="uid://bqqtwuif7cfn0" path="res://Scripts/HelpPanel.gd" id="16_u7xgt"]
+[ext_resource type="FontFile" uid="uid://lfva2bj268gt" path="res://UI/Fonts/Quapox.otf" id="17_l5517"]
+[ext_resource type="Texture2D" uid="uid://bblymoej002b4" path="res://UI/LogoDS.png" id="18_ys4d7"]
+[ext_resource type="FontFile" uid="uid://cwaruj73w8llk" path="res://UI/Fonts/OCR A Std Regular.ttf" id="19_5m0b1"]
+[ext_resource type="StyleBox" uid="uid://fkdqfgpwqg38" path="res://UI/TealPanelSemi.tres" id="20_gwpwc"]
+[ext_resource type="Script" uid="uid://doxfvaxqbt2tn" path="res://Scripts/video_panel.gd" id="21_lm25d"]
+[ext_resource type="Script" uid="uid://crx7j3snaarxx" path="res://Scripts/SlideShow.gd" id="22_6w6x4"]
+[ext_resource type="PackedScene" uid="uid://dkecct1lxik27" path="res://Scenes/test_pattern.tscn" id="23_eo77p"]
+[ext_resource type="Texture2D" uid="uid://344jxy082shd" path="res://UI/Icons/play on.png" id="24_qikn8"]
+[ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="25_nw87p"]
+[ext_resource type="Script" uid="uid://fyk2pl01y4" path="res://addons/SliderLabel/SliderLabel.gd" id="26_baxwu"]
+[ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="27_32h1h"]
+[ext_resource type="Script" uid="uid://b67sxgvwxs7sa" path="res://Scripts/settings_popup.gd" id="28_a1vo4"]
+[ext_resource type="Texture2D" uid="uid://b3yx41hdirdkt" path="res://UI/Icons/quitIcon.png" id="29_08mex"]
+[ext_resource type="Theme" uid="uid://cdbrut6wovxlv" path="res://UI/Pink_Button_theme.tres" id="30_tt88v"]
+[ext_resource type="Texture2D" uid="uid://bhmsvb2u32p6x" path="res://UI/Icons/loop on.png" id="31_lgrhx"]
+[ext_resource type="StyleBox" uid="uid://cico20v4xewji" path="res://UI/PopupPanelBG.tres" id="32_2hx6r"]
+[ext_resource type="Script" uid="uid://ci7xk2do2ymju" path="res://Scripts/SplashAnimationPlayer.gd" id="33_j3pm5"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_aarq4"]
 
@@ -114,13 +114,13 @@ corner_radius_top_left = 20
 corner_radius_bottom_left = 20
 
 [node name="APP" type="CanvasLayer"]
-script = ExtResource("1_dm8na")
+script = ExtResource("1_ppeiy")
 
 [node name="ExtMon" type="Node" parent="."]
 
 [node name="NetworkControl" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("2_7bxad")
+script = ExtResource("2_rk4uy")
 
 [node name="HTTPRequest1" type="HTTPRequest" parent="NetworkControl"]
 unique_name_in_owner = true
@@ -137,14 +137,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_aarq4")
+texture = ExtResource("3_tqbqh")
 expand_mode = 3
 stretch_mode = 6
 
 [node name="BGBlur" type="TextureRect" parent="."]
 unique_name_in_owner = true
 self_modulate = Color(0.579423, 0.579423, 0.579423, 1)
-material = ExtResource("21_nkj0m")
+material = ExtResource("4_0cp3q")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -191,14 +191,14 @@ theme_override_constants/margin_bottom = 4
 [node name="Header" type="HBoxContainer" parent="GuiMargin/GUI/HeaderPanel/MarginContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-script = ExtResource("3_liy7v")
+script = ExtResource("5_ps8iq")
 
 [node name="SavePlaylistButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 tooltip_text = "Save current Playlist"
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "💾 Save"
 
@@ -214,7 +214,7 @@ custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 tooltip_text = "Load a saved Playlist"
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "📁 Load"
 
@@ -230,7 +230,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "⚙️ Options"
 
@@ -245,13 +245,13 @@ custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 tooltip_text = "Select the External Monitor for Playback"
 focus_mode = 0
-theme = ExtResource("6_iqhk6")
-theme_override_fonts/font = ExtResource("7_cnnul")
+theme = ExtResource("7_v6puv")
+theme_override_fonts/font = ExtResource("8_ebo8a")
 theme_override_font_sizes/font_size = 35
 alignment = 1
 selected = 0
 allow_reselect = true
-item_count = 4
+item_count = 6
 popup/item_0/text = "1"
 popup/item_0/id = 0
 popup/item_1/text = "2"
@@ -260,6 +260,10 @@ popup/item_2/text = "1"
 popup/item_2/id = 2
 popup/item_3/text = "2"
 popup/item_3/id = 3
+popup/item_4/text = "1"
+popup/item_4/id = 4
+popup/item_5/text = "2"
+popup/item_5/id = 5
 
 [node name="ExtendButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
 unique_name_in_owner = true
@@ -268,9 +272,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 tooltip_text = "Enable or Disable External Output"
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
-icon = ExtResource("8_algrx")
+icon = ExtResource("9_6bisl")
 icon_alignment = 1
 expand_icon = true
 
@@ -282,7 +286,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 tooltip_text = "Get Help"
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "?"
 
@@ -297,7 +301,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 
 [node name="Playlist" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel"]
 unique_name_in_owner = true
@@ -307,7 +311,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("9_adtiu")
+script = ExtResource("10_ie54u")
 
 [node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist"]
 custom_minimum_size = Vector2(0, 60)
@@ -330,7 +334,7 @@ layout_mode = 2
 size_flags_vertical = 4
 tooltip_text = "Load 1 or multiple videos"
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "🎬"
 
@@ -340,7 +344,7 @@ layout_mode = 2
 size_flags_vertical = 4
 tooltip_text = "Load a folder of pictures as a slideshow"
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "🎞️"
 
@@ -350,7 +354,7 @@ layout_mode = 2
 size_flags_vertical = 4
 tooltip_text = "Load a single image as a hold slide"
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "🖼️"
 
@@ -381,7 +385,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 35
 text = "Playlist"
 horizontal_alignment = 1
@@ -400,9 +404,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 tooltip_text = "Repeat currently selected item when finished"
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
-icon = ExtResource("10_b4yjt")
+icon = ExtResource("11_5l31f")
 icon_alignment = 2
 expand_icon = true
 
@@ -413,9 +417,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 tooltip_text = "Auto Advance to next item when finsihed"
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
-icon = ExtResource("11_baywj")
+icon = ExtResource("12_c1m1y")
 icon_alignment = 2
 expand_icon = true
 
@@ -460,7 +464,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Deleter" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/vBox" instance=ExtResource("12_vp36t")]
+[node name="Deleter" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/vBox" instance=ExtResource("13_alckx")]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
@@ -472,14 +476,14 @@ custom_minimum_size = Vector2(0, 270)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("13_eaoon")
+script = ExtResource("14_vpbto")
 is_vertical = true
 scroll_container = NodePath("../..")
 
 [node name="BoxHandle" type="Control" parent="GuiMargin/GUI/Main"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
-script = ExtResource("14_qpsv4")
+script = ExtResource("15_jhlnk")
 handle_size = 8
 handle_color = Color(0, 0, 0, 0.513726)
 metadata/_custom_type_script = "uid://dkpxgtqwnqnal"
@@ -492,13 +496,12 @@ size_flags_stretch_ratio = 1.25
 
 [node name="HelpPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.94
-theme = ExtResource("4_n1wyc")
-script = ExtResource("14_ybhub")
+theme = ExtResource("6_1ecek")
+script = ExtResource("16_u7xgt")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel"]
 layout_mode = 1
@@ -525,7 +528,7 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("15_b84e3")
+theme_override_fonts/font = ExtResource("17_l5517")
 theme_override_font_sizes/font_size = 60
 text = "EXVP"
 horizontal_alignment = 1
@@ -536,7 +539,7 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(200, 168.57)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("16_6ch2h")
+texture = ExtResource("18_ys4d7")
 expand_mode = 1
 stretch_mode = 5
 
@@ -544,7 +547,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 20
 text = "v 0.1.5
 
@@ -559,6 +562,7 @@ size_flags_stretch_ratio = 4.04
 
 [node name="Licensing" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="SoftwareId" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
@@ -566,7 +570,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "EXVP Id:"
 horizontal_alignment = 1
@@ -578,8 +582,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("17_73a11")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("19_5m0b1")
 theme_override_font_sizes/font_size = 30
 text = "XXXXXXXX"
 alignment = 1
@@ -600,7 +604,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Activation Key:"
 horizontal_alignment = 1
@@ -624,7 +628,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("17_73a11")
+theme_override_fonts/font = ExtResource("19_5m0b1")
 theme_override_font_sizes/font_size = 25
 alignment = 1
 caret_blink = true
@@ -652,7 +656,7 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Licensed: ❌"
 horizontal_alignment = 1
@@ -664,7 +668,7 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Licensed: ❌
 
@@ -695,42 +699,42 @@ alignment = 1
 [node name="HelpCodecs" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Codecs  "
 
 [node name="HelpPlaylist" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Playlists"
 
 [node name="HelpTrim" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Trim Videos"
 
 [node name="HelpSlideshows" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Slideshows"
 
 [node name="HelpShortcuts" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Shortcuts"
 
 [node name="HelpCompanion" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Companion"
 
@@ -761,7 +765,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 30
 text = "h264"
 horizontal_alignment = 1
@@ -772,7 +776,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 30
 text = "mpeg4"
 horizontal_alignment = 1
@@ -783,7 +787,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 30
 text = "mov"
 horizontal_alignment = 1
@@ -794,7 +798,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 30
 text = "m4v"
 horizontal_alignment = 1
@@ -806,7 +810,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 30
 text = "webm"
 horizontal_alignment = 1
@@ -817,7 +821,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 30
 text = "vp9"
 horizontal_alignment = 1
@@ -828,7 +832,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 30
 text = "mp3"
 horizontal_alignment = 1
@@ -839,7 +843,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 30
 text = "aac"
 horizontal_alignment = 1
@@ -850,7 +854,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 30
 text = "vorbis
 "
@@ -862,7 +866,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -872,7 +876,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "*mkv and webm's are not currently supported*"
 horizontal_alignment = 1
@@ -885,7 +889,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "You can save a playlist you have setup, it will retain all the data about it, including the trimmed In and Out points as well as Volume levels.
 
@@ -907,7 +911,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "
 To set in and outpoints on videos, enable advanced mode at the top of the screen.
@@ -925,7 +929,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Drag and drop a folder containing images into the Program and it will auto generate a Basic Slideshow with fade transitions.
 
@@ -945,7 +949,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "
 \"Space\" - Play/Pause selected video/slideshow
@@ -967,7 +971,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "
 Enable Advanced Mode at the Top and turn on EXVP Listen and choose your Address and Port or leave at default.
@@ -996,12 +1000,13 @@ autowrap_mode = 2
 
 [node name="MainVideoPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("18_yynkn")
-script = ExtResource("19_c80v4")
+theme_override_styles/panel = ExtResource("20_gwpwc")
+script = ExtResource("21_lm25d")
 
 [node name="Panel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel"]
 layout_mode = 1
@@ -1074,13 +1079,13 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_xhq6q")
-script = ExtResource("20_dtap0")
+script = ExtResource("22_6w6x4")
 
 [node name="HoldTimer" type="Timer" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/SlideShow"]
 unique_name_in_owner = true
 wait_time = 4.0
 
-[node name="TestPattern" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport" instance=ExtResource("22_2ysod")]
+[node name="TestPattern" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport" instance=ExtResource("23_eo77p")]
 visible = false
 
 [node name="TrialTimeLabel" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel"]
@@ -1102,7 +1107,7 @@ custom_minimum_size = Vector2(500, 250)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel"]
 layout_mode = 1
@@ -1118,7 +1123,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Item Title"
 horizontal_alignment = 1
@@ -1137,16 +1142,16 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
-icon = ExtResource("24_3xif0")
+icon = ExtResource("24_qikn8")
 icon_alignment = 1
 expand_icon = true
 
 [node name="PlayHead" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_styles/panel = SubResource("StyleBoxFlat_e13ls")
 
 [node name="SlideHoldBar" type="ProgressBar" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead"]
@@ -1186,8 +1191,8 @@ unique_name_in_owner = true
 self_modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 40
 text = "+00:00"
 horizontal_alignment = 1
@@ -1205,8 +1210,8 @@ unique_name_in_owner = true
 self_modulate = Color(1, 0, 0, 1)
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 40
 text = "-00:00"
 horizontal_alignment = 1
@@ -1223,8 +1228,8 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 40
 text = "+00:00"
 horizontal_alignment = 1
@@ -1236,7 +1241,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 rounded = true
 ticks_on_borders = true
 
@@ -1250,13 +1255,13 @@ offset_top = 7.0
 offset_right = 962.0
 offset_bottom = 33.0
 size_flags_horizontal = 4
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 30
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("22_s707o")
+script = ExtResource("26_baxwu")
 visibility_rule = 2
 metadata/_edit_initialized_ = true
 
@@ -1264,8 +1269,8 @@ metadata/_edit_initialized_ = true
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 40
 text = "-00:00"
 horizontal_alignment = 1
@@ -1301,7 +1306,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 alignment = 1
 selected = 0
@@ -1325,8 +1330,8 @@ alignment = 1
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 40
 placeholder_text = "X"
 alignment = 2
@@ -1342,7 +1347,7 @@ caret_blink_interval = 0.5
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 40
 text = ":"
 horizontal_alignment = 1
@@ -1352,8 +1357,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 40
 placeholder_text = "y"
 max_length = 2
@@ -1367,7 +1372,7 @@ caret_blink_interval = 0.5
 [node name="SetAspect" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/SizeOptions/AspectRatioEdit"]
 custom_minimum_size = Vector2(80, 60)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = " Set Ratio "
 
@@ -1402,7 +1407,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 40
 text = "🔊"
 
@@ -1434,14 +1439,14 @@ offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 35
 text = "0
 "
 horizontal_alignment = 2
 vertical_alignment = 1
-script = ExtResource("22_s707o")
+script = ExtResource("26_baxwu")
 visibility_rule = 2
 placement = 1
 separation = 2
@@ -1453,7 +1458,7 @@ custom_minimum_size = Vector2(88, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("7_cnnul")
+theme_override_fonts/font = ExtResource("8_ebo8a")
 theme_override_font_sizes/font_size = 45
 text = "0"
 placeholder_text = "0"
@@ -1469,7 +1474,7 @@ select_all_on_focus = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("26_g43w0")
+theme_override_fonts/font = ExtResource("27_32h1h")
 theme_override_font_sizes/font_size = 30
 text = "dB"
 vertical_alignment = 1
@@ -1487,7 +1492,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_styles/panel = SubResource("StyleBoxFlat_8wjou")
 
 [node name="SettingsPopup" type="Panel" parent="BlurPanel"]
@@ -1508,7 +1513,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(640, 400)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ixia8")
-script = ExtResource("27_7bxad")
+script = ExtResource("28_a1vo4")
 
 [node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup"]
 layout_mode = 1
@@ -1544,7 +1549,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-icon = ExtResource("30_fr0lj")
+icon = ExtResource("29_08mex")
 expand_icon = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
@@ -1650,7 +1655,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 focus_mode = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = " 🔳"
 
@@ -1678,8 +1683,8 @@ text = "Width:"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 30
 text = "1920"
 placeholder_text = "1920"
@@ -1701,8 +1706,8 @@ text = "Height"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 30
 text = "1080"
 placeholder_text = "1080"
@@ -1731,8 +1736,8 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 30
 text = "60"
 placeholder_text = "60"
@@ -1773,7 +1778,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(48, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = " 🔳"
 alignment = 0
@@ -1793,8 +1798,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 35
 text = "127.0.0.1:4242"
 placeholder_text = "IP Address:Port"
@@ -1826,8 +1831,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("5_y3ypb")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 35
 text = "127.0.0.1:8888"
 placeholder_text = "IP Address:Port"
@@ -1854,7 +1859,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 42)
 layout_mode = 2
-theme = ExtResource("31_aarq4")
+theme = ExtResource("30_tt88v")
 theme_override_font_sizes/font_size = 25
 text = "Launch NDI Monitor"
 
@@ -1873,7 +1878,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(48, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = " 🔳"
 alignment = 0
@@ -1893,8 +1898,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_n1wyc")
-theme_override_fonts/font = ExtResource("26_g43w0")
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("27_32h1h")
 theme_override_font_sizes/font_size = 35
 text = "EXVP"
 placeholder_text = "Discoverable Name"
@@ -2018,7 +2023,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-icon = ExtResource("33_7kyky")
+icon = ExtResource("31_lgrhx")
 expand_icon = true
 
 [node name="BGImageLoad" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
@@ -2165,7 +2170,7 @@ offset_right = 250.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("26_i77su")
+theme_override_styles/panel = ExtResource("32_2hx6r")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BlurPanel/ExtCloseConfirm"]
 layout_mode = 1
@@ -2209,7 +2214,7 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Yes"
 
@@ -2218,7 +2223,7 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme = ExtResource("4_n1wyc")
+theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "No
 "
@@ -2239,7 +2244,7 @@ offset_right = 250.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("26_i77su")
+theme_override_styles/panel = ExtResource("32_2hx6r")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BlurPanel/ErrorMessage"]
 layout_mode = 1
@@ -2257,7 +2262,7 @@ alignment = 2
 [node name="Label" type="Label" parent="BlurPanel/ErrorMessage/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("26_g43w0")
+theme_override_fonts/font = ExtResource("27_32h1h")
 theme_override_font_sizes/font_size = 25
 text = "Error:"
 horizontal_alignment = 1
@@ -2292,7 +2297,7 @@ root_node = NodePath("../Splash")
 libraries = {
 &"": SubResource("AnimationLibrary_s4pd2")
 }
-script = ExtResource("27_wiy3n")
+script = ExtResource("33_j3pm5")
 
 [node name="Splash" type="Panel" parent="."]
 unique_name_in_owner = true
@@ -2318,7 +2323,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Splash/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("15_b84e3")
+theme_override_fonts/font = ExtResource("17_l5517")
 theme_override_font_sizes/font_size = 150
 text = "EXVP"
 horizontal_alignment = 1
@@ -2326,7 +2331,7 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Splash/CenterContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("16_6ch2h")
+texture = ExtResource("18_ys4d7")
 expand_mode = 5
 stretch_mode = 5
 

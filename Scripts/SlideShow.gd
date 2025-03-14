@@ -65,7 +65,7 @@ func clear_slideshow():
 	for p in self.get_children():
 		if p.name != "HoldTimer":
 			p.queue_free()
-	Signals.slideshowRunning = false
+	Global.slideshowRunning = false
 
 func go_to_slide(id,quiet):
 	for s in self.get_children():
@@ -75,9 +75,9 @@ func go_to_slide(id,quiet):
 	load_slide(id,quiet)
 
 func load_slide(id,quiet):
-	Signals.slideshowRunning = true
+	Global.slideshowRunning = true
 	Signals.slide.emit(id)
-	Signals.activeSlide = id
+	Global.activeSlide = id
 	var iSlide = slide.instantiate()
 	iSlide.id = id
 	iSlide.update_options("fit",slideshowOptions["fit"])
@@ -90,13 +90,13 @@ func load_slide(id,quiet):
 		iSlide.fade_in(0.1)
 
 func start_hold():
-	if Signals.slideshowRunning:
+	if Global.slideshowRunning:
 		holdTimer.wait_time = slideshowOptions["holdTime"]
 		holdTimer.start()
 
 func stop_timers():
 	holdTimer.stop()
-	Signals.slideshowRunning = false
+	Global.slideshowRunning = false
 
 func _on_hold_timer_timeout():
 	holdTimer.stop()
@@ -114,5 +114,5 @@ func _on_hold_timer_timeout():
 
 
 func end_of_slides():
-	Signals.slideshowRunning = false
+	Global.slideshowRunning = false
 	Signals.itemFinished.emit()

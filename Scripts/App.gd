@@ -64,32 +64,32 @@ func go_to_video(rxCommand):
 	var totalItems = %VideoList.get_child_count()
 	
 	if rxCommand == "previous":
-		if Signals.activeIndex <= 0:
-			Signals.activeIndex = totalItems - 1
+		if Global.activeIndex <= 0:
+			Global.activeIndex = totalItems - 1
 		else: 
-			Signals.activeIndex -= 1
+			Global.activeIndex -= 1
 	if rxCommand == "next":
-		if Signals.activeIndex < totalItems:
-			Signals.activeIndex += 1
-		if Signals.activeIndex == totalItems:
-			Signals.activeIndex = 0
+		if Global.activeIndex < totalItems:
+			Global.activeIndex += 1
+		if Global.activeIndex == totalItems:
+			Global.activeIndex = 0
 
 	print(selectedItem)
-	%VideoList.get_child(Signals.activeItem)._on_select_video_button_button_up()
+	%VideoList.get_child(Global.activeItem)._on_select_video_button_button_up()
 	print("next video")
 
 func trim_point(rxCommand):
 	var totalItems = %VideoList.get_child_count()
 	
-	if totalItems and Signals.activeIndex:
+	if totalItems and Global.activeIndex:
 		if rxCommand == "SetIn":
 			print("set in")
-			Signals.activeItem._on_trim_in_button_up()
-			Signals.activeItem._on_select_video_button_button_up()
+			Global.activeItem._on_trim_in_button_up()
+			Global.activeItem._on_select_video_button_button_up()
 		if rxCommand == "SetOut":
 			print("set in")
-			Signals.activeItem._on_trim_out_button_up()
-			Signals.activeItem._on_select_video_button_button_up()
+			Global.activeItem._on_trim_out_button_up()
+			Global.activeItem._on_select_video_button_button_up()
 	else:
 		print("error")
 
@@ -115,66 +115,54 @@ func _ready():
 		Signals.itemFinished.connect(_on_video_player_finished)
 		Signals.slide.connect(update_tick)
 		Signals.errorMsg.connect(error_message)
-		check_bg()
-		%Trial.start()
+
 		check_cmd_args()
-		Signals.check_saved_key()
+		
+		
+		#Disabled Licensing Check
+		#%Trial.start()
+		#Auth.check_saved_key()
+		Signals.validation.emit(true)
 	
 	if extMons != DisplayServer.get_screen_count():
 		extMons = DisplayServer.get_screen_count()
 		for m in extMons:
 			%MonitorSelector.add_item(str(m + 1))
 	
-	if OS.has_feature("editor"):
 		Signals.validation.emit(true)
 
 
 func check_cmd_args():
 	var arguments = {}
 	var path
-	for argument in OS.get_cmdline_args():
-		if argument.find("=") > -1:
-			var key_value = argument.split("=")
-			arguments[key_value[0].lstrip("--")] = key_value[1]
-		if argument:
-			# Options without an argument will be present in the dictionary,
-			# with the value set to an empty string.
-			if argument != "res://app.tscn":
-				arguments["Playlist File"] = argument.lstrip("--")
-				path = str(argument.lstrip("--"))
-				%Playlist.load_playlist(path)
 	print("arguments: " + str(arguments))
+	if arguments != {  }:
+		for argument in OS.get_cmdline_args():
+			if argument.find("=") > -1:
+				var key_value = argument.split("=")
+				arguments[key_value[0].lstrip("--")] = key_value[1]
+			if argument:
+				# Options without an argument will be present in the dictionary,
+				# with the value set to an empty string.
+				if argument != "res://app.tscn":
+					arguments["Playlist File"] = argument.lstrip("--")
+					path = str(argument.lstrip("--"))
+					%Playlist.load_playlist(path)
 
-
-
-func check_bg():
-	var home = OS.get_executable_path().get_base_dir()
-	var files
-	files = DirAccess.get_files_at(home)
-	for f in files:
-		if path_cut(f) == "background" and f.get_extension() in Signals.picExts:
-			load_bg(f)
-
-func load_bg(f):
-	var pic = Image.load_from_file(f)
-	var imageTexture = ImageTexture.new()
-	imageTexture.set_image(pic)
-	%BGPic.texture = imageTexture
-	%BGPic.visible = true
 
 func check_position(pos):
-	if Signals.activeItem:
-		if !seeking and Signals.activeType == "video":
+	if Global.activeItem:
+		if !seeking and Global.activeType == "video":
 			playslider.value = pos
 			elapsed = playslider.value
-			left = Signals.activeItem.itemData["length"] - playslider.value
+			left = Global.activeItem.itemData["length"] - playslider.value
 			ti.text = str( "+" + secondsToMMSS(elapsed))
 			to.text = str( "-" + secondsToMMSS(left))
 			if !videoBox.paused:
 				networkControl.update_time(ti.text,to.text)
 
-		if Signals.activeType == "video" and playslider.value >= Signals.activeItem.itemData["endPoint"]:
-			print("video reached end point: " + str(playslider.value) + " - " + str(Signals.activeItem.itemData["endPoint"]))
+		if Global.activeType == "video" and playslider.value >= Global.activeItem.itemData["endPoint"]:
+			print("video reached end point: " + str(playslider.value) + " - " + str(Global.activeItem.itemData["endPoint"]))
 			_on_video_player_finished()
 
 func _process(_delta):
@@ -190,7 +178,7 @@ func _process(_delta):
 		
 		if Input.is_action_just_released("ui_accept"):
 			_on_play_pause_button_up()
-		if Signals.activeType == "video":
+		if Global.activeType == "video":
 			if Input.is_action_pressed("Mod"):
 				if Input.is_action_pressed("Ctrl"):
 					if Input.is_action_just_pressed("ui_right"):
@@ -218,7 +206,7 @@ func _process(_delta):
 				current -= 1
 				Signals.setPos.emit(current)
 		
-		if Signals.activeType == "slideshow":
+		if Global.activeType == "slideshow":
 			if !%HoldTimer.is_paused() and !%HoldTimer.is_stopped():
 				%SlideHoldBar.max_value = %HoldTimer.get_wait_time()
 				var inverse = %SlideHoldBar.max_value - %HoldTimer.get_time_left()
@@ -259,27 +247,27 @@ func _on_play_pause_button_up():
 
 func reset_play_icon():
 	%PlayPause.icon = load("res://UI/Icons/play on.png")
-	Signals.playIcon = true
+	Global.playIcon = true
 
 func set_play_icon():
-	if Signals.activeType == "video":
+	if Global.activeType == "video":
 		Signals.pauseToggle.emit()
 		if %VideoPlayer.is_playing() and %VideoPlayer.paused:
 			%PlayPause.icon = load("res://UI/Icons/play on.png")
-			Signals.playIcon = true
+			Global.playIcon = true
 		if %VideoPlayer.is_playing() and !%VideoPlayer.paused:
 			%PlayPause.icon = load("res://UI/Icons/pause on.png")
-			Signals.playIcon = false
-	if Signals.activeType == "slideshow":
-		Signals.slideshowRunning = !Signals.slideshowRunning
-		if !Signals.playIcon:
+			Global.playIcon = false
+	if Global.activeType == "slideshow":
+		Global.slideshowRunning = !Global.slideshowRunning
+		if !Global.playIcon:
 			Signals.pauseSlides.emit()
 			%PlayPause.icon = load("res://UI/Icons/play on.png")
-			Signals.playIcon = true
-		elif Signals.playIcon:
+			Global.playIcon = true
+		elif Global.playIcon:
 			Signals.startSlides.emit(playslider.value)
 			%PlayPause.icon = load("res://UI/Icons/pause on.png")
-			Signals.playIcon = false
+			Global.playIcon = false
 		
 
 
@@ -292,7 +280,7 @@ func _on_volume_edit_focus_exited() -> void:
 
 
 func _on_volume_drag_ended(_value_changed):
-	if Signals.activeType == "video":
+	if Global.activeType == "video":
 		var player
 		if extended:
 			player = "ExtendedVideoPanel"
@@ -307,7 +295,7 @@ func _on_vol_mute_button_up():
 	if %Volume.value == -80:
 		print("unmute")
 		%VolMute.text = "🔊"
-		%Volume.value = Signals.activeItem.itemData["volume"]
+		%Volume.value = Global.activeItem.itemData["volume"]
 		_on_volume_drag_ended(%Volume.value)
 	elif %Volume.value != -80:
 		print("mute")
@@ -426,7 +414,7 @@ func queue_item(type,itemData):
 	
 	if type == "slideshow":
 		Signals.stopVideo.emit()
-		%VideoTitleLabel.text = Signals.activeItem.title
+		%VideoTitleLabel.text = Global.activeItem.title
 		var total = 0
 		for e in itemData:
 			total += 1
@@ -445,7 +433,7 @@ func queue_item(type,itemData):
 		
 	if type == "still":
 		Signals.stopVideo.emit()
-		%VideoTitleLabel.text = Signals.activeItem.title
+		%VideoTitleLabel.text = Global.activeItem.title
 		%VolumeControls.visible = false
 
 		%PlayBar.visible = false
@@ -485,53 +473,53 @@ func _on_open_still_file_dialog_file_selected(path):
 	add_to_playlist(type,path)
 
 func _on_play_slider_drag_ended(_value_changed):
-	if Signals.activeType == "video":
+	if Global.activeType == "video":
 		Signals.setPos.emit(playslider.value)
 	#	videoBox.set_stream_position(playslider.value)
 		seeking = false
 		#Signals.pauseToggle.emit()
 
 		%SliderLabel.hide()
-	if Signals.activeType == "slideshow":
-		if Signals.playIcon:
+	if Global.activeType == "slideshow":
+		if Global.playIcon:
 			Signals.setSlide.emit(playslider.value - 1,true)
 		else:
 			Signals.setSlide.emit(playslider.value - 1,false)
 
 func _on_play_slider_drag_started():
-	if Signals.activeType == "video":
+	if Global.activeType == "video":
 		%SliderLabel.show()
 		#Signals.pauseToggle.emit()
 
 		seeking = true
-	if Signals.activeType == "slideshow":
+	if Global.activeType == "slideshow":
 		Signals.pauseSlides.emit()
 
 func _on_play_slider_value_changed(value: float) -> void:
 	pass
 
 func _on_loop_toggle_button_up():
-	Signals.loop = !Signals.loop
-	print("loop: " + str(Signals.loop))
+	Global.loop = !Global.loop
+	print("loop: " + str(Global.loop))
 	set_loop_icon()
 
 func set_loop_icon():
-	if Signals.loop:
+	if Global.loop:
 		%LoopToggle.icon = load("res://UI/Icons/loop on.png")
-		Signals.auto = false
+		Global.auto = false
 		set_auto_icon()
 	else:
 		%LoopToggle.icon = load("res://UI/Icons/loop off.png")
 
 func _on_auto_toggle_button_up():
-	Signals.auto = !Signals.auto
-	print("auto: " + str(Signals.auto))
+	Global.auto = !Global.auto
+	print("auto: " + str(Global.auto))
 	set_auto_icon()
 
 func set_auto_icon():
-	if Signals.auto:
+	if Global.auto:
 		%AutoToggle.icon = load("res://UI/Icons/auto on.png")
-		Signals.loop = false
+		Global.loop = false
 		set_loop_icon()
 	else:
 		%AutoToggle.icon = load("res://UI/Icons/auto off.png")
@@ -542,14 +530,14 @@ func check_next_video():
 	var nextVideoNode
 	
 	for i in %VideoList.get_children():
-		if i == Signals.activeItem:
-			Signals.activeIndex = i.get_index()
+		if i == Global.activeItem:
+			Global.activeIndex = i.get_index()
 	
-	if Signals.activeIndex == videosAmount - 1:
+	if Global.activeIndex == videosAmount - 1:
 		nextVideoIndex = null
 		print("last video in list played")
 	else:
-		nextVideoIndex = Signals.activeIndex + 1
+		nextVideoIndex = Global.activeIndex + 1
 	
 	if nextVideoIndex != null:
 		nextVideoNode = %VideoList.get_child(nextVideoIndex)
@@ -561,18 +549,18 @@ func check_next_video():
 
 func _on_video_player_finished():
 	print("finished")
-	if Signals.loop:
+	if Global.loop:
 		print("please loop")
-		print(Signals.activeType)
-		if Signals.activeType == "video":
-			Signals.activeItem._on_select_video_button_button_up()
+		print(Global.activeType)
+		if Global.activeType == "video":
+			Global.activeItem._on_select_video_button_button_up()
 			_on_play_pause_button_up()
 			print("looping video")
-		if Signals.activeType == "slideshow":
+		if Global.activeType == "slideshow":
 			print("looping slideshow")
 			Signals.setSlide.emit(0,false)
 
-	elif Signals.auto:
+	elif Global.auto:
 		print("please auto advance")
 		print("checking for next video in list")
 		if check_next_video():
@@ -625,7 +613,7 @@ func _on_extend_button_button_up():
 		
 	else:
 		
-		if Signals.activeType == "video":
+		if Global.activeType == "video":
 			%VideoPlayer.volume_db = -100
 			if %VideoPlayer.is_playing():
 				var e = outputWindow.instantiate()
@@ -637,15 +625,15 @@ func _on_extend_button_button_up():
 				else:
 					paused = false
 				spawn_window(e)
-				Signals.videoExtended.emit(%VideoPlayer.stream,Signals.activeItem.itemData["width"],Signals.activeItem.itemData["height"],playPos,volume,paused)
+				Signals.videoExtended.emit(%VideoPlayer.stream,Global.activeItem.itemData["width"],Global.activeItem.itemData["height"],playPos,volume,paused)
 				
 		
-		elif Signals.activeType == "slideshow":
+		elif Global.activeType == "slideshow":
 			var e = outputWindow.instantiate()
-			if Signals.slideshowRunning:
+			if Global.slideshowRunning:
 				spawn_window(e)
-				Signals.slideshow.emit(Signals.activeItem)
-				Signals.setSlide.emit(Signals.activeSlide,true)
+				Signals.slideshow.emit(Global.activeItem)
+				Signals.setSlide.emit(Global.activeSlide,true)
 		
 		else:
 			var e = outputWindow.instantiate()
@@ -701,7 +689,7 @@ func _on_video_list_sort_children():
 		for i in %VideoList.get_children():
 			if i.name != "Deleter":
 				i.id = i.get_index()
-		if Signals.activeItem and %VideoList.get_child_count() > 1:
+		if Global.activeItem and %VideoList.get_child_count() > 1:
 			check_next_video()
 
 func _on_add_still_button_button_up():
@@ -724,7 +712,7 @@ func _on_test_pattern_button_up():
 
 func _on_trial_timeout():
 	print("watermark enabled")
-	Signals.watermark = true
+	Auth.watermark = true
 	Signals.watermarkEnable.emit()
 	%Trial.stop()
 	%TrialTimeLabel.text = "Watermark Enabled on Output"

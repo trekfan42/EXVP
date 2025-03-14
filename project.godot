@@ -12,11 +12,11 @@ config_version=5
 
 config/name="EXVP"
 config/tags=PackedStringArray("active", "wip")
-run/main_scene="res://app.tscn"
+run/main_scene="res://UI/app.tscn"
 config/features=PackedStringArray("4.4")
 boot_splash/bg_color=Color(0.0392157, 0.0392157, 0.0392157, 1)
 boot_splash/show_image=false
-config/icon="res://LogoClean.png"
+config/icon="res://UI/LogoClean.png"
 
 [audio]
 
@@ -24,10 +24,11 @@ driver/output_latency=30
 
 [autoload]
 
-Signals="*res://Scripts/Signals.gd"
-Server="*res://Scripts/Server.gd"
-Utils="*res://Scripts/Utils.gd"
-Global="*res://Scripts/Global.gd"
+Signals="*res://Scripts/Globals/Signals.gd"
+Server="*res://Scripts/Globals/Server.gd"
+Utils="*res://Scripts/Globals/Utils.gd"
+Global="*res://Scripts/Globals/Global.gd"
+Auth="*res://Scripts/Globals/Auth.gd"
 
 [display]
 

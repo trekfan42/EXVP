@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cdbrut6wovxlv"]
+
+[ext_resource type="StyleBox" uid="uid://c61ctkvk2xqur" path="res://UI/buttonPinkRounded.tres" id="1_jqiaj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3cub"]
+bg_color = Color(0.8, 0, 0.8, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+Button/styles/focus = ExtResource("1_jqiaj")
+Button/styles/hover = ExtResource("1_jqiaj")
+Button/styles/normal = ExtResource("1_jqiaj")
+Button/styles/pressed = SubResource("StyleBoxFlat_m3cub")

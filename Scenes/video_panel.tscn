@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhjec7wsxjfix"]
+
+[ext_resource type="Script" uid="uid://doxfvaxqbt2tn" path="res://Scripts/video_panel.gd" id="1_nv802"]
+[ext_resource type="Script" uid="uid://crx7j3snaarxx" path="res://Scripts/SlideShow.gd" id="2_258t6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkm5k"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1f8x"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="ExtendedVideoPanel" type="Panel"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_pkm5k")
+script = ExtResource("1_nv802")
+
+[node name="AspectPanel" type="AspectRatioContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="AspectPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 9)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+volume_db = -80.0
+expand = true
+buffering_msec = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="AspectPanel"]
+visible = false
+
+[node name="SlideShow" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v1f8x")
+script = ExtResource("2_258t6")
+
+[node name="HoldTimer" type="Timer" parent="SlideShow"]
+unique_name_in_owner = true
+wait_time = 4.0
+
+[connection signal="finished" from="AspectPanel/VideoPlayer" to="." method="_on_video_player_finished"]
+[connection signal="timeout" from="SlideShow/HoldTimer" to="SlideShow" method="_on_hold_timer_timeout"]

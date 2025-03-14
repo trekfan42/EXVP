@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhp5b1lmaxf6q"]
+
+[ext_resource type="Script" uid="uid://c5i41ak840wi7" path="res://Scripts/identifier.gd" id="1_4u3yj"]
+[ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="2_mvel4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0b2m"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Identifier" type="Window"]
+transparent_bg = true
+gui_disable_input = true
+initial_position = 3
+size = Vector2i(300, 220)
+current_screen = 1
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+unfocusable = true
+mouse_passthrough = true
+content_scale_mode = 1
+content_scale_aspect = 1
+script = ExtResource("1_4u3yj")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0b2m")
+
+[node name="Label" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -136.5
+offset_right = 57.0
+offset_bottom = 136.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_mvel4")
+theme_override_font_sizes/font_size = 200
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

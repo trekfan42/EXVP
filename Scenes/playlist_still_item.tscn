@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://j861j8jqlrvm"]
+
+[ext_resource type="Script" uid="uid://hwk4gir6ahv0" path="res://Scripts/playlist_still_item.gd" id="1_rl1s0"]
+[ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="2_7bk6m"]
+[ext_resource type="Texture2D" uid="uid://eo4m77ua0lnm" path="res://UI/Icons/Menu white.png" id="3_2ty8a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaow3"]
+size = Vector2(61, 45)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvtqy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8, 0, 0, 0.584314)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PlaylistItem" type="MarginContainer"]
+custom_minimum_size = Vector2(750, 150)
+offset_right = 750.0
+offset_bottom = 150.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_rl1s0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_7bk6m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/HBoxContainer/CenterContainer"]
+position = Vector2(30, 61)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_2ty8a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Thumb" type="TextureRect" parent="Panel/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.75
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ImageName" type="Label" parent="Panel/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+theme = ExtResource("2_7bk6m")
+theme_override_font_sizes/font_size = 20
+text = "ImageName"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="RemoveVideoButton" type="Button" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "❌"
+
+[node name="SelectVideoButton" type="Button" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "🔳"
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(43.5, 71.5)
+shape = SubResource("RectangleShape2D_vaow3")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.05
+
+[node name="DeleteBorder" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fvtqy")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="button_up" from="Panel/HBoxContainer/RemoveVideoButton" to="." method="_on_remove_video_button_button_up"]
+[connection signal="button_up" from="Panel/HBoxContainer/SelectVideoButton" to="." method="_on_select_video_button_button_up"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,185 @@
+[gd_scene load_steps=12 format=3 uid="uid://beqtnyflca3hj"]
+
+[ext_resource type="Script" uid="uid://doxfvaxqbt2tn" path="res://Scripts/video_panel.gd" id="1_yhwdr"]
+[ext_resource type="PackedScene" uid="uid://dkecct1lxik27" path="res://Scenes/test_pattern.tscn" id="2_b6kp6"]
+[ext_resource type="Script" uid="uid://crx7j3snaarxx" path="res://Scripts/SlideShow.gd" id="2_nt60d"]
+[ext_resource type="FontFile" uid="uid://lfva2bj268gt" path="res://UI/Fonts/Quapox.otf" id="3_sy05h"]
+[ext_resource type="Script" uid="uid://vx17l1ru2gy2" path="res://Scripts/Watermark.gd" id="4_ta6yp"]
+[ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="6_nt60d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5wg4"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvnno"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yhwdr"]
+viewport_path = NodePath("ExtendedVideoPanel/VideoSubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ify8x"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1f8x"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="ExtendedWindow" type="Window"]
+transparent_bg = true
+mode = 2
+title = "VideoOut"
+initial_position = 3
+size = Vector2i(1920, 1080)
+current_screen = 2
+always_on_top = true
+transparent = true
+content_scale_mode = 1
+content_scale_aspect = 4
+theme_override_styles/embedded_border = SubResource("StyleBoxFlat_n5wg4")
+
+[node name="ExtendedVideoPanel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_cvnno")
+script = ExtResource("1_yhwdr")
+
+[node name="TextureRect" type="TextureRect" parent="ExtendedVideoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_yhwdr")
+stretch_mode = 4
+
+[node name="VideoSubViewport" type="SubViewport" parent="ExtendedVideoPanel"]
+unique_name_in_owner = true
+size = Vector2i(1920, 1080)
+
+[node name="CanvasBG" type="Panel" parent="ExtendedVideoPanel/VideoSubViewport"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(8000, 8000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3040.0
+offset_top = -3460.0
+offset_right = 3040.0
+offset_bottom = 3460.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ify8x")
+
+[node name="SlideShow" type="Panel" parent="ExtendedVideoPanel/VideoSubViewport"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v1f8x")
+script = ExtResource("2_nt60d")
+
+[node name="HoldTimer" type="Timer" parent="ExtendedVideoPanel/VideoSubViewport/SlideShow"]
+unique_name_in_owner = true
+wait_time = 4.0
+
+[node name="AspectPanel" type="AspectRatioContainer" parent="ExtendedVideoPanel/VideoSubViewport"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="ExtendedVideoPanel/VideoSubViewport/AspectPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 9)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+volume_db = -80.0
+expand = true
+buffering_msec = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="ExtendedVideoPanel/VideoSubViewport/AspectPanel"]
+visible = false
+
+[node name="TestPattern" parent="ExtendedVideoPanel/VideoSubViewport" instance=ExtResource("2_b6kp6")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Watermark" type="Label" parent="ExtendedVideoPanel/VideoSubViewport"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.184314)
+theme_override_fonts/font = ExtResource("3_sy05h")
+theme_override_font_sizes/font_size = 200
+text = "EXVP"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_ta6yp")
+
+[node name="Tips" type="MarginContainer" parent="ExtendedVideoPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="ExtendedVideoPanel/Tips"]
+layout_mode = 2
+alignment = 1
+
+[node name="Tips" type="Label" parent="ExtendedVideoPanel/Tips/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_nt60d")
+theme_override_font_sizes/font_size = 41
+text = "Close Extended Output:
+CTRL+SHIFT+ALT+Z+X
+
+Move Extended Output to Different Monitor:
+WIN+SHIFT+(Left or Right Arrow Key)
+
+Click anywhere to HIde"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ExtendedVideoPanel/Tips/HBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ExtendedVideoPanel/Tips/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Never Show this Again"
+
+[node name="TipsNever" type="Button" parent="ExtendedVideoPanel/Tips/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("6_nt60d")
+theme_override_font_sizes/font_size = 25
+text = " 🔳"
+
+[connection signal="timeout" from="ExtendedVideoPanel/VideoSubViewport/SlideShow/HoldTimer" to="ExtendedVideoPanel/VideoSubViewport/SlideShow" method="_on_hold_timer_timeout"]
+[connection signal="finished" from="ExtendedVideoPanel/VideoSubViewport/AspectPanel/VideoPlayer" to="ExtendedVideoPanel" method="_on_video_player_finished"]
+[connection signal="gui_input" from="ExtendedVideoPanel/Tips" to="ExtendedVideoPanel" method="_on_tips_gui_input"]
+[connection signal="button_up" from="ExtendedVideoPanel/Tips/HBoxContainer/HBoxContainer/TipsNever" to="ExtendedVideoPanel" method="_on_tips_never_button_up"]

@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyecs3e3rri12"]
+
+[ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="1_fj6n3"]
+[ext_resource type="Script" uid="uid://cb1xx788ydbfr" path="res://Scripts/deleter.gd" id="1_tkxrq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5ekm"]
+bg_color = Color(0.709804, 0, 0.207843, 0.67451)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go6g1"]
+size = Vector2(94, 46)
+
+[node name="Deleter" type="Control"]
+process_mode = 3
+editor_description = "
+			A custom/plugin Control node capable of hiding and revealing its children by folding and unfolding.
+			
+Give feedback at: https://github.com/ArshvirGoraya/Godot-Collapsible-Container"
+clip_contents = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 795.0
+offset_bottom = 63.325
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_tkxrq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "🗑️"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme = ExtResource("1_fj6n3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_x5ekm")
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(50, 29)
+shape = SubResource("RectangleShape2D_go6g1")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://badl71unfh8t8"]
+
+[ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="1_khd52"]
+[ext_resource type="FontFile" uid="uid://lfva2bj268gt" path="res://UI/Fonts/Quapox.otf" id="2_yfl1t"]
+[ext_resource type="FontFile" uid="uid://plebch4bpsf7" path="res://UI/Fonts/digital-7 (mono).ttf" id="3_sgxo8"]
+[ext_resource type="Texture2D" uid="uid://d3tdrak2w2hm1" path="res://UI/Icons/drop down.png" id="4_p15ub"]
+[ext_resource type="StyleBox" uid="uid://d4fgd3ak0sah6" path="res://UI/selected_Button_theme.tres" id="5_3yoq5"]
+[ext_resource type="StyleBox" uid="uid://c61ctkvk2xqur" path="res://UI/buttonPinkRounded.tres" id="6_6mael"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jw6gx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81uxm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2rr3"]
+bg_color = Color(0, 0, 0, 0.356863)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88fpy"]
+bg_color = Color(0, 0, 0, 0.698039)
+
+[resource]
+Button/fonts/font = ExtResource("1_khd52")
+Button/styles/normal = SubResource("StyleBoxEmpty_jw6gx")
+Label/fonts/font = ExtResource("1_khd52")
+LineEdit/fonts/font = ExtResource("2_yfl1t")
+OptionButton/fonts/font = ExtResource("3_sgxo8")
+OptionButton/icons/arrow = ExtResource("4_p15ub")
+OptionButton/styles/focus = SubResource("StyleBoxEmpty_81uxm")
+OptionButton/styles/hover = ExtResource("5_3yoq5")
+Panel/styles/panel = SubResource("StyleBoxFlat_j2rr3")
+PopupMenu/font_sizes/font_size = 30
+PopupMenu/fonts/font = ExtResource("3_sgxo8")
+PopupMenu/styles/hover = ExtResource("6_6mael")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_88fpy")

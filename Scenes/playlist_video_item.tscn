@@ -1,0 +1,679 @@
+[gd_scene load_steps=41 format=3 uid="uid://u4crhswqhdla"]
+
+[ext_resource type="Script" uid="uid://vveeaeu5hkhu" path="res://Scripts/playlist_video_item.gd" id="1_5jm80"]
+[ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="2_aevha"]
+[ext_resource type="Texture2D" uid="uid://eo4m77ua0lnm" path="res://UI/Icons/Menu white.png" id="3_m5oje"]
+[ext_resource type="StyleBox" uid="uid://dlrvrktbno7fs" path="res://UI/UI_Panel_Dark_Rounded.tres" id="3_sxmns"]
+[ext_resource type="Texture2D" uid="uid://cbxj54cd8kn2n" path="res://UI/LoadingAnim/loadcircle1.png" id="4_sxmns"]
+[ext_resource type="Texture2D" uid="uid://bwvdqq2guqry2" path="res://UI/LoadingAnim/loadcircle2.png" id="5_5gba1"]
+[ext_resource type="Texture2D" uid="uid://bd07fqpc54uyu" path="res://UI/LoadingAnim/loadcircle3.png" id="6_feeei"]
+[ext_resource type="Texture2D" uid="uid://bmjx114m6xsyw" path="res://UI/LoadingAnim/loadcircle4.png" id="7_y6yyk"]
+[ext_resource type="Texture2D" uid="uid://x24k65bx7wrc" path="res://UI/LoadingAnim/loadcircle5.png" id="8_3cb4x"]
+[ext_resource type="Texture2D" uid="uid://clujwpcoh8ucq" path="res://UI/LoadingAnim/loadcircle6.png" id="9_xhm7i"]
+[ext_resource type="Texture2D" uid="uid://cuoptn0ypc12s" path="res://UI/LoadingAnim/loadcircle7.png" id="10_ocqqd"]
+[ext_resource type="Texture2D" uid="uid://bhsen2hrjasft" path="res://UI/LoadingAnim/loadcircle8.png" id="11_boy1g"]
+[ext_resource type="Texture2D" uid="uid://cg0mrfgo7m6fh" path="res://UI/LoadingAnim/loadcircle9.png" id="12_2gavg"]
+[ext_resource type="Texture2D" uid="uid://dq5rn5xphoj0g" path="res://UI/LoadingAnim/loadcircle10.png" id="13_4rpw3"]
+[ext_resource type="Texture2D" uid="uid://db3k017f6eids" path="res://UI/LoadingAnim/loadcircle11.png" id="14_w77lb"]
+[ext_resource type="Texture2D" uid="uid://b85dn7xq3nbly" path="res://UI/LoadingAnim/loadcircle12.png" id="15_h6j65"]
+[ext_resource type="Texture2D" uid="uid://8hmbm44vrb28" path="res://UI/LoadingAnim/loadcircle13.png" id="16_3k50k"]
+[ext_resource type="Texture2D" uid="uid://bfihou17kh1i6" path="res://UI/LoadingAnim/loadcircle14.png" id="17_u0kmy"]
+[ext_resource type="Texture2D" uid="uid://cenluwablathc" path="res://UI/LoadingAnim/loadcircle15.png" id="18_8xvo6"]
+[ext_resource type="Texture2D" uid="uid://cxp8621jpgcs4" path="res://UI/LoadingAnim/loadcircle16.png" id="19_8kqfd"]
+[ext_resource type="Texture2D" uid="uid://b7e2nf6tkgrxk" path="res://UI/LoadingAnim/loadcircle17.png" id="20_q3qd0"]
+[ext_resource type="Texture2D" uid="uid://ckstss3j3h3xc" path="res://UI/LoadingAnim/loadcircle18.png" id="21_mqgau"]
+[ext_resource type="Texture2D" uid="uid://cwuea7sah415x" path="res://UI/LoadingAnim/loadcircle19.png" id="22_oaasx"]
+[ext_resource type="Texture2D" uid="uid://bu677spy68qq2" path="res://UI/LoadingAnim/loadcircle20.png" id="23_ragjk"]
+[ext_resource type="Texture2D" uid="uid://dsrkgxrkdmdme" path="res://UI/LoadingAnim/loadcircle21.png" id="24_dcuqw"]
+[ext_resource type="Texture2D" uid="uid://bsdfgckqggwii" path="res://UI/LoadingAnim/loadcircle22.png" id="25_sv4as"]
+[ext_resource type="Texture2D" uid="uid://bo2h3ymjtrdsc" path="res://UI/LoadingAnim/loadcircle23.png" id="26_06dox"]
+[ext_resource type="FontFile" uid="uid://plebch4bpsf7" path="res://UI/Fonts/digital-7 (mono).ttf" id="28_5gba1"]
+[ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="29_feeei"]
+[ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="30_5gba1"]
+[ext_resource type="Script" uid="uid://c7b52a0n5ee8a" path="res://Scenes/video_trim_control.gd" id="31_feeei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5m6c"]
+size = Vector2(36, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4u7xn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sxmns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5gba1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_feeei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y6yyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3cb4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xhm7i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ocqqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_boy1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_boy1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2gavg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4rpw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_w77lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h6j65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3k50k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_u0kmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8xvo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_8kqfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_q3qd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_mqgau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_oaasx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ragjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_dcuqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_sv4as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_06dox")
+}],
+"loop": true,
+"name": &"default",
+"speed": 50.0
+}]
+
+[sub_resource type="FFmpegVideoStream" id="FFmpegVideoStream_sxmns"]
+resource_local_to_scene = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_db1cg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8, 0, 0, 0.584314)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3cb4x"]
+bg_color = Color(0, 0, 0, 0.721569)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boy1g"]
+bg_color = Color(0.124449, 0.124449, 0.124449, 1)
+border_width_top = 1
+border_width_bottom = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhm7i"]
+bg_color = Color(0, 1, 0.482353, 1)
+border_width_top = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocqqd"]
+bg_color = Color(0.980392, 0, 0.360784, 1)
+border_width_top = 1
+border_width_bottom = 1
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxmns"]
+bg_color = Color(0.980392, 0, 0.360784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PlaylistItem" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+offset_right = 800.0
+offset_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+script = ExtResource("1_5jm80")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.05
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 120)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_aevha")
+theme_override_styles/panel = ExtResource("3_sxmns")
+
+[node name="Area2D" type="Area2D" parent="Panel"]
+unique_name_in_owner = true
+position = Vector2(-10, -10)
+collision_layer = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Area2D"]
+position = Vector2(41, 70)
+shape = SubResource("RectangleShape2D_l5m6c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DragHandle" type="CenterContainer" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/HBoxContainer/DragHandle"]
+position = Vector2(30, 61)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_m5oje")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Loading" type="CenterContainer" parent="Panel/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+
+[node name="LoadingSprite" type="AnimatedSprite2D" parent="Panel/HBoxContainer/HBoxContainer/Loading"]
+unique_name_in_owner = true
+position = Vector2(110, 62)
+sprite_frames = SubResource("SpriteFrames_4u7xn")
+frame = 2
+frame_progress = 0.218527
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+stretch_mode = 1
+
+[node name="VideoLoaderPlayer" type="VideoStreamPlayer" parent="Panel/HBoxContainer/HBoxContainer/AspectRatioContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+stream = SubResource("FFmpegVideoStream_sxmns")
+volume_db = -80.0
+autoplay = true
+expand = true
+
+[node name="Control" type="Control" parent="Panel/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VideoName" type="Label" parent="Panel/HBoxContainer/HBoxContainer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.45
+mouse_filter = 1
+theme = ExtResource("2_aevha")
+theme_override_font_sizes/font_size = 30
+text = "VideoName"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="ToggleSettings" type="Button" parent="Panel/HBoxContainer/HBoxContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 50.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "⚙️"
+
+[node name="RemoveVideoButton" type="Button" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "❌"
+
+[node name="SelectVideoButton" type="Button" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "🔳"
+
+[node name="DeleteBorder" type="Panel" parent="Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_db1cg")
+
+[node name="VideoSettings" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VideoSettings"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="VideoSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_sxmns")
+
+[node name="MarginContainer" type="MarginContainer" parent="VideoSettings/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VideoSettings/Panel2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectOptionButton" type="OptionButton" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_aevha")
+theme_override_font_sizes/font_size = 30
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "Fit Within"
+popup/item_0/id = 0
+popup/item_1/text = "Fit Height"
+popup/item_1/id = 1
+popup/item_2/text = "Fit Width"
+popup/item_2/id = 2
+popup/item_3/text = "Cover"
+popup/item_3/id = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="VolIcon" type="Label" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "🔊"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 20.0
+rounded = true
+tick_count = 11
+ticks_on_borders = true
+
+[node name="VolumeEdit" type="LineEdit" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("28_5gba1")
+theme_override_font_sizes/font_size = 45
+text = "0"
+placeholder_text = "0"
+alignment = 1
+max_length = 3
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+
+[node name="Label2" type="Label" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("29_feeei")
+theme_override_font_sizes/font_size = 30
+text = "dB"
+vertical_alignment = 1
+
+[node name="TrimButtons" type="HBoxContainer" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="In" type="Label" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("29_feeei")
+theme_override_font_sizes/font_size = 30
+text = "In: "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="InTime" type="LineEdit" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("28_5gba1")
+theme_override_font_sizes/font_size = 40
+text = "00:00"
+placeholder_text = "00:00"
+alignment = 1
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+
+[node name="TrimIn" type="Button" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 35
+text = "📍"
+
+[node name="TrimInClear" type="Button" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "❌"
+
+[node name="MarginContainer4" type="MarginContainer" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Out" type="Label" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("29_feeei")
+theme_override_font_sizes/font_size = 30
+text = "Out: "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="OutTime" type="LineEdit" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("28_5gba1")
+theme_override_font_sizes/font_size = 40
+text = "00:00"
+placeholder_text = "00:00"
+alignment = 1
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+
+[node name="TrimOut" type="Button" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 35
+text = "📍"
+
+[node name="TrimOutClear" type="Button" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "❌"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.24
+
+[node name="TrimOptions" type="HBoxContainer" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="StartTrimTime" type="Label" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/VBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(0, 1, 0.483333, 1)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("30_5gba1")
+theme_override_font_sizes/font_size = 30
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartTime" type="Label" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/VBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("30_5gba1")
+theme_override_font_sizes/font_size = 30
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+
+[node name="VideoTrimControl" type="Panel" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_3cb4x")
+script = ExtResource("31_feeei")
+
+[node name="TrimFill" type="Panel" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/MarginContainer/MarginContainer/VideoTrimControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_right = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_boy1g")
+
+[node name="StartTrimHandle" type="Panel" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/MarginContainer/MarginContainer/VideoTrimControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -218.5
+offset_right = -208.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_xhm7i")
+
+[node name="EndTrimHandle" type="Panel" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/MarginContainer/MarginContainer/VideoTrimControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 31.5
+offset_right = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ocqqd")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="EndTrimTime" type="Label" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/VBoxContainer2"]
+unique_name_in_owner = true
+self_modulate = Color(0.98117, 0, 0.361086, 1)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("30_5gba1")
+theme_override_font_sizes/font_size = 30
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndTime" type="Label" parent="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("30_5gba1")
+theme_override_font_sizes/font_size = 30
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VideoSettings"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="SaveSettings" type="Button" parent="VideoSettings/MarginContainer2"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_sxmns")
+text = "💾"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Panel/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Panel/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="gui_input" from="Panel/HBoxContainer/DragHandle" to="." method="_on_drag_handle_gui_input"]
+[connection signal="button_up" from="Panel/HBoxContainer/HBoxContainer/Control/ToggleSettings" to="." method="_on_toggle_settings_button_up"]
+[connection signal="button_up" from="Panel/HBoxContainer/RemoveVideoButton" to="." method="_on_remove_video_button_button_up"]
+[connection signal="button_up" from="Panel/HBoxContainer/SelectVideoButton" to="." method="_on_select_video_button_button_up"]
+[connection signal="item_selected" from="VideoSettings/Panel2/MarginContainer/VBoxContainer/HBoxContainer/AspectOptionButton" to="." method="_on_aspect_option_button_item_selected"]
+[connection signal="gui_input" from="VideoSettings/Panel2/MarginContainer/VBoxContainer/HBoxContainer/VolumeSlider" to="." method="_on_volume_slider_gui_input"]
+[connection signal="value_changed" from="VideoSettings/Panel2/MarginContainer/VBoxContainer/HBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="text_submitted" from="VideoSettings/Panel2/MarginContainer/VBoxContainer/HBoxContainer/VolumeEdit" to="." method="_on_volume_edit_text_submitted"]
+[connection signal="button_up" from="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons/TrimIn" to="." method="_on_trim_in_button_up"]
+[connection signal="button_up" from="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons/TrimInClear" to="." method="_on_trim_in_clear_button_up"]
+[connection signal="button_up" from="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons/TrimOut" to="." method="_on_trim_out_button_up"]
+[connection signal="button_up" from="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimButtons/TrimOutClear" to="." method="_on_trim_out_clear_button_up"]
+[connection signal="gui_input" from="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/MarginContainer/MarginContainer/VideoTrimControl/StartTrimHandle" to="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/MarginContainer/MarginContainer/VideoTrimControl" method="_on_start_trim_handle_gui_input"]
+[connection signal="gui_input" from="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/MarginContainer/MarginContainer/VideoTrimControl/EndTrimHandle" to="VideoSettings/Panel2/MarginContainer/VBoxContainer/TrimOptions/MarginContainer/MarginContainer/VideoTrimControl" method="_on_end_trim_handle_gui_input"]
+[connection signal="button_up" from="VideoSettings/MarginContainer2/SaveSettings" to="." method="_on_save_settings_button_up"]

@@ -1,0 +1,1063 @@
+[gd_scene load_steps=30 format=3 uid="uid://cmo6yenb1rgxr"]
+
+[ext_resource type="Script" path="res://canvas_layer.gd" id="1_pfjqi"]
+[ext_resource type="Script" path="res://addons/ReorderableContainer/reorderable_vbox.gd" id="2_cwweq"]
+[ext_resource type="Texture2D" uid="uid://calloe8q1vwl5" path="res://UI/BG1.png" id="2_p7bo8"]
+[ext_resource type="Script" path="res://Header.gd" id="2_wawcg"]
+[ext_resource type="Texture2D" uid="uid://bxrp3dkm5c2of" path="res://UI/GridTile1.png" id="3_ddumy"]
+[ext_resource type="Script" path="res://addons/SliderLabel/SliderLabel.gd" id="3_snusc"]
+[ext_resource type="Shader" path="res://Vignette.gdshader" id="4_jytv6"]
+[ext_resource type="Texture2D" uid="uid://c0u7k4kbyrthb" path="res://minIcon.png" id="4_pj83d"]
+[ext_resource type="Texture2D" uid="uid://cqoyusmlys52j" path="res://fullIcon.png" id="5_pnapp"]
+[ext_resource type="Texture2D" uid="uid://b3yx41hdirdkt" path="res://quitIcon.png" id="6_0aaft"]
+[ext_resource type="Texture2D" uid="uid://bifx6haafwvv4" path="res://LogoSplash.png" id="6_el0x1"]
+[ext_resource type="Theme" uid="uid://cdbrut6wovxlv" path="res://UI/Pink_Button_theme.tres" id="7_sah7x"]
+[ext_resource type="Shader" path="res://Blur_Panel.gdshader" id="10_2rxpk"]
+[ext_resource type="StyleBox" uid="uid://fkdqfgpwqg38" path="res://UI/TealPanelSemi.tres" id="10_i45o6"]
+[ext_resource type="Script" path="res://video_panel.gd" id="11_7cqxc"]
+[ext_resource type="Script" path="res://Playlist.gd" id="11_qj1py"]
+[ext_resource type="Theme" uid="uid://dxuc450vpsu4p" path="res://UI/Green_Slider_theme.tres" id="15_oj2wi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fyqja"]
+shader = ExtResource("4_jytv6")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/MULTIPLIER = 1.23
+shader_parameter/SCALE = 1.285
+shader_parameter/SOFTNESS = 0.79
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgd2w"]
+bg_color = Color(0.0235294, 0.0235294, 0.0235294, 0.87451)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yuc5w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2d00"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1gr0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_igo1c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3e2sv"]
+
+[sub_resource type="FFmpegVideoStream" id="FFmpegVideoStream_h4hv7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsbww"]
+bg_color = Color(0.0235294, 0.0235294, 0.0235294, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.694118, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2kj6"]
+bg_color = Color(0.113725, 0.113725, 0.113725, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_454ok"]
+shader = ExtResource("10_2rxpk")
+shader_parameter/blur_amount = 1.306
+shader_parameter/mix_amount = 0.784
+shader_parameter/color_over = Color(0.0392157, 0.105882, 0.121569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl7ss"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_left = 20
+
+[node name="APP" type="CanvasLayer"]
+script = ExtResource("1_pfjqi")
+
+[node name="HTTPRequest1" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+use_threads = true
+
+[node name="HTTPRequest2" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+use_threads = true
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p7bo8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ddumy")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fyqja")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GuiMargin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="GUI" type="VBoxContainer" parent="GuiMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="GuiMargin/GUI"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wgd2w")
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Header" type="HBoxContainer" parent="GuiMargin/GUI/Panel/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("2_wawcg")
+
+[node name="MarginContainer0" type="MarginContainer" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+visible = false
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_el0x1")
+expand_mode = 2
+
+[node name="MarginContainer1" type="MarginContainer" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+visible = false
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "EXVP"
+vertical_alignment = 1
+
+[node name="MarginContainer5" type="MarginContainer" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="SavePlaylistButton" type="Button" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "💾 Save"
+
+[node name="SavePlaylistDialog" type="NativeFileDialog" parent="GuiMargin/GUI/Panel/MarginContainer/Header/SavePlaylistButton"]
+title = "Save Playlist"
+mode_overrides_title = false
+access = 2
+filters = PackedStringArray("*.play")
+unique_name_in_owner = true
+
+[node name="LoadPlaylistButton" type="Button" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "📁 Load"
+
+[node name="LoadPlaylistDialog" type="NativeFileDialog" parent="GuiMargin/GUI/Panel/MarginContainer/Header/LoadPlaylistButton"]
+title = "Load Playlist"
+mode_overrides_title = false
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.play")
+unique_name_in_owner = true
+
+[node name="PlaylistButton" type="Button" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "Playlist ✅"
+
+[node name="AdvancedButton" type="Button" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "Advanced  🔳"
+
+[node name="TCPListenButton" type="Button" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "TCP Listen  🔳"
+
+[node name="ServerAddress" type="LineEdit" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "127.0.0.1:4242"
+placeholder_text = "IP:Port"
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MinButton" type="Button" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yuc5w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s2d00")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g1gr0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_igo1c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3e2sv")
+icon = ExtResource("4_pj83d")
+expand_icon = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+visible = false
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="MaxButton" type="Button" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yuc5w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s2d00")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g1gr0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_igo1c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3e2sv")
+icon = ExtResource("5_pnapp")
+expand_icon = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+visible = false
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yuc5w")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s2d00")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g1gr0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_igo1c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3e2sv")
+icon = ExtResource("6_0aaft")
+expand_icon = true
+
+[node name="HelpButton" type="Button" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "❔"
+
+[node name="MarginContainer4" type="MarginContainer" parent="GuiMargin/GUI/Panel/MarginContainer/Header"]
+visible = false
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Main" type="HBoxContainer" parent="GuiMargin/GUI"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlaylistPanel" type="Panel" parent="GuiMargin/GUI/Main"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = ExtResource("10_i45o6")
+
+[node name="Playlist" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_qj1py")
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="PlaylistPanel2" type="Panel" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(781.725, 61.415)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = ExtResource("10_i45o6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+
+[node name="AddVideoButton" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 33
+text = "+"
+
+[node name="AddVideoButton2" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "📁 Videos"
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
+text = "Playlist"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OpenVideoFileDialog" type="NativeFileDialog" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer"]
+title = "Select A Video File"
+mode_overrides_title = false
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.mov", "*.mp4", "*.webm")
+unique_name_in_owner = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VideoList" type="Container" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/MarginContainer" node_paths=PackedStringArray("scroll_container")]
+unique_name_in_owner = true
+process_mode = 1
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_cwweq")
+hold_duration = 0.2
+is_vertical = true
+scroll_container = NodePath("../..")
+
+[node name="VideoInterface" type="VBoxContainer" parent="GuiMargin/GUI/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HelpPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.94
+theme_override_styles/panel = SubResource("StyleBoxFlat_wgd2w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 168.57)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_el0x1")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "EXVP"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Version" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.23
+theme_override_font_sizes/font_size = 20
+text = "v 1.0.1"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/MarginContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Info:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/MarginContainer2/VBoxContainer2/ScrollContainer"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "Supported codecs:
+h263, mpeg4, h264, vp8, vp9, mp3, aac, vorbis
+
+How to Trim Videos:
+To set in and outpoints on videos, enable advanced mode at the top of the screen.
+Then select the video you wish to trim. Scrub to a point in the video and click the corresponding in or out point button (📝) and then press the save (💾) icon to the right.
+
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MainVideoPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("10_i45o6")
+script = ExtResource("11_7cqxc")
+
+[node name="AspectPanel" type="AspectRatioContainer" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/AspectPanel"]
+unique_name_in_owner = true
+z_as_relative = false
+custom_minimum_size = Vector2(16, 9)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+stream = SubResource("FFmpegVideoStream_h4hv7")
+expand = true
+buffering_msec = 400
+
+[node name="Decorative Border" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gsbww")
+
+[node name="ControlsPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1200, 450)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = ExtResource("10_i45o6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoTitleLabel" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "Video Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="PlayHead" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k2kj6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/MarginContainer/PlayHead"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TimeElapsed" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/MarginContainer/PlayHead/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "+00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayBar" type="ProgressBar" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/MarginContainer/PlayHead/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="PlaySlider" type="HSlider" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/MarginContainer/PlayHead/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("15_oj2wi")
+rounded = true
+ticks_on_borders = true
+
+[node name="SliderLabel" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/MarginContainer/PlayHead/HBoxContainer/PlaySlider"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+layout_mode = 2
+offset_left = 934.0
+offset_top = 7.0
+offset_right = 962.0
+offset_bottom = 33.0
+size_flags_horizontal = 4
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_snusc")
+visibility_rule = 2
+placement = 1
+metadata/_edit_initialized_ = true
+
+[node name="TimeLeft" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/MarginContainer/PlayHead/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "-00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayHeadBG" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectOptions" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/AspectOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/AspectOptions/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/AspectOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Video Aspect Ratio:"
+horizontal_alignment = 1
+
+[node name="Aspect2by1" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/AspectOptions/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "2:1"
+
+[node name="Aspect16by9" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/AspectOptions/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "16:9"
+
+[node name="Aspect4by3" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/AspectOptions/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "4:3"
+
+[node name="CropOptions" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/CropOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/CropOptions/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/CropOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Crop"
+horizontal_alignment = 1
+
+[node name="CropZoomButton" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/CropOptions/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Zoom"
+
+[node name="CropFitButton2" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/CropOptions/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Fit"
+
+[node name="PlaylistOptions" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/PlaylistOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/PlaylistOptions/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayList" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/PlaylistOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Playlist"
+horizontal_alignment = 1
+
+[node name="LoopToggle" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/PlaylistOptions/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "Loop  🔳"
+icon_alignment = 2
+expand_icon = true
+
+[node name="AutoToggle" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/PlaylistOptions/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "Auto  🔳"
+icon_alignment = 2
+expand_icon = true
+
+[node name="VideoControls" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Video Controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+alignment = 1
+
+[node name="PlayPause" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "Play/Pause"
+
+[node name="Stop" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "Stop"
+
+[node name="Fullscreen" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "Fullscreen"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="ExtendButton" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "External 🔳 "
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "External Monitor
+Set ID Number: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExtMonId" type="LineEdit" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "1"
+placeholder_text = "id"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+select_all_on_focus = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="Label3" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="VolMute" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "🔇"
+
+[node name="Volume" type="HSlider" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("15_oj2wi")
+min_value = -80.0
+max_value = 20.0
+step = 2.0
+ticks_on_borders = true
+
+[node name="DBLabel" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer2/Volume"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -13.0
+offset_right = 14.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_snusc")
+visibility_rule = 2
+separation = 2
+metadata/_edit_initialized_ = true
+
+[node name="Label4" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="ExtMon" type="Node" parent="."]
+
+[node name="BlurPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_454ok")
+custom_minimum_size = Vector2(0, 72)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sl7ss")
+
+[node name="Panel" type="Panel" parent="BlurPanel"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("10_i45o6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BlurPanel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="BlurPanel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "Are you sure you want to disable External Output?"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BlurPanel/Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConfirmYes" type="Button" parent="BlurPanel/Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "Yes"
+
+[node name="ConfirmNo" type="Button" parent="BlurPanel/Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("7_sah7x")
+theme_override_font_sizes/font_size = 25
+text = "No
+"
+
+[connection signal="request_completed" from="HTTPRequest1" to="." method="_on_http_request_1_request_completed"]
+[connection signal="request_completed" from="HTTPRequest2" to="." method="_on_http_request_2_request_completed"]
+[connection signal="gui_input" from="GuiMargin/GUI/Panel/MarginContainer/Header" to="GuiMargin/GUI/Panel/MarginContainer/Header" method="_on_TitleBar_gui_input"]
+[connection signal="button_up" from="GuiMargin/GUI/Panel/MarginContainer/Header/SavePlaylistButton" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_save_playlist_button_button_up"]
+[connection signal="file_selected" from="GuiMargin/GUI/Panel/MarginContainer/Header/SavePlaylistButton/SavePlaylistDialog" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_save_playlist_dialog_file_selected"]
+[connection signal="button_up" from="GuiMargin/GUI/Panel/MarginContainer/Header/LoadPlaylistButton" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_load_playlist_button_button_up"]
+[connection signal="file_selected" from="GuiMargin/GUI/Panel/MarginContainer/Header/LoadPlaylistButton/LoadPlaylistDialog" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_load_playlist_dialog_file_selected"]
+[connection signal="button_up" from="GuiMargin/GUI/Panel/MarginContainer/Header/PlaylistButton" to="." method="_on_show_playlist_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Panel/MarginContainer/Header/AdvancedButton" to="." method="_on_advanced_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Panel/MarginContainer/Header/TCPListenButton" to="." method="_on_tcp_listen_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Panel/MarginContainer/Header/MinButton" to="GuiMargin/GUI/Panel/MarginContainer/Header" method="_on_min_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Panel/MarginContainer/Header/MaxButton" to="GuiMargin/GUI/Panel/MarginContainer/Header" method="_on_max_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Panel/MarginContainer/Header/QuitButton" to="GuiMargin/GUI/Panel/MarginContainer/Header" method="_on_quit_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Panel/MarginContainer/Header/HelpButton" to="." method="_on_help_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/AddVideoButton" to="." method="_on_add_video_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/AddVideoButton2" to="." method="_on_add_video_button_2_button_up"]
+[connection signal="file_selected" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/OpenVideoFileDialog" to="." method="_on_native_file_dialog_file_selected"]
+[connection signal="sort_children" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/MarginContainer/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/MarginContainer/VideoList" method="_on_sort_children"]
+[connection signal="finished" from="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/AspectPanel/VideoPlayer" to="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel" method="_on_video_player_finished" flags=18]
+[connection signal="drag_ended" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/MarginContainer/PlayHead/HBoxContainer/PlaySlider" to="." method="_on_play_slider_drag_ended"]
+[connection signal="drag_started" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/MarginContainer/PlayHead/HBoxContainer/PlaySlider" to="." method="_on_play_slider_drag_started"]
+[connection signal="value_changed" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/MarginContainer/PlayHead/HBoxContainer/PlaySlider" to="." method="_on_play_slider_value_changed"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/AspectOptions/MarginContainer/VBoxContainer/Aspect2by1" to="." method="_on_aspect_2_by_1_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/AspectOptions/MarginContainer/VBoxContainer/Aspect16by9" to="." method="_on_aspect_16_by_9_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/AspectOptions/MarginContainer/VBoxContainer/Aspect4by3" to="." method="_on_aspect_4_by_3_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/CropOptions/MarginContainer/VBoxContainer/CropZoomButton" to="." method="_on_crop_zoom_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/CropOptions/MarginContainer/VBoxContainer/CropFitButton2" to="." method="_on_crop_fit_button_2_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/PlaylistOptions/MarginContainer/VBoxContainer/LoopToggle" to="." method="_on_loop_toggle_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/PlaylistOptions/MarginContainer/VBoxContainer/AutoToggle" to="." method="_on_auto_toggle_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer/PlayPause" to="." method="_on_play_pause_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer/Stop" to="." method="_on_stop_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer/Fullscreen" to="." method="_on_fullscreen_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer3/ExtendButton" to="." method="_on_extend_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer2/VolMute" to="." method="_on_vol_mute_button_up"]
+[connection signal="drag_ended" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/MarginContainer/VBoxContainer/HBoxContainer2/Volume" to="." method="_on_volume_drag_ended"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_up" from="BlurPanel/Panel/VBoxContainer/MarginContainer/HBoxContainer/ConfirmYes" to="." method="_on_confirm_yes_button_up"]
+[connection signal="button_up" from="BlurPanel/Panel/VBoxContainer/MarginContainer/HBoxContainer/ConfirmNo" to="." method="_on_confirm_no_button_up"]

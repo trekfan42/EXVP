@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://rhfamx058p5"]
+
+[ext_resource type="Script" uid="uid://rb7o43d5cret" path="res://Scripts/SlideshowThumb.gd" id="2_qss4i"]
+[ext_resource type="StyleBox" uid="uid://b7tacdwdhonq6" path="res://UI/slide_thumb_hover.tres" id="3_bdfh5"]
+[ext_resource type="StyleBox" uid="uid://chhwxf0kpnds2" path="res://UI/slide_thumb_pressed.tres" id="4_x4f22"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wktaa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_obfyv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_humdd"]
+
+[node name="SlideshowThumb" type="TextureRect"]
+custom_minimum_size = Vector2(0, 55)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_qss4i")
+
+[node name="HoldTimer" type="Timer" parent="."]
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wktaa")
+theme_override_styles/hover = ExtResource("3_bdfh5")
+theme_override_styles/pressed = ExtResource("4_x4f22")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_obfyv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_humdd")
+disabled = true
+
+[connection signal="timeout" from="HoldTimer" to="." method="_on_hold_timer_timeout"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

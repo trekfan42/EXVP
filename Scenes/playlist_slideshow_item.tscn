@@ -1,0 +1,212 @@
+[gd_scene load_steps=8 format=3 uid="uid://2veaeyny74fg"]
+
+[ext_resource type="Script" uid="uid://dj7282f0cm64r" path="res://Scripts/playlist_slideshow_item.gd" id="1_ofxcs"]
+[ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="2_1rwmq"]
+[ext_resource type="Texture2D" uid="uid://eo4m77ua0lnm" path="res://UI/Icons/Menu white.png" id="3_erhfg"]
+[ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="4_euihb"]
+[ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="5_0ooij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11ww5"]
+size = Vector2(61, 45)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5uo7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8, 0, 0, 0.584314)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PlaylistItem" type="MarginContainer"]
+custom_minimum_size = Vector2(750, 150)
+offset_right = 750.0
+offset_bottom = 150.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_ofxcs")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_1rwmq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/HBoxContainer/CenterContainer"]
+position = Vector2(30, 61)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_erhfg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TrackInfo" type="VBoxContainer" parent="Panel/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FolderName" type="Label" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+theme = ExtResource("2_1rwmq")
+theme_override_font_sizes/font_size = 20
+text = "FolderName"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="OptionButtons" type="HBoxContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Hold" type="HBoxContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Hold"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_euihb")
+theme_override_font_sizes/font_size = 30
+text = "Hold: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoldTime" type="LineEdit" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Hold"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_0ooij")
+theme_override_font_sizes/font_size = 40
+text = "4"
+alignment = 1
+max_length = 3
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Fade" type="HBoxContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Fade"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_euihb")
+theme_override_font_sizes/font_size = 30
+text = "Fade: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FadeTime" type="LineEdit" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Fade"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_0ooij")
+theme_override_font_sizes/font_size = 40
+text = "1.5"
+alignment = 1
+max_length = 3
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShuffleButton" type="Button" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🔀"
+
+[node name="ThumbsScroll" type="ScrollContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+vertical_scroll_mode = 0
+
+[node name="Thumbs" type="HBoxContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/ThumbsScroll"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+alignment = 1
+
+[node name="RemoveVideoButton" type="Button" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "❌"
+
+[node name="SelectVideoButton" type="Button" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "🔳"
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(43.5, 71.5)
+shape = SubResource("RectangleShape2D_11ww5")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.05
+
+[node name="DeleteBorder" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l5uo7")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="text_changed" from="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Hold/HoldTime" to="." method="_on_hold_time_text_changed"]
+[connection signal="text_changed" from="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Fade/FadeTime" to="." method="_on_fade_time_text_changed"]
+[connection signal="button_up" from="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/ShuffleButton" to="." method="_on_shuffle_button_button_up"]
+[connection signal="button_up" from="Panel/HBoxContainer/RemoveVideoButton" to="." method="_on_remove_video_button_button_up"]
+[connection signal="button_up" from="Panel/HBoxContainer/SelectVideoButton" to="." method="_on_select_video_button_button_up"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

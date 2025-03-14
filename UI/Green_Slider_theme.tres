@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dxuc450vpsu4p"]
+
+[ext_resource type="StyleBox" uid="uid://djf5tfrocrhyw" path="res://UI/GreenSliderLine.tres" id="1_7uaef"]
+[ext_resource type="FontFile" uid="uid://plebch4bpsf7" path="res://UI/Fonts/digital-7 (mono).ttf" id="2_itw0k"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4naqm"]
+color = Color(0.0969, 0.17, 0.14807, 1)
+thickness = 8
+
+[resource]
+default_font = ExtResource("2_itw0k")
+HSlider/styles/grabber_area = ExtResource("1_7uaef")
+HSlider/styles/grabber_area_highlight = ExtResource("1_7uaef")
+HSlider/styles/slider = SubResource("StyleBoxLine_4naqm")

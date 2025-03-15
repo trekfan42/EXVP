@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://2veaeyny74fg"]
+[gd_scene load_steps=10 format=3 uid="uid://2veaeyny74fg"]
 
 [ext_resource type="Script" uid="uid://dj7282f0cm64r" path="res://Scripts/playlist_slideshow_item.gd" id="1_ofxcs"]
 [ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="2_1rwmq"]
+[ext_resource type="StyleBox" uid="uid://dlrvrktbno7fs" path="res://UI/UI_Panel_Dark_Rounded.tres" id="3_1rwmq"]
 [ext_resource type="Texture2D" uid="uid://eo4m77ua0lnm" path="res://UI/Icons/Menu white.png" id="3_erhfg"]
 [ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="4_euihb"]
 [ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="5_0ooij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11ww5"]
-size = Vector2(61, 45)
+size = Vector2(26, 139)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5uo7"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -15,26 +16,32 @@ border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0.8, 0, 0, 0.584314)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+border_color = Color(0.980392, 0, 0.360784, 0.517647)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[node name="PlaylistItem" type="MarginContainer"]
-custom_minimum_size = Vector2(750, 150)
-offset_right = 750.0
-offset_bottom = 150.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erhfg"]
+bg_color = Color(0.980392, 0, 0.360784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PlaylistItem" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+offset_right = 850.0
+offset_bottom = 140.0
+theme_override_constants/separation = 0
 script = ExtResource("1_ofxcs")
 
 [node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(850, 140)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_1rwmq")
+theme_override_styles/panel = ExtResource("3_1rwmq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -51,25 +58,31 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/HBoxContainer/CenterContainer"]
-position = Vector2(30, 61)
+position = Vector2(30, 69)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_erhfg")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer"]
+[node name="Control" type="Control" parent="Panel/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/Control"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 720.0
+offset_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TrackInfo" type="VBoxContainer" parent="Panel/HBoxContainer/HBoxContainer"]
+[node name="TrackInfo" type="VBoxContainer" parent="Panel/HBoxContainer/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FolderName" type="Label" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo"]
+[node name="FolderName" type="Label" parent="Panel/HBoxContainer/Control/HBoxContainer/TrackInfo"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 1
 mouse_filter = 0
 theme = ExtResource("2_1rwmq")
 theme_override_font_sizes/font_size = 20
@@ -79,92 +92,33 @@ vertical_alignment = 1
 autowrap_mode = 1
 clip_text = true
 
-[node name="OptionButtons" type="HBoxContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo"]
+[node name="ThumbsScroll" type="ScrollContainer" parent="Panel/HBoxContainer/Control/HBoxContainer/TrackInfo"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Hold" type="HBoxContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="Label" type="Label" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Hold"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("4_euihb")
-theme_override_font_sizes/font_size = 30
-text = "Hold: "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HoldTime" type="LineEdit" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Hold"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_0ooij")
-theme_override_font_sizes/font_size = 40
-text = "4"
-alignment = 1
-max_length = 3
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-
-[node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Fade" type="HBoxContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="Label" type="Label" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Fade"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("4_euihb")
-theme_override_font_sizes/font_size = 30
-text = "Fade: "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="FadeTime" type="LineEdit" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Fade"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_0ooij")
-theme_override_font_sizes/font_size = 40
-text = "1.5"
-alignment = 1
-max_length = 3
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-
-[node name="MarginContainer3" type="MarginContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ShuffleButton" type="Button" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "🔀"
-
-[node name="ThumbsScroll" type="ScrollContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 4
+mouse_filter = 0
 vertical_scroll_mode = 0
 
-[node name="Thumbs" type="HBoxContainer" parent="Panel/HBoxContainer/HBoxContainer/TrackInfo/ThumbsScroll"]
+[node name="Thumbs" type="HBoxContainer" parent="Panel/HBoxContainer/Control/HBoxContainer/TrackInfo/ThumbsScroll"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
-alignment = 1
+size_flags_horizontal = 3
+
+[node name="ToggleSettings" type="Button" parent="Panel/HBoxContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "⚙️"
 
 [node name="RemoveVideoButton" type="Button" parent="Panel/HBoxContainer"]
 unique_name_in_owner = true
@@ -182,31 +136,191 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 25
 text = "🔳"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="Panel"]
 unique_name_in_owner = true
+position = Vector2(-10, -10)
 collision_layer = 2
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(43.5, 71.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Area2D"]
+position = Vector2(41, 79.5)
 shape = SubResource("RectangleShape2D_11ww5")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="Panel"]
 unique_name_in_owner = true
 wait_time = 0.05
 
-[node name="DeleteBorder" type="Panel" parent="."]
+[node name="DeleteBorder" type="Panel" parent="Panel"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+offset_left = -10.0
+offset_top = -10.0
+offset_right = -10.0
+offset_bottom = -10.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_l5uo7")
 
+[node name="SlideshowSettings" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SlideshowSettings"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="SlideshowSettings"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_1rwmq")
+
+[node name="MarginContainer" type="MarginContainer" parent="SlideshowSettings/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="OptionsHbox" type="HBoxContainer" parent="SlideshowSettings/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="AspectOptionButton" type="OptionButton" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_1rwmq")
+theme_override_font_sizes/font_size = 30
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "Fit Within"
+popup/item_0/id = 0
+popup/item_1/text = "Fit Height"
+popup/item_1/id = 1
+popup/item_2/text = "Fit Width"
+popup/item_2/id = 2
+popup/item_3/text = "Cover"
+popup/item_3/id = 3
+
+[node name="MarginContainer6" type="MarginContainer" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Hold" type="HBoxContainer" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox/Hold"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_euihb")
+theme_override_font_sizes/font_size = 30
+text = "Hold: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoldTime" type="LineEdit" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox/Hold"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_0ooij")
+theme_override_font_sizes/font_size = 40
+text = "4.0"
+alignment = 1
+max_length = 4
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+
+[node name="MarginContainer5" type="MarginContainer" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Fade" type="HBoxContainer" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox/Fade"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("4_euihb")
+theme_override_font_sizes/font_size = 30
+text = "Fade: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FadeTime" type="LineEdit" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox/Fade"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_0ooij")
+theme_override_font_sizes/font_size = 40
+text = "1.5"
+alignment = 1
+max_length = 3
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+
+[node name="MarginContainer3" type="MarginContainer" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ShuffleButton" type="Button" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "🔀"
+
+[node name="MarginContainer4" type="MarginContainer" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="SlideshowSettings"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="SaveSettings" type="Button" parent="SlideshowSettings/MarginContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_erhfg")
+text = "💾"
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="text_changed" from="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Hold/HoldTime" to="." method="_on_hold_time_text_changed"]
-[connection signal="text_changed" from="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/Fade/FadeTime" to="." method="_on_fade_time_text_changed"]
-[connection signal="button_up" from="Panel/HBoxContainer/HBoxContainer/TrackInfo/OptionButtons/ShuffleButton" to="." method="_on_shuffle_button_button_up"]
+[connection signal="button_up" from="Panel/HBoxContainer/Control/ToggleSettings" to="." method="_on_toggle_settings_button_up"]
 [connection signal="button_up" from="Panel/HBoxContainer/RemoveVideoButton" to="." method="_on_remove_video_button_button_up"]
 [connection signal="button_up" from="Panel/HBoxContainer/SelectVideoButton" to="." method="_on_select_video_button_button_up"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Panel/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Panel/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Panel/Timer" to="." method="_on_timer_timeout"]
+[connection signal="item_selected" from="SlideshowSettings/Panel/MarginContainer/OptionsHbox/MarginContainer/AspectOptionButton" to="." method="_on_aspect_option_button_item_selected"]
+[connection signal="text_changed" from="SlideshowSettings/Panel/MarginContainer/OptionsHbox/Hold/HoldTime" to="." method="_on_hold_time_text_changed"]
+[connection signal="text_changed" from="SlideshowSettings/Panel/MarginContainer/OptionsHbox/Fade/FadeTime" to="." method="_on_fade_time_text_changed"]
+[connection signal="button_up" from="SlideshowSettings/Panel/MarginContainer/OptionsHbox/ShuffleButton" to="." method="_on_shuffle_button_button_up"]
+[connection signal="button_up" from="SlideshowSettings/MarginContainer2/SaveSettings" to="." method="_on_save_settings_button_up"]

@@ -17,7 +17,7 @@ signal slide
 signal startSlides
 signal pauseSlides
 signal setSlide
-signal updateSlideOptions
+signal updateSlideCrop
 
 signal shuffleSlides
 

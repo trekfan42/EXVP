@@ -1,4 +1,4 @@
-extends MarginContainer
+extends VBoxContainer
 
 
 
@@ -18,9 +18,16 @@ var itemData = {
 	"folder": null,
 	"pics": [],
 	"holdTime": 4.0,
-	"fadeTime": 2.0,
-	"fit": true,
-	"crop": false,
+	"fadeTime": 1.5,
+	"crop": 1,
+	"bgColor": Color(0,0,0),
+}
+
+var tempSettings = {
+	"pics": [],
+	"holdTime": 4.0,
+	"fadeTime": 1.5,
+	"crop": 1,
 	"bgColor": Color(0,0,0),
 }
 
@@ -35,10 +42,10 @@ func _ready():
 	Signals.queueItem.connect(queue_check)
 	Signals.Option.connect(slideshow_options)
 	Signals.slide.connect(scroll_to_thumb)
-	Signals.setCrop.connect(parse_crop)
 	folderLabel.text = "🎞️ " + title
 	%HoldTime.text = str(itemData["holdTime"])
 	%FadeTime.text = str(itemData["fadeTime"])
+	%SlideshowSettings.hide()
 	var exts = ["png","jpg"]
 	var files = []
 	files = DirAccess.get_files_at(itemData["folder"])
@@ -46,15 +53,9 @@ func _ready():
 		if f.get_extension() in exts:
 			#itemData["pics"].append(itemData["folder"] + "\\" + f)
 			load_thumb(itemData["folder"] + "\\" + f)
-		
-	#add_thumbs(itemData["pics"])
-
-
-#func add_thumbs(pics):
-	#thumbs.get_parent().visible = true
-	#for p in pics:
-		#load_thumb(p)
-		#
+	
+	for k in tempSettings.keys():
+		tempSettings[k] = itemData[k]
 
 func load_thumb(path):
 	var iThumb = slideshowThumb.instantiate()
@@ -64,14 +65,9 @@ func load_thumb(path):
 	iThumb.load_thumbs()
 
 
-func secondsToMMSS(seconds):
-	var minutes = seconds / 60
-	var remainingSeconds = int(seconds) % 60
-	var outputFormat = "%02d:%02d"
-	var output = outputFormat % [floor(minutes) , round(remainingSeconds)]
-	return output
 
 func queue_check(_type , _itemData):
+	
 	if Global.activeIndex == self.get_index():
 		%SelectVideoButton.text = "✅"
 	else:
@@ -86,16 +82,7 @@ func scroll_to_thumb(idDest):
 		var tween = get_tree().create_tween()
 		tween.tween_property(%ThumbsScroll, "scroll_horizontal", px, 0.25)
 
-func parse_crop(index):
-	if index == 1:
-		Signals.updateSlideOptions.emit("fit",true)
-		Signals.updateSlideOptions.emit("crop",false)
-	if index == 2:
-		Signals.updateSlideOptions.emit("fit",false)
-		Signals.updateSlideOptions.emit("crop",false)
-	if index == 3:
-		Signals.updateSlideOptions.emit("crop",true)
-		Signals.updateSlideOptions.emit("fit",true)
+
 
 func _on_remove_video_button_button_up():
 	if self.get_index() == Global.activeIndex:
@@ -108,12 +95,16 @@ func _on_remove_video_button_button_up():
 
 
 func _on_select_video_button_button_up():
+	print("crop check 1: " + str(itemData["crop"]))
 	Signals.slideshow.emit(self)
 	Global.activeIndex = self.get_index()
 	Global.activeItem = self
 	Global.activeType = type
 	var grabbedPics = get_thumb_pics()
+	print("crop check 2: " + str(itemData["crop"]))
 	Signals.queueItem.emit(type,grabbedPics)
+	print("crop check 3: " + str(itemData["crop"]))
+	
 	
 
 func get_thumb_pics():
@@ -139,30 +130,31 @@ func slideshow_options(status):
 	%RemoveVideoButton.visible = status
 
 func _on_shuffle_button_button_up():
-	itemData["pics"].shuffle()
-	for p in itemData["pics"]:
+	tempSettings["pics"].shuffle()
+	for p in tempSettings["pics"]:
 		var newIndex = itemData["pics"].find(p)
 		for t in thumbs.get_children():
 			if t.picPath == p:
 				thumbs.move_child(t,newIndex)
-	if Global.activeItem == self: 
-		Signals.shuffleSlides.emit()
+	check_new_settings()
 
 
 
 func _on_hold_time_text_changed(new_text):
-	if float(new_text) or float(new_text) == 0:
-		if float(new_text) != 0:
-			itemData["holdTime"] = float(new_text)
-			Signals.updateSlideOptions.emit("holdTime",itemData["holdTime"])
+	if float(new_text) or int(new_text):
+		if float(new_text) != 0.0 or int(new_text) != 0:
+			tempSettings["holdTime"] = abs(float(new_text))
+			check_new_settings()
+			#Signals.updateSlideOptions.emit("holdTime",itemData["holdTime"])
 		else:
 			%HoldTime.text = str(itemData["holdTime"])
 
 func _on_fade_time_text_changed(new_text):
-	if float(new_text) or float(new_text) == 0:
-		if float(new_text) != 0:
-			itemData["fadeTime"] = float(new_text)
-			Signals.updateSlideOptions.emit("fadeTime",itemData["fadeTime"])
+	if float(new_text) or int(new_text):
+		if float(new_text) != 0.0 or int(new_text) != 0:
+			tempSettings["fadeTime"] = abs(float(new_text))
+			check_new_settings()
+			#Signals.updateSlideOptions.emit("fadeTime",itemData["fadeTime"])
 		else:
 			%FadeTime.text = str(itemData["fadeTime"])
 
@@ -197,3 +189,38 @@ func _on_area_2d_area_exited(_area):
 	print("turn normal")
 	if is_instance_valid(%DeleteBorder):
 		%DeleteBorder.visible = false
+
+
+func _on_save_settings_button_up() -> void:
+	print("Original Still Settings: ")
+	print(itemData)
+	for k in tempSettings.keys():
+		itemData[k] = tempSettings[k]
+	print("New Still Settings: ")
+	print(itemData)
+	%SaveSettings.hide()
+
+
+func _on_toggle_settings_button_up() -> void:
+	%SlideshowSettings.visible = !%SlideshowSettings.visible
+	if %SlideshowSettings.visible:
+		self.custom_minimum_size.y = 200
+	else:
+		self.custom_minimum_size.y = 120
+	check_new_settings()
+
+
+func check_new_settings():
+	var changed = false
+	for k in tempSettings.keys():
+		if itemData[k] != tempSettings[k]:
+			changed = true
+	if changed:
+		%SaveSettings.show()
+	else:
+		%SaveSettings.hide()
+
+
+func _on_aspect_option_button_item_selected(index: int) -> void:
+	tempSettings["crop"] = index
+	check_new_settings()

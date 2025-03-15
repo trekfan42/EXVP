@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://j861j8jqlrvm"]
+[gd_scene load_steps=8 format=3 uid="uid://j861j8jqlrvm"]
 
 [ext_resource type="Script" uid="uid://hwk4gir6ahv0" path="res://Scripts/playlist_still_item.gd" id="1_rl1s0"]
 [ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="2_7bk6m"]
 [ext_resource type="Texture2D" uid="uid://eo4m77ua0lnm" path="res://UI/Icons/Menu white.png" id="3_2ty8a"]
+[ext_resource type="StyleBox" uid="uid://dlrvrktbno7fs" path="res://UI/UI_Panel_Dark_Rounded.tres" id="3_7bk6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vaow3"]
-size = Vector2(61, 45)
+size = Vector2(26, 120)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvtqy"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -13,26 +14,34 @@ border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0.8, 0, 0, 0.584314)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+border_color = Color(0.98, 0, 0.359333, 0.517647)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[node name="PlaylistItem" type="MarginContainer"]
-custom_minimum_size = Vector2(750, 150)
-offset_right = 750.0
-offset_bottom = 150.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ty8a"]
+bg_color = Color(0.980392, 0, 0.360784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PlaylistItem" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+offset_right = 800.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
 script = ExtResource("1_rl1s0")
 
 [node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(800, 120)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_7bk6m")
+theme_override_styles/panel = ExtResource("3_7bk6m")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -65,13 +74,23 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.75
+mouse_filter = 0
 expand_mode = 3
 stretch_mode = 5
 
-[node name="ImageName" type="Label" parent="Panel/HBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="Panel/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ImageName" type="Label" parent="Panel/HBoxContainer/HBoxContainer/Control"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
@@ -82,6 +101,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 clip_text = true
+
+[node name="ToggleSettings" type="Button" parent="Panel/HBoxContainer/HBoxContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "⚙️"
 
 [node name="RemoveVideoButton" type="Button" parent="Panel/HBoxContainer"]
 unique_name_in_owner = true
@@ -99,28 +133,96 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 25
 text = "🔳"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="Panel"]
 unique_name_in_owner = true
+position = Vector2(-10, -10)
 collision_layer = 2
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(43.5, 71.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Area2D"]
+position = Vector2(41, 70)
 shape = SubResource("RectangleShape2D_vaow3")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="Panel"]
 unique_name_in_owner = true
 wait_time = 0.05
 
-[node name="DeleteBorder" type="Panel" parent="."]
+[node name="DeleteBorder" type="Panel" parent="Panel"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fvtqy")
 
+[node name="StillSettings" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="StillSettings"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="StillSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_7bk6m")
+
+[node name="MarginContainer" type="MarginContainer" parent="StillSettings/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="AspectOptionButton" type="OptionButton" parent="StillSettings/Panel2/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_7bk6m")
+theme_override_font_sizes/font_size = 30
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "Fit Within"
+popup/item_0/id = 0
+popup/item_1/text = "Fit Height"
+popup/item_1/id = 1
+popup/item_2/text = "Fit Width"
+popup/item_2/id = 2
+popup/item_3/text = "Cover"
+popup/item_3/id = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="StillSettings"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="SaveSettings" type="Button" parent="StillSettings/MarginContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ty8a")
+text = "💾"
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="button_up" from="Panel/HBoxContainer/HBoxContainer/Control/ToggleSettings" to="." method="_on_toggle_settings_button_up"]
 [connection signal="button_up" from="Panel/HBoxContainer/RemoveVideoButton" to="." method="_on_remove_video_button_button_up"]
 [connection signal="button_up" from="Panel/HBoxContainer/SelectVideoButton" to="." method="_on_select_video_button_button_up"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Panel/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Panel/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Panel/Timer" to="." method="_on_timer_timeout"]
+[connection signal="item_selected" from="StillSettings/Panel2/MarginContainer/AspectOptionButton" to="." method="_on_aspect_option_button_item_selected"]
+[connection signal="button_up" from="StillSettings/MarginContainer2/SaveSettings" to="." method="_on_save_settings_button_up"]

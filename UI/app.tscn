@@ -251,7 +251,7 @@ theme_override_font_sizes/font_size = 35
 alignment = 1
 selected = 0
 allow_reselect = true
-item_count = 6
+item_count = 10
 popup/item_0/text = "1"
 popup/item_0/id = 0
 popup/item_1/text = "2"
@@ -264,6 +264,14 @@ popup/item_4/text = "1"
 popup/item_4/id = 4
 popup/item_5/text = "2"
 popup/item_5/id = 5
+popup/item_6/text = "1"
+popup/item_6/id = 6
+popup/item_7/text = "2"
+popup/item_7/id = 7
+popup/item_8/text = "1"
+popup/item_8/id = 8
+popup/item_9/text = "2"
+popup/item_9/id = 9
 
 [node name="ExtendButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
 unique_name_in_owner = true
@@ -496,6 +504,7 @@ size_flags_stretch_ratio = 1.25
 
 [node name="HelpPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
@@ -1000,7 +1009,6 @@ autowrap_mode = 2
 
 [node name="MainVideoPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 clip_contents = true
 layout_mode = 2
@@ -1090,6 +1098,7 @@ visible = false
 
 [node name="TrialTimeLabel" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0

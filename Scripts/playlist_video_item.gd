@@ -55,6 +55,9 @@ func _ready():
 	videoLabel.text = "🎬 " + title + "." + itemData["path"].get_extension()
 	%VideoSettings.hide()
 	load_thumb()
+	
+	for k in tempSettings.keys():
+		tempSettings[k] = itemData[k]
 
 func load_thumb():
 	thread = Thread.new()
@@ -78,8 +81,7 @@ func load_video():
 	tol.text = Utils.Secs_To_MMSS(itemData["length"])
 	itemData["endPoint"] = itemData["length"]
 	
-	for k in tempSettings.keys():
-		tempSettings[k] = itemData[k]
+	
 	
 	
 	

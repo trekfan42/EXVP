@@ -1,4 +1,4 @@
-extends MarginContainer
+extends VBoxContainer
 
 @onready var imageLabel = %ImageName
 @onready var thumb = %Thumb
@@ -10,8 +10,13 @@ var title
 # [pics,holdTime,fadeTime,crop,bgColor]
 var itemData = {
 	"path": null,
-	"fit": true,
-	"crop": false,
+	"crop": 1,
+	"bgColor": Color(0,0,0),
+}
+
+
+var tempSettings = {
+	"crop": 1,
 	"bgColor": Color(0,0,0),
 }
 
@@ -23,13 +28,16 @@ var total
 
 func _ready():
 	Signals.queueItem.connect(queue_check)
-	Signals.setCrop.connect(parse_crop)
 	Signals.Option.connect(still_options)
+	%StillSettings.hide()
 	if title.length() > 20:
 		imageLabel.text = "🖼️ " + title.substr(0,20) + "..."
 	else:
 		imageLabel.text = "🖼️ " + title
 	load_thumb(itemData["path"])
+	
+	for k in tempSettings.keys():
+		tempSettings[k] = itemData[k]
 
 
 func load_thumb(picPath):
@@ -37,31 +45,18 @@ func load_thumb(picPath):
 	var imageTexture = ImageTexture.new()
 	imageTexture.set_image(pic)
 	thumb.texture = imageTexture
+	
+	
 
 
 func queue_check(_type , _itemData):
 	if Global.activeIndex == self.get_index():
 		%SelectVideoButton.text = "✅"
+		Signals.setCrop.emit(itemData["crop"])
 	else:
 		%SelectVideoButton.text = "🔳"
 
-func parse_crop(index):
-	if Global.activeItem == self:
-		if index == 1:
-			itemData["fit"] = true
-			itemData["crop"] = false
-			Signals.updateSlideOptions.emit("fit",true)
-			Signals.updateSlideOptions.emit("crop",false)
-		if index == 2:
-			itemData["fit"] = false
-			itemData["crop"] = false
-			Signals.updateSlideOptions.emit("fit",false)
-			Signals.updateSlideOptions.emit("crop",false)
-		if index == 3:
-			itemData["fit"] = true
-			itemData["crop"] = true
-			Signals.updateSlideOptions.emit("crop",true)
-			Signals.updateSlideOptions.emit("fit",true)
+
 
 func _on_remove_video_button_button_up():
 	if self.get_index() == Global.activeIndex:
@@ -113,3 +108,38 @@ func _on_area_2d_area_exited(area):
 	print("turn normal")
 	if is_instance_valid(%DeleteBorder):
 		%DeleteBorder.visible = false
+
+
+func _on_aspect_option_button_item_selected(index: int) -> void:
+	tempSettings["crop"] = index
+	check_new_settings()
+
+
+func _on_save_settings_button_up() -> void:
+	print("Original Still Settings: ")
+	print(itemData)
+	for k in tempSettings.keys():
+		itemData[k] = tempSettings[k]
+	print("New Still Settings: ")
+	print(itemData)
+	%SaveSettings.hide()
+
+
+func _on_toggle_settings_button_up() -> void:
+	%StillSettings.visible = !%StillSettings.visible
+	if %StillSettings.visible:
+		self.custom_minimum_size.y = 200
+	else:
+		self.custom_minimum_size.y = 120
+	check_new_settings()
+
+
+func check_new_settings():
+	var changed = false
+	for k in tempSettings.keys():
+		if itemData[k] != tempSettings[k]:
+			changed = true
+	if changed:
+		%SaveSettings.show()
+	else:
+		%SaveSettings.hide()

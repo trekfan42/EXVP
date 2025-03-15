@@ -30,6 +30,18 @@ func fade_out(fadeTime):
 	tween.tween_property(self, "self_modulate", Color.TRANSPARENT, fadeTime)
 	tween.connect("finished",queue_free)
 
+func parse_crop(index):
+	if index == 1:
+		update_options("fit",true)
+		update_options("crop",false)
+	if index == 2:
+		update_options("fit",false)
+		update_options("crop",false)
+	if index == 3:
+		update_options("crop",true)
+		update_options("fit",true)
+
+
 func update_options(option,value):
 	if option == "fit":
 		if value == true:

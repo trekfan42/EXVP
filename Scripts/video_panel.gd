@@ -5,6 +5,7 @@ extends Panel
 @onready var videoBox = %VideoPlayer
 @onready var aspectBox = %AspectPanel
 @onready var slideshowPanel = %SlideShow
+@onready var canvasBG: Panel = %CanvasBG
 
 var slideshowPic = preload("res://Scenes/slideshow_pic.tscn")
 
@@ -70,7 +71,6 @@ func queue_item(type,itemData): # [path,startPoint,endPoint,length,width,height,
 	if type == "slideshow": # [pics,holdTime,fadeTime,crop,bgColor]
 		videoBox.visible = false
 		slideshowPanel.visible = true
-		slideshowPanel.slideshowOptions = Global.activeItem.itemData
 		slideshowPanel.stop_timers()
 		slideshowPanel.clear_slideshow()
 		
@@ -80,8 +80,6 @@ func queue_item(type,itemData): # [path,startPoint,endPoint,length,width,height,
 		slideshowPanel.stop_timers()
 		slideshowPanel.clear_slideshow()
 		slideshowPanel.load_still(itemData)
-		
-
 
 
 func remove_item(type):
@@ -112,7 +110,11 @@ func set_aspect(aspect):
 	aspectBox.ratio = aspect
 
 func set_crop(cropMode):
-	aspectBox.stretch_mode = cropMode
+	if Global.activeType == "video":
+		aspectBox.stretch_mode = cropMode
+	elif Global.activeType == "still" or Global.activeType == "slideshow":
+		Signals.updateSlideCrop.emit(cropMode)
+
 
 func pause_toggle():
 	if videoBox.paused == false:

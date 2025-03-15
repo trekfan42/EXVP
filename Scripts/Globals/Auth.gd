@@ -9,22 +9,23 @@ var watermark = false
 
 
 func _ready():
-	pass
 	#date = Time.get_date_string_from_system() # YYYY-MM-DD
-	var uId = OS.get_unique_id()
-	shortId = uId.get_slice("-",0).get_slice("{",1) 
-	print("system Id: " + str(shortId))
-	var iT = 2
-	var iteration = shortId
+	#var uId = OS.get_unique_id()
+	#shortId = uId.get_slice("-",0).get_slice("{",1) 
+	#print("system Id: " + str(shortId))
+	#var iT = 2
+	#var iteration = shortId
+	#
+	#for i in iT:
+		#iteration = Marshalls.utf8_to_base64(iteration)
+	#print("Key file: " + str(iteration.get_slice("=",0)) + ".key")
+	#
+	#for i in iT:
+		#iteration =  Marshalls.base64_to_utf8(iteration)
+	#var id = iteration.get_slice("_",0)
+	#print("decoded Id: " + id)
 	
-	for i in iT:
-		iteration = Marshalls.utf8_to_base64(iteration)
-	print("Key file: " + str(iteration.get_slice("=",0)) + ".key")
-	
-	for i in iT:
-		iteration =  Marshalls.base64_to_utf8(iteration)
-	var id = iteration.get_slice("_",0)
-	print("decoded Id: " + id)
+	pass
 
 
 func check_key(entered_key):

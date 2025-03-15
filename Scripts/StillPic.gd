@@ -11,12 +11,24 @@ func _ready():
 
 
 
+func parse_crop(index):
+	if index == 1:
+		update_options("fit",true)
+		update_options("crop",false)
+	if index == 2:
+		update_options("fit",false)
+		update_options("crop",false)
+	if index == 3:
+		update_options("crop",true)
+		update_options("fit",true)
+
+
 func update_options(option,value):
 	if option == "fit":
 		if value == true:
-			expand_mode = TextureRect.EXPAND_FIT_WIDTH
+			expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
 		if value == false:
-			expand_mode = TextureRect.EXPAND_FIT_HEIGHT
+			expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
 	if option == "crop":
 		if value == true:
 			stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED

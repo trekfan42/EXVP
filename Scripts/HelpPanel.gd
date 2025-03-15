@@ -2,9 +2,12 @@ extends Panel
 
 
 func _ready():
+	pass
+	#auth_validate()
+
+func auth_validate():
 	Signals.validation.connect(update)
 	%SoftwareIdValue.text = Auth.shortId
-
 
 func _on_help_codecs_button_up():
 	hide_all()

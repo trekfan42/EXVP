@@ -115,9 +115,12 @@ func _ready():
 		Signals.itemFinished.connect(_on_video_player_finished)
 		Signals.slide.connect(update_tick)
 		Signals.errorMsg.connect(error_message)
-
+		
 		check_cmd_args()
 		
+		if !%MainVideoPanel.visible:
+			%MainVideoPanel.visible = true
+			%HelpPanel.visible = false
 		
 		#Disabled Licensing Check
 		#%Trial.start()
@@ -425,11 +428,11 @@ func queue_item(type,itemData):
 		to.text = str(total)
 		ti.text = str(1)
 		%VolumeControls.visible = false
-
 		%PlayBar.visible = true
 		%VideoControls.visible = true
 		trimmed = false
 		%TrimTimes.visible = false
+		
 		
 	if type == "still":
 		Signals.stopVideo.emit()

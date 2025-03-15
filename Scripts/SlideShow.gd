@@ -7,15 +7,7 @@ var slide = preload("res://Scenes/slideshow_pic.tscn")
 var still = preload("res://Scenes/Still_Image.tscn")
 var waiting = false
 
-var slideshowOptions = {
-	"folder": null,
-	"pics": [],
-	"holdTime": 4.0,
-	"fadeTime": 2.0,
-	"fit": true,
-	"crop": false,
-	"bgColor": Color(0,0,0),
-}
+var tempCrop = null
 
 var slideshowNode
 
@@ -23,23 +15,30 @@ func _ready():
 	Signals.startSlides.connect(start_slides)
 	Signals.pauseSlides.connect(stop_timers)
 	Signals.setSlide.connect(go_to_slide)
-	Signals.updateSlideOptions.connect(update_options)
-	Signals.shuffleSlides.connect(shuffle_slides)
+	Signals.updateSlideCrop.connect(update_crop)
 	Signals.slideshow.connect(load_node)
+	
 
 
 func load_node(node):
+	tempCrop = null
 	slideshowNode = node
 	self.visible = true
 	print("slideshow node: " + str(node))
 
 func load_still(stillData):
+	tempCrop = null
 	var iStill = still.instantiate()
 	iStill.picPath = stillData["path"]
+	iStill.parse_crop(stillData["crop"])
 	self.add_child(iStill)
-	iStill.update_options("fit",stillData["fit"])
-	iStill.update_options("crop",stillData["crop"])
-	
+
+
+func update_crop(index):
+	tempCrop = index
+	for s in self.get_children():
+		if s.name != "HoldTimer":
+			s.parse_crop(tempCrop)
 
 func start_slides(sliderValue):
 	if sliderValue == 1:
@@ -48,18 +47,10 @@ func start_slides(sliderValue):
 		for s in self.get_children():
 			if s.name != "HoldTimer":
 				if s.self_modulate != Color.WHITE:
-					s.fade_in(slideshowOptions["fadeTime"])
+					s.fade_in(slideshowNode.itemData["fadeTime"])
 				else:
 					s.fade_in_finished()
 
-func shuffle_slides():
-	go_to_slide(0,true)
-
-func update_options(option,value):
-	slideshowOptions[option] = value
-	for s in self.get_children():
-		if s.name != "HoldTimer":
-			s.update_options(option,value)
 
 func clear_slideshow():
 	for p in self.get_children():
@@ -70,7 +61,7 @@ func clear_slideshow():
 func go_to_slide(id,quiet):
 	for s in self.get_children():
 		if s.name != "HoldTimer":
-			s.fade_out(slideshowOptions["fadeTime"])
+			s.fade_out(slideshowNode.itemData["fadeTime"])
 
 	load_slide(id,quiet)
 
@@ -80,18 +71,20 @@ func load_slide(id,quiet):
 	Global.activeSlide = id
 	var iSlide = slide.instantiate()
 	iSlide.id = id
-	iSlide.update_options("fit",slideshowOptions["fit"])
-	iSlide.update_options("crop",slideshowOptions["crop"])
+	if tempCrop:
+		iSlide.parse_crop(tempCrop)
+	else:
+		iSlide.parse_crop(slideshowNode.itemData["crop"])
 	iSlide.picTex = slideshowNode.thumbs.get_child(id).texture
 	self.add_child(iSlide)
 	if !quiet:
-		iSlide.fade_in(slideshowOptions["fadeTime"])
+		iSlide.fade_in(slideshowNode.itemData["fadeTime"])
 	if quiet:
 		iSlide.fade_in(0.1)
 
 func start_hold():
 	if Global.slideshowRunning:
-		holdTimer.wait_time = slideshowOptions["holdTime"]
+		holdTimer.wait_time = slideshowNode.itemData["holdTime"]
 		holdTimer.start()
 
 func stop_timers():
@@ -105,7 +98,7 @@ func _on_hold_timer_timeout():
 			for c in slideshowNode.thumbs.get_children():
 				if s.texture == c.texture:
 					current = c.get_index()
-			s.fade_out(slideshowOptions["fadeTime"])
+			s.fade_out(slideshowNode.itemData["fadeTime"])
 	var total = slideshowNode.thumbs.get_child_count()
 	if current < total -1:
 		load_slide(current+1,false)

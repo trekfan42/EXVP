@@ -45,7 +45,7 @@ bg_color = Color(0.03, 0.03, 0.03, 0.796078)
 bg_color = Color(0, 0, 0, 0.741176)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qpsv4"]
-viewport_path = NodePath("GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel/VideoSubViewport")
+viewport_path = NodePath("GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y55fp"]
 bg_color = Color(0, 0, 0, 1)
@@ -257,7 +257,7 @@ theme_override_font_sizes/font_size = 35
 alignment = 1
 selected = 0
 allow_reselect = true
-item_count = 26
+item_count = 36
 popup/item_0/text = "1"
 popup/item_0/id = 0
 popup/item_1/text = "2"
@@ -310,6 +310,26 @@ popup/item_24/text = "1"
 popup/item_24/id = 24
 popup/item_25/text = "2"
 popup/item_25/id = 25
+popup/item_26/text = "1"
+popup/item_26/id = 26
+popup/item_27/text = "2"
+popup/item_27/id = 27
+popup/item_28/text = "1"
+popup/item_28/id = 28
+popup/item_29/text = "2"
+popup/item_29/id = 29
+popup/item_30/text = "1"
+popup/item_30/id = 30
+popup/item_31/text = "2"
+popup/item_31/id = 31
+popup/item_32/text = "1"
+popup/item_32/id = 32
+popup/item_33/text = "2"
+popup/item_33/id = 33
+popup/item_34/text = "1"
+popup/item_34/id = 34
+popup/item_35/text = "2"
+popup/item_35/id = 35
 
 [node name="ExtendButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
 unique_name_in_owner = true
@@ -347,7 +367,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.35
+size_flags_stretch_ratio = 0.399
 theme = ExtResource("6_1ecek")
 
 [node name="Playlist" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel"]
@@ -531,6 +551,7 @@ scroll_container = NodePath("../..")
 [node name="BoxHandle" type="Panel" parent="GuiMargin/GUI/Main"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
+mouse_default_cursor_shape = 10
 theme_override_styles/panel = SubResource("StyleBoxFlat_ppeiy")
 script = ExtResource("15_ppeiy")
 handleWidth = 8.0
@@ -540,30 +561,20 @@ metadata/_custom_type_script = "uid://e7f14mbh8f27"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.65
+size_flags_stretch_ratio = 0.597
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="GuiMargin/GUI/Main/VideoInterface"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.7
-
-[node name="HelpPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/Control"]
+[node name="HelpPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(0, 40)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.039
 theme = ExtResource("6_1ecek")
 script = ExtResource("16_u7xgt")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -573,18 +584,18 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SoftwareInfo" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer"]
+[node name="SoftwareInfo" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="VersionAndLicense" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo"]
+[node name="VersionAndLicense" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -595,7 +606,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
+[node name="TextureRect" type="TextureRect" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
 custom_minimum_size = Vector2(200, 168.57)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -603,7 +614,7 @@ texture = ExtResource("18_ys4d7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Version" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
+[node name="Version" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -615,17 +626,17 @@ text = "v 0.1.5
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="MarginContainer5" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
+[node name="MarginContainer5" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.04
 
-[node name="Licensing" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
+[node name="Licensing" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="SoftwareId" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
+[node name="SoftwareId" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
@@ -637,7 +648,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
 
-[node name="SoftwareIdValue" type="LineEdit" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
+[node name="SoftwareIdValue" type="LineEdit" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -655,12 +666,12 @@ select_all_on_focus = true
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
+[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SoftwareId2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
+[node name="SoftwareId2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.2
@@ -670,20 +681,20 @@ text = "Activation Key:"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="LicenseSubmission" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
+[node name="LicenseSubmission" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
 layout_mode = 2
 
-[node name="MarginContainer4" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission"]
+[node name="MarginContainer4" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="LicenseEdit" type="LineEdit" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission/VBoxContainer"]
+[node name="LicenseEdit" type="LineEdit" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -694,24 +705,24 @@ alignment = 1
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="LicenseCheck" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission/VBoxContainer"]
+[node name="LicenseCheck" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "☑️"
 
-[node name="MarginContainer5" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission"]
+[node name="MarginContainer5" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer3" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
+[node name="MarginContainer3" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="License2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
+[node name="License2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 1
@@ -722,7 +733,7 @@ text = "Licensed: ❌"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="LicenseStatus" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
+[node name="LicenseStatus" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -736,29 +747,29 @@ text = "Licensed: ❌
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Documentation" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer"]
+[node name="Documentation" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2"]
+[node name="ScrollContainer2" type="ScrollContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="HelpPlaylist" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+[node name="HelpPlaylist" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -767,7 +778,7 @@ theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Playlists"
 
-[node name="HelpVideos" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+[node name="HelpVideos" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -776,7 +787,7 @@ theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Videos"
 
-[node name="HelpTrim" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+[node name="HelpTrim" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -785,7 +796,7 @@ theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Trim Videos"
 
-[node name="HelpSlideshows" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+[node name="HelpSlideshows" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -794,7 +805,7 @@ theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Slideshows"
 
-[node name="HelpShortcuts" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+[node name="HelpShortcuts" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -803,7 +814,7 @@ theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Shortcuts"
 
-[node name="HelpCompanion" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+[node name="HelpCompanion" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -812,30 +823,30 @@ theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Companion"
 
-[node name="Panel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2"]
+[node name="Panel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="HelpTexts" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer"]
+[node name="HelpTexts" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HelpVideosText" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+[node name="HelpVideosText" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpVideosText"]
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpVideosText"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="HelpTrimText2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpVideosText"]
+[node name="HelpTrimText2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpVideosText"]
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -853,7 +864,7 @@ This mainly pertains to Surround Sound encoded Audio."
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HelpPlaylistText" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+[node name="HelpPlaylistText" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 0)
@@ -876,7 +887,7 @@ Right click the .exvp file and set to always open with the EXVP.exe
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HelpTrimText" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+[node name="HelpTrimText" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 0)
@@ -894,7 +905,7 @@ Scrub to a point in the video and click the corresponding in or out point button
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HelpSlideshows" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+[node name="HelpSlideshows" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 0)
@@ -912,7 +923,7 @@ After selecting a Slideshow from the Playlist, you can hover and select a pictur
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HelpShortcuts" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+[node name="HelpShortcuts" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 0)
@@ -934,7 +945,7 @@ text = "
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HelpCompanionText" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+[node name="HelpCompanionText" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
@@ -967,22 +978,17 @@ They will now live update when a video is selected and playing"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="MainVideoPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/Control"]
+[node name="MainVideoPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.705
 theme_override_styles/panel = ExtResource("20_gwpwc")
 script = ExtResource("21_lm25d")
 
-[node name="Panel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel"]
+[node name="Panel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -991,7 +997,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7kyky")
 
-[node name="VideoViewportRender" type="TextureRect" parent="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel"]
+[node name="VideoViewportRender" type="TextureRect" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -1003,26 +1009,22 @@ texture = SubResource("ViewportTexture_qpsv4")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="VideoSubViewport" type="SubViewport" parent="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel"]
+[node name="VideoSubViewport" type="SubViewport" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel"]
 unique_name_in_owner = true
 transparent_bg = true
 size = Vector2i(1920, 1080)
 
-[node name="CanvasBG" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel/VideoSubViewport"]
+[node name="CanvasBG" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(8000, 8000)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3040.0
-offset_top = -3460.0
-offset_right = 3040.0
-offset_bottom = 3460.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_y55fp")
 
-[node name="AspectPanel" type="AspectRatioContainer" parent="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel/VideoSubViewport"]
+[node name="AspectPanel" type="AspectRatioContainer" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport"]
 unique_name_in_owner = true
 clip_contents = true
 anchors_preset = 15
@@ -1032,7 +1034,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(601, 279)
 
-[node name="VideoPlayer" type="VideoStreamPlayer" parent="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel/VideoSubViewport/AspectPanel"]
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/AspectPanel"]
 unique_name_in_owner = true
 z_as_relative = false
 custom_minimum_size = Vector2(160, 90)
@@ -1042,7 +1044,7 @@ size_flags_vertical = 3
 audio_track = 1
 expand = true
 
-[node name="SlideShow" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel/VideoSubViewport"]
+[node name="SlideShow" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport"]
 unique_name_in_owner = true
 visible = false
 anchors_preset = 15
@@ -1055,14 +1057,14 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_xhq6q")
 script = ExtResource("22_6w6x4")
 
-[node name="HoldTimer" type="Timer" parent="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel/VideoSubViewport/SlideShow"]
+[node name="HoldTimer" type="Timer" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/SlideShow"]
 unique_name_in_owner = true
 wait_time = 4.0
 
-[node name="TestPattern" parent="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel/VideoSubViewport" instance=ExtResource("23_eo77p")]
+[node name="TestPattern" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport" instance=ExtResource("23_eo77p")]
 visible = false
 
-[node name="TrialTimeLabel" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel"]
+[node name="TrialTimeLabel" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -1089,7 +1091,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 250)
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
+size_flags_stretch_ratio = 0.299
 theme = ExtResource("6_1ecek")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel"]
@@ -1817,7 +1819,7 @@ size_flags_horizontal = 4
 theme = ExtResource("6_1ecek")
 theme_override_fonts/font = ExtResource("25_nw87p")
 theme_override_font_sizes/font_size = 35
-text = "127.0.0.1:8888"
+text = "127.0.0.1:8000"
 placeholder_text = "IP Address:Port"
 alignment = 1
 expand_to_text_length = true
@@ -2348,15 +2350,15 @@ wait_time = 1800.0
 [connection signal="child_entered_tree" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_video_list_child_entered_tree"]
 [connection signal="child_exiting_tree" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_video_list_child_exiting_tree"]
 [connection signal="sort_children" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" method="_on_sort_children"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission/VBoxContainer/LicenseCheck" to="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel" method="_on_license_check_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpPlaylist" to="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel" method="_on_help_playlist_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpVideos" to="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel" method="_on_help_videos_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpTrim" to="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel" method="_on_help_trim_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpSlideshows" to="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel" method="_on_help_slideshows_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpShortcuts" to="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel" method="_on_help_shortcuts_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpCompanion" to="GuiMargin/GUI/Main/VideoInterface/Control/HelpPanel" method="_on_help_companion_button_up"]
-[connection signal="finished" from="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel/VideoSubViewport/AspectPanel/VideoPlayer" to="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel" method="_on_video_player_finished"]
-[connection signal="timeout" from="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel/VideoSubViewport/SlideShow/HoldTimer" to="GuiMargin/GUI/Main/VideoInterface/Control/MainVideoPanel/VideoSubViewport/SlideShow" method="_on_hold_timer_timeout"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission/VBoxContainer/LicenseCheck" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_license_check_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpPlaylist" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_playlist_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpVideos" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_videos_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpTrim" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_trim_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpSlideshows" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_slideshows_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpShortcuts" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_shortcuts_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpCompanion" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_companion_button_up"]
+[connection signal="finished" from="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/AspectPanel/VideoPlayer" to="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel" method="_on_video_player_finished"]
+[connection signal="timeout" from="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/SlideShow/HoldTimer" to="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/SlideShow" method="_on_hold_timer_timeout"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayPause" to="." method="_on_play_pause_button_up"]
 [connection signal="drag_ended" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/PlaySlider" to="." method="_on_play_slider_drag_ended"]
 [connection signal="drag_started" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/PlaySlider" to="." method="_on_play_slider_drag_started"]

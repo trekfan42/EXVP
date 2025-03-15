@@ -43,7 +43,7 @@ window/per_pixel_transparency/allowed=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/ReorderableContainer/plugin.cfg", "res://addons/ResizeableUI/plugin.cfg", "res://addons/SliderLabel/plugin.cfg", "res://addons/acrylic_glass/plugin.cfg", "res://addons/collapsible_container/plugin.cfg", "res://addons/eranot.resizable/plugin.cfg", "res://addons/native_dialogs/plugin.cfg")
+enabled=PackedStringArray("res://addons/BoxHandle/plugin.cfg", "res://addons/ColorPreview/plugin.cfg", "res://addons/ReorderableContainer/plugin.cfg", "res://addons/SliderLabel/plugin.cfg", "res://addons/acrylic_glass/plugin.cfg", "res://addons/collapsible_container/plugin.cfg", "res://addons/eranot.resizable/plugin.cfg", "res://addons/native_dialogs/plugin.cfg")
 
 [filesystem]
 

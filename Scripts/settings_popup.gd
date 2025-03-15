@@ -36,8 +36,7 @@ func show_options(settings):
 func _on_option_button_item_selected(index: int) -> void:
 	if index == 0:
 		Global.playbackEngine = FFmpegVideoStream
-	elif index == 1:
-		Global.playbackEngine = VideoStreamVLC
+
 	Signals.setPlaybackEngine.emit(Global.playbackEngine)
 
 

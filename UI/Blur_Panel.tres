@@ -4,6 +4,6 @@
 
 [resource]
 shader = ExtResource("1_lrk7t")
-shader_parameter/blur_amount = 2.304
-shader_parameter/mix_amount = 0.475
+shader_parameter/blur_amount = -0.0359999
+shader_parameter/mix_amount = 0.409
 shader_parameter/color_over = Color(0, 0, 0, 1)

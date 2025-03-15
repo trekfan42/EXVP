@@ -9,9 +9,9 @@ func auth_validate():
 	Signals.validation.connect(update)
 	%SoftwareIdValue.text = Auth.shortId
 
-func _on_help_codecs_button_up():
+func _on_help_videos_button_up():
 	hide_all()
-	%HelpCodecText.show()
+	%HelpVideosText.show()
 
 func _on_help_trim_button_up():
 	hide_all()

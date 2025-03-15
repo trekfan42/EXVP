@@ -109,7 +109,7 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wklof"]
-bg_color = Color(0.0705882, 0.0705882, 0.0705882, 0.854902)
+bg_color = Color(0, 0, 0, 0.654902)
 corner_radius_top_left = 20
 corner_radius_bottom_left = 20
 
@@ -431,19 +431,20 @@ icon = ExtResource("12_c1m1y")
 icon_alignment = 2
 expand_icon = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist"]
+[node name="PlaylistScroller" type="ScrollContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="PlaylistEmptyHint" type="Panel" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer"]
+[node name="PlaylistEmptyHint" type="Panel" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_aarq4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/PlaylistEmptyHint"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/PlaylistEmptyHint"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -451,10 +452,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/PlaylistEmptyHint/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/PlaylistEmptyHint/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/PlaylistEmptyHint/VBoxContainer/CenterContainer"]
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/PlaylistEmptyHint/VBoxContainer/CenterContainer"]
 custom_minimum_size = Vector2(500, 400)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.499833, 0.499833, 0.499833, 1)
@@ -467,17 +468,17 @@ Drag and drop videos, individual images, or folders of images"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="vBox" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer"]
+[node name="vBox" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Deleter" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/vBox" instance=ExtResource("13_alckx")]
+[node name="Deleter" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox" instance=ExtResource("13_alckx")]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 
-[node name="VideoList" type="Container" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/vBox" node_paths=PackedStringArray("scroll_container")]
+[node name="VideoList" type="Container" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox" node_paths=PackedStringArray("scroll_container")]
 unique_name_in_owner = true
 process_mode = 1
 custom_minimum_size = Vector2(0, 270)
@@ -504,7 +505,6 @@ size_flags_stretch_ratio = 1.25
 
 [node name="HelpPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
@@ -705,19 +705,19 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 alignment = 1
 
-[node name="HelpCodecs" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "Codecs  "
-
 [node name="HelpPlaylist" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "Playlists"
+
+[node name="HelpVideos" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Videos"
 
 [node name="HelpTrim" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
@@ -757,137 +757,30 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HelpCodecText" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+[node name="HelpVideosText" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText"]
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpVideosText"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="HelpCodecText" type="GridContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText"]
-layout_mode = 2
-columns = 3
-
-[node name="HelpCodecText3" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText/HelpCodecText"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 30
-text = "h264"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpCodecText2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText/HelpCodecText"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 30
-text = "mpeg4"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpCodecText9" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText/HelpCodecText"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 30
-text = "mov"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpCodecText10" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText/HelpCodecText"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 30
-text = "m4v"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpCodecText11" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText/HelpCodecText"]
-visible = false
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 30
-text = "webm"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpCodecText5" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText/HelpCodecText"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 30
-text = "vp9"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpCodecText6" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText/HelpCodecText"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 30
-text = "mp3"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpCodecText7" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText/HelpCodecText"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 30
-text = "aac"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpCodecText8" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText/HelpCodecText"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 30
-text = "vorbis
-"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpTrimText" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText"]
+[node name="HelpTrimText2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpVideosText"]
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
-horizontal_alignment = 1
-autowrap_mode = 2
+text = "Not all Video Containers and Codecs are supported.
 
-[node name="HelpTrimText2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpCodecText"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "*mkv and webm's are not currently supported*"
+Generally most MP4's will work fine.
+Some MOV's work.
+
+More testing is needed to determine what containers and codecs play properly.
+Videos containing more than 2 Audio channels will not play the audio from any additional channels.
+This mainly pertains to Surround Sound encoded Audio."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -900,16 +793,17 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
-text = "You can save a playlist you have setup, it will retain all the data about it, including the trimmed In and Out points as well as Volume levels.
+text = "
+You can save a playlist you have setup, it will retain all the individual settings data saved in the individual items.
 
 You can either press the load button to navigate to the playlist file, or you can drag and drop the exvp file into the program.
 
-All the adjustments you made to slideshows and videos and images will be saved and recalled via saving and loading playlists.
+The playlist Items can be reordered without interupting playback.
 
-The playlist Items can be dragged to reorder them without interupting playback.
+Tip:
+Right click the .exvp file and set to always open with the EXVP.exe 
 
-Press the Advanced Button on a video  to enable Trimming.
-When enabled you will also be able to change other settings like forcing zoom and alternative aspect ratios from the playback control panel."
+"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -940,12 +834,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
-text = "Drag and drop a folder containing images into the Program and it will auto generate a Basic Slideshow with fade transitions.
+text = "
+Drag and drop a folder containing images into the Program and it will auto generate a Basic Slideshow with fade transitions.
 
 After selecting a Slideshow from the Playlist, you can hover and select a picture to skip to.
-
-You can turn on advanced mode and set the hold time and fade time and a button to shuffle the order. 
-Advanced mode will also provide cropping options in the playback control window.
 
 *for now, the only transition type is a crossfade*"
 horizontal_alignment = 1
@@ -975,7 +867,6 @@ autowrap_mode = 2
 
 [node name="HelpCompanionText" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -983,8 +874,9 @@ size_flags_vertical = 3
 theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 text = "
-Enable Advanced Mode at the Top and turn on EXVP Listen and choose your Address and Port or leave at default.
-The Companion Address should be set to whatever Companion is set to.
+Manual Companion Support can be configured:
+In options under Network, Enable EXVP Listen (Receives Commands from Companion) and choose your Address and Port or leave at default.
+The Companion Address should be set to whatever Companion is set to (Sends Playback Time and Time Remaining to Companion).
 
 In companion setup a new Generic: HTTP Requests connection. Under Base URL, enter the address in your EXVP Listen Parameter at the top of this window and name the connection label EXVP and save the Connection.
 
@@ -998,9 +890,8 @@ previous, next - selects the corresponding video in the playlist
 VolUp, VolDown - adjust the volume of the selected video
 SetIn, SetOut - Set trim points for the selected video
 
-NOTE: you must include the brackets and dollar signs.
-
 For Live In and Out Playback Times, Create 2 new buttons and set their title to \"In:\\n$(internal:custom_EXVP_In)\" and \"Out:\\n$(internal:custom_EXVP_Out)\".
+NOTE: you must include the brackets and dollar signs.
 Under the Tab titled \"$ Variables\", add 2 new custom variables to companion called \"EXVP_In\" and \"EXVP_Out\"
 
 They will now live update when a video is selected and playing"
@@ -1009,6 +900,7 @@ autowrap_mode = 2
 
 [node name="MainVideoPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 clip_contents = true
 layout_mode = 2
@@ -2371,12 +2263,12 @@ wait_time = 1800.0
 [connection signal="file_selected" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/OpenStillFileDialog" to="." method="_on_open_still_file_dialog_file_selected"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/LoopToggle" to="." method="_on_loop_toggle_button_up"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/AutoToggle" to="." method="_on_auto_toggle_button_up"]
-[connection signal="child_entered_tree" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_video_list_child_entered_tree"]
-[connection signal="child_exiting_tree" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_video_list_child_exiting_tree"]
-[connection signal="sort_children" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist/ScrollContainer/vBox/VideoList" method="_on_sort_children"]
+[connection signal="child_entered_tree" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_video_list_child_entered_tree"]
+[connection signal="child_exiting_tree" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_video_list_child_exiting_tree"]
+[connection signal="sort_children" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" method="_on_sort_children"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission/VBoxContainer/LicenseCheck" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_license_check_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpCodecs" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_codecs_button_up"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpPlaylist" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_playlist_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpVideos" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_videos_button_up"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpTrim" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_trim_button_up"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpSlideshows" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_slideshows_button_up"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpShortcuts" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_shortcuts_button_up"]

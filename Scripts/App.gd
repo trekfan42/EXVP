@@ -571,7 +571,8 @@ func _on_video_player_finished():
 			nextVideoNode._on_select_video_button_button_up()
 			_on_play_pause_button_up()
 			print("playing next item")
-		
+			%PlaylistScroller.scroll_vertical =  nextVideoNode.position.y
+
 	else:
 		Signals.stopVideo.emit()
 		print("not looping")

@@ -1,7 +1,5 @@
 extends VBoxContainer
 
-
-
 var videoItem = preload("res://Scenes/playlist_video_item.tscn")
 var slideshowItem = preload("res://Scenes/playlist_slideshow_item.tscn")
 var stillItem = preload("res://Scenes/playlist_still_item.tscn")

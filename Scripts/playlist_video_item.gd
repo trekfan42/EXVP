@@ -11,6 +11,8 @@ extends VBoxContainer
 
 var type = "video"
 
+var loaded = false
+
 var title
 var aspect
 var crop
@@ -27,7 +29,7 @@ var itemData = {
 	"height": null,
 	"volume": 0,
 	"muted": false,
-	"crop": 0
+	"crop": 3
 }
 
 var tempSettings = {
@@ -35,7 +37,7 @@ var tempSettings = {
 	"endPoint": null,
 	"volume": 0,
 	"muted": false,
-	"crop": 0
+	"crop": 3
 }
 
 var id:
@@ -49,15 +51,14 @@ var frame
 var thread: Thread
 
 func _ready():
-	%LoadingSprite.play("default")
+	%Spinner.status = 1
 	thumbPlayer.visible = false
 	Signals.queueItem.connect(queue_check)
 	videoLabel.text = "🎬 " + title + "." + itemData["path"].get_extension()
 	%VideoSettings.hide()
 	load_thumb()
 	
-	for k in tempSettings.keys():
-		tempSettings[k] = itemData[k]
+
 
 func load_thumb():
 	thread = Thread.new()
@@ -69,8 +70,8 @@ func load_video():
 	thumbPlayer.stream = load(itemData["path"])
 	itemData["length"] = int(ceil(thumbPlayer.get_stream_length()))
 	print("video length: ", itemData["length"])
-	itemData["height"] = thumbPlayer.get_video_texture().get_size().y
-	itemData["width"] = thumbPlayer.get_video_texture().get_size().x
+	itemData["height"] = int(thumbPlayer.get_video_texture().get_size().y)
+	itemData["width"] = int(thumbPlayer.get_video_texture().get_size().x)
 	print("video size x: ", itemData["width"])
 	print("video size y: ", itemData["height"])
 	thumbAspect.ratio = itemData["width"] / itemData["height"]
@@ -79,24 +80,35 @@ func load_video():
 	thumbPlayer.set_stream_position(itemData["length"] / 2)
 	var stillFrame = thumbPlayer.get_stream_position()
 	tol.text = Utils.Secs_To_MMSS(itemData["length"])
-	itemData["endPoint"] = itemData["length"]
 	
 	
 	
 	
 	
 	call_deferred("loaded_thumb")
-	trimControl.setup_controls()
 	return stillFrame
 
 func loaded_thumb():
 	frame = thread.wait_to_finish()
+	
+	if !loaded:
+		itemData["endPoint"] = itemData["length"]
+		itemData["startPoint"] = 0
+	
+	for k in tempSettings.keys():
+		tempSettings[k] = itemData[k]
+	
+	trimControl.setup_controls()
+	
+	print("trim settings: ")
+	print(trimControl.start_trim)
+
 
 
 func _process(_delta):
 	if thumbPlayer.paused == false and frame:
 		if thumbPlayer.get_stream_position() > frame + 0.5:
-			%LoadingSprite.stop()
+			%Spinner.status = 0
 			%Loading.hide()
 			thumbAspect.visible = true
 			thumbPlayer.visible = true
@@ -125,14 +137,6 @@ func _on_select_video_button_button_up():
 	Global.activeType = type
 	Signals.queueItem.emit(type,itemData)
 
-func _on_move_down_button_button_up():
-	var index = self.get_index() + 1
-	Signals.sort.emit(self,index)
-
-
-func _on_move_up_button_button_up():
-	var index = self.get_index() - 1
-	Signals.sort.emit(self,index)
 
 func set_volume(dB):
 	tempSettings["volume"] = dB
@@ -236,22 +240,23 @@ func check_new_settings():
 		%SaveSettings.hide()
 
 func _on_save_settings_button_up() -> void:
-	print("Original Video Settings: ")
-	print(itemData)
+
 	for k in tempSettings.keys():
 		itemData[k] = tempSettings[k]
-	print("New Video Settings: ")
 	print(itemData)
 	%SaveSettings.hide()
 
 
 func _on_toggle_settings_button_up() -> void:
+	print(itemData)
 	%VideoSettings.visible = !%VideoSettings.visible
+	check_new_settings()
 	if %VideoSettings.visible:
 		self.custom_minimum_size.y = 270
+		trimControl.setup_controls()
 	else:
 		self.custom_minimum_size.y = 120
-	check_new_settings()
+	
 
 
 func _on_volume_slider_value_changed(value: float) -> void:

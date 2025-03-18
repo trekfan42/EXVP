@@ -1,0 +1,157 @@
+{
+	"categories": [
+		{
+			"uuid": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"title": "Task",
+			"color": "50f7b1"
+		},
+		{
+			"uuid": "76176fba-a7c9-400b-86cc-3ee8a98d660b",
+			"title": "Bug",
+			"color": "d53e90"
+		},
+		{
+			"uuid": "8d5ec785-9c6f-498f-8dac-3c14cbe96917",
+			"title": "Refactor",
+			"color": "017dcb"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "691899f9-24d0-480a-b342-fc182f18bc8b",
+			"title": "Maybe",
+			"tasks": [
+				"0ad942a5-3e4f-4aa0-931b-8b568cde893b",
+				"8e188c0f-5044-4615-aafc-7c299a1942bd",
+				"8e5641bc-11de-41ec-b359-d46d26d9ac99",
+				"c922b7b7-b000-4611-b71b-20c6bcfdee2d",
+				"2f865af5-608b-4d6b-ae21-dd37e0f688e8",
+				"d5d864bd-d385-4d34-8a2e-993d2e7b0383",
+				"dc6cefac-30aa-4384-9f04-16708cddb9e1",
+				"dce6f79b-0aad-46ce-b187-3231b15277c0"
+			]
+		},
+		{
+			"uuid": "18884567-d4bd-43a9-a561-ecbe0b29dc4e",
+			"title": "Todo",
+			"tasks": [
+				"8090ab83-1007-4485-9bbb-16b52fcffd90",
+				"60111a5d-375e-45e3-aeef-0e84aa85f342",
+				"c07d529a-2f1a-4247-b51b-aad4a0b6e0bd",
+				"bd80f3b0-7654-4612-9abf-b8d76e627963"
+			]
+		},
+		{
+			"uuid": "b8718162-60eb-44a6-baf5-e8721efa2336",
+			"title": "WIP",
+			"tasks": []
+		},
+		{
+			"uuid": "f989b670-45e5-44a0-94e9-2973ba0c8529",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "2f865af5-608b-4d6b-ae21-dd37e0f688e8",
+			"title": "Add Gif Support",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "8090ab83-1007-4485-9bbb-16b52fcffd90",
+			"title": "Add audio file support (w/ Waveform plugin)",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "c922b7b7-b000-4611-b71b-20c6bcfdee2d",
+			"title": "Add more slideshow transitions",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "0ad942a5-3e4f-4aa0-931b-8b568cde893b",
+			"title": "Decklink Output Support",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "8e188c0f-5044-4615-aafc-7c299a1942bd",
+			"title": "fix audio tracks in ffmpeg plugin",
+			"description": "",
+			"category": "76176fba-a7c9-400b-86cc-3ee8a98d660b",
+			"steps": []
+		},
+		{
+			"uuid": "8e5641bc-11de-41ec-b359-d46d26d9ac99",
+			"title": "test other decoder options",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "60111a5d-375e-45e3-aeef-0e84aa85f342",
+			"title": "test and fix still image crop settings",
+			"description": "",
+			"category": "76176fba-a7c9-400b-86cc-3ee8a98d660b",
+			"steps": []
+		},
+		{
+			"uuid": "d5d864bd-d385-4d34-8a2e-993d2e7b0383",
+			"title": "Build real Companion Plugin",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "c07d529a-2f1a-4247-b51b-aad4a0b6e0bd",
+			"title": "remove vlc option from decoder settings",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "dc6cefac-30aa-4384-9f04-16708cddb9e1",
+			"title": "Preview Info Extended monitor",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "dce6f79b-0aad-46ce-b187-3231b15277c0",
+			"title": "QR code Generator",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "bd80f3b0-7654-4612-9abf-b8d76e627963",
+			"title": "OSC Support",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"691899f9-24d0-480a-b342-fc182f18bc8b"
+			],
+			[
+				"18884567-d4bd-43a9-a561-ecbe0b29dc4e"
+			],
+			[
+				"b8718162-60eb-44a6-baf5-e8721efa2336"
+			],
+			[
+				"f989b670-45e5-44a0-94e9-2973ba0c8529"
+			]
+		]
+	}
+}

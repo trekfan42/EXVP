@@ -1,13 +1,7 @@
-extends Panel
-
+extends MarginContainer
 
 func _ready():
-	pass
-	#auth_validate()
-
-func auth_validate():
-	Signals.validation.connect(update)
-	%SoftwareIdValue.text = Auth.shortId
+	_on_help_playlist_button_up()
 
 func _on_help_videos_button_up():
 	hide_all()
@@ -36,22 +30,3 @@ func _on_help_companion_button_up():
 func hide_all():
 	for t in %HelpTexts.get_children():
 		t.visible = false
-
-
-
-
-func _on_license_check_button_up():
-	Auth.check_key(%LicenseEdit.text)
-
-
-func update(status):
-	if status == true:
-		%LicenseStatus.visible = true
-		%LicenseStatus.text = "Licensed: ✅\n\n"
-		%Licensing.visible = false
-		%TrialTimeLabel.visible = false
-		%Trial.stop()
-	else:
-		%LicenseStatus.visible = true
-		%LicenseStatus.text = "Invalid License!\n\n"
-		%Licensing.visible = true

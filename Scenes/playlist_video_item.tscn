@@ -1,32 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://u4crhswqhdla"]
+[gd_scene load_steps=19 format=3 uid="uid://u4crhswqhdla"]
 
 [ext_resource type="Script" uid="uid://vveeaeu5hkhu" path="res://Scripts/playlist_video_item.gd" id="1_5jm80"]
 [ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="2_aevha"]
 [ext_resource type="Texture2D" uid="uid://eo4m77ua0lnm" path="res://UI/Icons/Menu white.png" id="3_m5oje"]
 [ext_resource type="StyleBox" uid="uid://dlrvrktbno7fs" path="res://UI/UI_Panel_Dark_Rounded.tres" id="3_sxmns"]
-[ext_resource type="Texture2D" uid="uid://cbxj54cd8kn2n" path="res://UI/LoadingAnim/loadcircle1.png" id="4_sxmns"]
-[ext_resource type="Texture2D" uid="uid://bwvdqq2guqry2" path="res://UI/LoadingAnim/loadcircle2.png" id="5_5gba1"]
-[ext_resource type="Texture2D" uid="uid://bd07fqpc54uyu" path="res://UI/LoadingAnim/loadcircle3.png" id="6_feeei"]
-[ext_resource type="Texture2D" uid="uid://bmjx114m6xsyw" path="res://UI/LoadingAnim/loadcircle4.png" id="7_y6yyk"]
-[ext_resource type="Texture2D" uid="uid://x24k65bx7wrc" path="res://UI/LoadingAnim/loadcircle5.png" id="8_3cb4x"]
-[ext_resource type="Texture2D" uid="uid://clujwpcoh8ucq" path="res://UI/LoadingAnim/loadcircle6.png" id="9_xhm7i"]
-[ext_resource type="Texture2D" uid="uid://cuoptn0ypc12s" path="res://UI/LoadingAnim/loadcircle7.png" id="10_ocqqd"]
-[ext_resource type="Texture2D" uid="uid://bhsen2hrjasft" path="res://UI/LoadingAnim/loadcircle8.png" id="11_boy1g"]
-[ext_resource type="Texture2D" uid="uid://cg0mrfgo7m6fh" path="res://UI/LoadingAnim/loadcircle9.png" id="12_2gavg"]
-[ext_resource type="Texture2D" uid="uid://dq5rn5xphoj0g" path="res://UI/LoadingAnim/loadcircle10.png" id="13_4rpw3"]
-[ext_resource type="Texture2D" uid="uid://db3k017f6eids" path="res://UI/LoadingAnim/loadcircle11.png" id="14_w77lb"]
-[ext_resource type="Texture2D" uid="uid://b85dn7xq3nbly" path="res://UI/LoadingAnim/loadcircle12.png" id="15_h6j65"]
-[ext_resource type="Texture2D" uid="uid://8hmbm44vrb28" path="res://UI/LoadingAnim/loadcircle13.png" id="16_3k50k"]
-[ext_resource type="Texture2D" uid="uid://bfihou17kh1i6" path="res://UI/LoadingAnim/loadcircle14.png" id="17_u0kmy"]
-[ext_resource type="Texture2D" uid="uid://cenluwablathc" path="res://UI/LoadingAnim/loadcircle15.png" id="18_8xvo6"]
-[ext_resource type="Texture2D" uid="uid://cxp8621jpgcs4" path="res://UI/LoadingAnim/loadcircle16.png" id="19_8kqfd"]
-[ext_resource type="Texture2D" uid="uid://b7e2nf6tkgrxk" path="res://UI/LoadingAnim/loadcircle17.png" id="20_q3qd0"]
-[ext_resource type="Texture2D" uid="uid://ckstss3j3h3xc" path="res://UI/LoadingAnim/loadcircle18.png" id="21_mqgau"]
-[ext_resource type="Texture2D" uid="uid://cwuea7sah415x" path="res://UI/LoadingAnim/loadcircle19.png" id="22_oaasx"]
-[ext_resource type="Texture2D" uid="uid://bu677spy68qq2" path="res://UI/LoadingAnim/loadcircle20.png" id="23_ragjk"]
-[ext_resource type="Texture2D" uid="uid://dsrkgxrkdmdme" path="res://UI/LoadingAnim/loadcircle21.png" id="24_dcuqw"]
-[ext_resource type="Texture2D" uid="uid://bsdfgckqggwii" path="res://UI/LoadingAnim/loadcircle22.png" id="25_sv4as"]
-[ext_resource type="Texture2D" uid="uid://bo2h3ymjtrdsc" path="res://UI/LoadingAnim/loadcircle23.png" id="26_06dox"]
+[ext_resource type="Script" uid="uid://0jo27toou14d" path="res://addons/tattomoosa.spinner/spinner.gd" id="5_j7q06"]
 [ext_resource type="FontFile" uid="uid://plebch4bpsf7" path="res://UI/Fonts/digital-7 (mono).ttf" id="28_5gba1"]
 [ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="29_feeei"]
 [ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="30_5gba1"]
@@ -34,86 +12,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5m6c"]
 size = Vector2(36, 120)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4u7xn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_sxmns")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_5gba1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_feeei")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_y6yyk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_3cb4x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_xhm7i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_ocqqd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_boy1g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_boy1g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_2gavg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_4rpw3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_w77lb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_h6j65")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_3k50k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_u0kmy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_8xvo6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_8kqfd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_q3qd0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_mqgau")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_oaasx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_ragjk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_dcuqw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_sv4as")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_06dox")
-}],
-"loop": true,
-"name": &"default",
-"speed": 50.0
-}]
 
 [sub_resource type="FFmpegVideoStream" id="FFmpegVideoStream_sxmns"]
 resource_local_to_scene = true
@@ -129,6 +27,9 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feeei"]
+bg_color = Color(0.00784314, 0.705882, 0.937255, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3cb4x"]
 bg_color = Color(0, 0, 0, 0.721569)
@@ -227,17 +128,73 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Loading" type="CenterContainer" parent="Panel/HBoxContainer/HBoxContainer"]
+[node name="Loading" type="MarginContainer" parent="Panel/HBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 
-[node name="LoadingSprite" type="AnimatedSprite2D" parent="Panel/HBoxContainer/HBoxContainer/Loading"]
+[node name="Spinner" type="Range" parent="Panel/HBoxContainer/HBoxContainer/Loading"]
+_import_path = NodePath("")
 unique_name_in_owner = true
-position = Vector2(110, 62)
-sprite_frames = SubResource("SpriteFrames_4u7xn")
-frame = 2
-frame_progress = 0.218527
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_direction = 0
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 0
+mouse_filter = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+theme = null
+theme_type_variation = &""
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 0.0
+exp_edit = false
+rounded = false
+allow_greater = false
+allow_lesser = false
+script = ExtResource("5_j7q06")
+border_width = 0.2
+spin_fill_percent = 0.3
+spin_revolution_per_second = 1.5
+color_progress = Color(0.00784314, 0.705882, 0.937255, 1)
+color_background = Color(0, 0, 0, 0)
+metadata/_custom_type_script = "uid://0jo27toou14d"
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel/HBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -366,7 +323,7 @@ size_flags_horizontal = 4
 theme = ExtResource("2_aevha")
 theme_override_font_sizes/font_size = 30
 alignment = 1
-selected = 0
+selected = 3
 item_count = 4
 popup/item_0/text = "Fit Within"
 popup/item_0/id = 0
@@ -396,6 +353,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_feeei")
 min_value = -80.0
 max_value = 20.0
 rounded = true

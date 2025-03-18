@@ -5,18 +5,20 @@ extends VBoxContainer
 
 var type = "still"
 
+var loaded = false
+
 var title
 
 # [pics,holdTime,fadeTime,crop,bgColor]
 var itemData = {
 	"path": null,
-	"crop": 1,
+	"crop": 3,
 	"bgColor": Color(0,0,0),
 }
 
 
 var tempSettings = {
-	"crop": 1,
+	"crop": 3,
 	"bgColor": Color(0,0,0),
 }
 
@@ -30,6 +32,8 @@ func _ready():
 	Signals.queueItem.connect(queue_check)
 	Signals.Option.connect(still_options)
 	%StillSettings.hide()
+	%AspectOptionButton.selected = itemData["crop"]
+	
 	if title.length() > 20:
 		imageLabel.text = "🖼️ " + title.substr(0,20) + "..."
 	else:

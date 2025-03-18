@@ -2,18 +2,17 @@ extends Panel
 
 const NDI_OUTPUT_SCENE = preload("res://Scenes/ndi_output_scene.tscn")
 
-const APP_BG = preload("res://UI/AppBG.jpg")
-
 var ndiNode
 
 func _ready() -> void:
 	%UIScaleEdit.text = str(Global.uiScale)
 	Global.uiScale = float(%UIScaleEdit.text)
+	Signals.changedBG.connect(_on_open_still_file_dialog_file_selected)
+	_on_reset_bg_button_up()
 	%ResetBG.hide()
 
 func _on_settings_close_button_button_up() -> void:
-	self.get_parent().hide()
-	self.hide()
+	Global.app.toggle_options()
 
 func _on_options_output_button_up() -> void:
 	show_options("OutputSettings")
@@ -24,6 +23,17 @@ func _on_options_network_button_up() -> void:
 
 func _on_options_advanced_button_up() -> void:
 	show_options("AdvancedSettings")
+
+func _on_help_button_up() -> void:
+	show_options("InfoDocumentation")
+
+
+func _on_about_button_up() -> void:
+	show_options("InfoAbout")
+
+
+func _on_registration_button_up() -> void:
+	show_options("InfoRegistration")
 
 func show_options(settings):
 	for e in %SettingsOptions.get_children():
@@ -36,8 +46,6 @@ func show_options(settings):
 func _on_option_button_item_selected(index: int) -> void:
 	if index == 0:
 		Global.playbackEngine = FFmpegVideoStream
-	elif index == 1:
-		Global.playbackEngine = VideoStreamVLC
 	Signals.setPlaybackEngine.emit(Global.playbackEngine)
 
 
@@ -57,11 +65,21 @@ func _on_ndi_toggle_button_up() -> void:
 
 
 func _on_res_width_text_submitted(new_text: String) -> void:
-	Global.outputResolution.x = int(new_text)
+	if int(new_text):
+		if Global.outputResolution.x != abs(int(new_text)):
+			Global.outputResolution = Vector2i(abs(int(new_text)) , Global.outputResolution.y)
+			%ResWidth.text = str(Global.outputResolution.x)
+	else:
+		%ResWidth.text = str(Global.outputResolution.x)
 
 
 func _on_res_height_text_submitted(new_text: String) -> void:
-	Global.outputResolution.y = int(new_text)
+	if int(new_text):
+		if Global.outputResolution.y != abs(int(new_text)):
+			Global.outputResolution = Vector2i(Global.outputResolution.x , abs(int(new_text)))
+			%ResHeight.text = str(Global.outputResolution.y)
+	else:
+		%ResHeight.text = str(Global.outputResolution.y)
 
 
 
@@ -95,11 +113,21 @@ func _on_scale_down_button_button_up() -> void:
 
 
 func _on_res_height_focus_exited() -> void:
-	Global.outputResolution.y = int(%ResHeight.text)
+	if int(%ResHeight.text):
+		if Global.outputResolution.y != abs(int(%ResHeight.text)):
+			Global.outputResolution = Vector2i(Global.outputResolution.x , abs(int(%ResHeight.text)))
+			%ResHeight.text = str(Global.outputResolution.y)
+	else:
+		%ResHeight.text = str(Global.outputResolution.y)
 
 
 func _on_res_width_focus_exited() -> void:
-	Global.outputResolution.y = int(%ResWidth.text)
+	if int(%ResWidth.text):
+		if Global.outputResolution.x != abs(int(%ResWidth.text)):
+			Global.outputResolution = Vector2i(abs(int(%ResWidth.text)) , Global.outputResolution.y)
+			%ResWidth.text = str(Global.outputResolution.x)
+	else:
+		%ResWidth.text = str(Global.outputResolution.x)
 
 
 func _on_fps_text_submitted(new_text: String) -> void:
@@ -122,5 +150,49 @@ func _on_bg_image_load_button_up() -> void:
 
 
 func _on_reset_bg_button_up() -> void:
-	%BGPic.texture = APP_BG
+	_on_open_still_file_dialog_file_selected(Global.defaultBG)
 	%ResetBG.hide()
+
+
+func _on_blur_color_picker_color_changed(color: Color) -> void:
+	%BGBlur.material.set_shader_parameter("color_over", color)
+
+
+func _on_blur_strength_slider_value_changed(value: float) -> void:
+	%BGBlur.material.set_shader_parameter("blur_amount", value)
+	%BlurStrengthEdit.text = str(value)
+
+func _on_blur_strength_edit_text_submitted(new_text: String) -> void:
+	if int(new_text):
+		%BGBlur.material.set_shader_parameter("blur_amount", int(new_text))
+		%BlurStrengthSlider.value = float(new_text)
+	else:
+		%BlurStrengthEdit.text = %BGBlur.material.get_shader_parameter("blur_amount")
+
+
+func _on_blur_strength_edit_focus_exited() -> void:
+	if int(%BlurStrengthEdit.text):
+		%BGBlur.material.set_shader_parameter("blur_amount", int(%BlurStrengthEdit.text))
+		%BlurStrengthSlider.value = float(%BlurStrengthEdit.text)
+	else:
+		%BlurStrengthEdit.text = %BGBlur.material.get_shader_parameter("blur_amount")
+
+
+func _on_blur_color_mix_slider_value_changed(value: float) -> void:
+	%BGBlur.material.set_shader_parameter("mix_amount", value)
+	%BlurColorMixEdit.text = str(value)
+
+func _on_blur_color_mix_edit_text_submitted(new_text: String) -> void:
+	if int(new_text):
+		%BGBlur.material.set_shader_parameter("mix_amount", int(new_text))
+		%BlurColorMixSlider.value = float(new_text)
+	else:
+		%BlurColorMixEdit.text = %BGBlur.material.get_shader_parameter("mix_amount")
+
+
+func _on_blur_color_mix_edit_focus_exited() -> void:
+	if int(%BlurColorMixEdit.text):
+		%BGBlur.material.set_shader_parameter("mix_amount", int(%BlurColorMixEdit.text))
+		%BlurColorMixSlider.value = float(%BlurColorMixEdit.text)
+	else:
+		%BlurColorMixEdit.text = %BGBlur.material.get_shader_parameter("mix_amount")

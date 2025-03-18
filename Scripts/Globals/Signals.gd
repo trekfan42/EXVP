@@ -12,6 +12,7 @@ signal sort
 signal loadPics
 
 signal changedResolution
+signal changedBG
 
 signal slide
 signal startSlides

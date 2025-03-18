@@ -28,7 +28,7 @@ func toggle_listener():
 func run_command(rxCommand):
 	if listening:
 		if rxCommand == "play":
-			Signals.pauseToggle.emit()
+			Global.app.set_play_icon()
 		if rxCommand == "next":
 			Global.app.go_to_video(rxCommand)
 		if rxCommand == "previous":
@@ -57,12 +57,14 @@ func update_time(timeElapsed,timeLeft):
 		%HTTPRequest2.request(command2)
 		http2Active = true
 
-func _on_http_request_1_request_completed(_result, response_code, _headers, _body):
+func _on_http_request_1_request_completed(_result, response_code, _headers, body):
+	print(body)
 	if response_code == 200:
 		%HTTPRequest1.cancel_request()
 		http1Active = false
 
-func _on_http_request_2_request_completed(_result, response_code, _headers, _body):
+func _on_http_request_2_request_completed(_result, response_code, _headers, body):
+	print(body)
 	if response_code == 200:
 		%HTTPRequest2.cancel_request()
 		http2Active = false

@@ -41,5 +41,12 @@ var uiScale:float = 0.8:
 		uiScale = value
 		get_window().content_scale_factor = uiScale
 
-var videoExts = ["mp4","MP4","m4v","M4V","mov","MOV","mkv","MKV"]
-var picExts = ["jpeg","jpg","JPG","JPEG","png","PNG"]
+
+var defaultBG = "res://UI/AppBG.jpg"
+var bgImage: Image:
+	set(value):
+		bgImage = value
+		Signals.changedBG.emit()
+
+var videoExts = ["mp4","MP4","m4v","M4V","mov","MOV","mkv","MKV","webm","WEBM"]
+var picExts = ["jpeg","jpg","JPG","JPEG","png","PNG","webp","WEBP","svg","SVG"]

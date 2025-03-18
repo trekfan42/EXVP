@@ -11,23 +11,25 @@ var slideshowThumb = preload("res://Scenes/slideshow_thumb.tscn")
 
 var type = "slideshow"
 
+var loaded = false
+
 var title
 
 # [pics,holdTime,fadeTime,crop,bgColor]
-var itemData = {
+@export var itemData : Dictionary  = {
 	"folder": null,
 	"pics": [],
 	"holdTime": 4.0,
 	"fadeTime": 1.5,
-	"crop": 1,
+	"crop": 3,
 	"bgColor": Color(0,0,0),
 }
 
-var tempSettings = {
+@export var tempSettings : Dictionary  = {
 	"pics": [],
 	"holdTime": 4.0,
 	"fadeTime": 1.5,
-	"crop": 1,
+	"crop": 3,
 	"bgColor": Color(0,0,0),
 }
 
@@ -45,14 +47,20 @@ func _ready():
 	folderLabel.text = "🎞️ " + title
 	%HoldTime.text = str(itemData["holdTime"])
 	%FadeTime.text = str(itemData["fadeTime"])
+	%AspectOptionButton.selected = itemData["crop"]
+	
 	%SlideshowSettings.hide()
-	var exts = ["png","jpg"]
 	var files = []
 	files = DirAccess.get_files_at(itemData["folder"])
 	for f in files:
-		if f.get_extension() in exts:
+		if f.get_extension() in Global.picExts:
 			#itemData["pics"].append(itemData["folder"] + "\\" + f)
 			load_thumb(itemData["folder"] + "\\" + f)
+	
+	for t in thumbs.get_children():
+		itemData["pics"] = []
+		itemData["pics"].append(t)
+	tempSettings["pics"] = itemData["pics"]
 	
 	for k in tempSettings.keys():
 		tempSettings[k] = itemData[k]
@@ -67,7 +75,6 @@ func load_thumb(path):
 
 
 func queue_check(_type , _itemData):
-	
 	if Global.activeIndex == self.get_index():
 		%SelectVideoButton.text = "✅"
 	else:
@@ -115,27 +122,23 @@ func get_thumb_pics():
 
 
 
-func _on_move_down_button_button_up():
-	var index = self.get_index() + 1
-	Signals.sort.emit(self,index)
-
-
-func _on_move_up_button_button_up():
-	var index = self.get_index() - 1
-	Signals.sort.emit(self,index)
-
 func slideshow_options(status):
 	%OptionButtons.visible = status
 	thumbs.visible = !status
 	%RemoveVideoButton.visible = status
 
 func _on_shuffle_button_button_up():
+	print(tempSettings["pics"])
+	print(itemData["pics"])
+	print("Shuffling...")
 	tempSettings["pics"].shuffle()
 	for p in tempSettings["pics"]:
-		var newIndex = itemData["pics"].find(p)
+		var newIndex = tempSettings["pics"].find(p)
 		for t in thumbs.get_children():
-			if t.picPath == p:
+			if t.picPath == p.picPath:
 				thumbs.move_child(t,newIndex)
+	print(tempSettings["pics"])
+	print(itemData["pics"])
 	check_new_settings()
 
 
@@ -204,7 +207,7 @@ func _on_save_settings_button_up() -> void:
 func _on_toggle_settings_button_up() -> void:
 	%SlideshowSettings.visible = !%SlideshowSettings.visible
 	if %SlideshowSettings.visible:
-		self.custom_minimum_size.y = 200
+		self.custom_minimum_size.y = 220
 	else:
 		self.custom_minimum_size.y = 120
 	check_new_settings()

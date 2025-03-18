@@ -1,11 +1,11 @@
-[gd_scene load_steps=53 format=3 uid="uid://bsh644wahgog1"]
+[gd_scene load_steps=66 format=3 uid="uid://bsh644wahgog1"]
 
 [ext_resource type="Script" uid="uid://c5a4exqhv1vm2" path="res://Scripts/App.gd" id="1_ppeiy"]
 [ext_resource type="Script" uid="uid://bvhr7xs4d4y5n" path="res://Scripts/network_control.gd" id="2_rk4uy"]
-[ext_resource type="Texture2D" uid="uid://b2ugpxq1704r4" path="res://UI/AppBG.jpg" id="3_tqbqh"]
 [ext_resource type="Material" uid="uid://de57w5nfql88n" path="res://UI/Blur_Panel.tres" id="4_0cp3q"]
 [ext_resource type="Script" uid="uid://dn5xjbyaj00he" path="res://Scripts/Header.gd" id="5_ps8iq"]
 [ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="6_1ecek"]
+[ext_resource type="Script" uid="uid://0jo27toou14d" path="res://addons/tattomoosa.spinner/spinner.gd" id="7_0cp3q"]
 [ext_resource type="Theme" uid="uid://badl71unfh8t8" path="res://UI/Blur UI Theme_digi_popup.tres" id="7_v6puv"]
 [ext_resource type="FontFile" uid="uid://plebch4bpsf7" path="res://UI/Fonts/digital-7 (mono).ttf" id="8_ebo8a"]
 [ext_resource type="Texture2D" uid="uid://by6hpm1vi7wim" path="res://UI/Icons/Output.png" id="9_6bisl"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://oh7hp12kh874" path="res://UI/Icons/auto off.png" id="12_c1m1y"]
 [ext_resource type="PackedScene" uid="uid://cyecs3e3rri12" path="res://Scenes/deleter.tscn" id="13_alckx"]
 [ext_resource type="Script" uid="uid://cjfpni6vdw5bg" path="res://addons/ReorderableContainer/reorderable_vbox.gd" id="14_vpbto"]
-[ext_resource type="Script" uid="uid://dkpxgtqwnqnal" path="res://addons/ResizeableUI/handle.gd" id="15_jhlnk"]
+[ext_resource type="Script" uid="uid://c523op1sm3d4l" path="res://addons/BoxHandle/handle.gd" id="15_ppeiy"]
 [ext_resource type="Script" uid="uid://bqqtwuif7cfn0" path="res://Scripts/HelpPanel.gd" id="16_u7xgt"]
 [ext_resource type="FontFile" uid="uid://lfva2bj268gt" path="res://UI/Fonts/Quapox.otf" id="17_l5517"]
 [ext_resource type="Texture2D" uid="uid://bblymoej002b4" path="res://UI/LogoDS.png" id="18_ys4d7"]
@@ -29,6 +29,8 @@
 [ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="27_32h1h"]
 [ext_resource type="Script" uid="uid://b67sxgvwxs7sa" path="res://Scripts/settings_popup.gd" id="28_a1vo4"]
 [ext_resource type="Texture2D" uid="uid://b3yx41hdirdkt" path="res://UI/Icons/quitIcon.png" id="29_08mex"]
+[ext_resource type="Script" uid="uid://c7nh2dksayrcs" path="res://UI/registration.gd" id="29_rk4uy"]
+[ext_resource type="Script" uid="uid://pyiiaatc44w6" path="res://UI/tree_test.gd" id="29_tqbqh"]
 [ext_resource type="Theme" uid="uid://cdbrut6wovxlv" path="res://UI/Pink_Button_theme.tres" id="30_tt88v"]
 [ext_resource type="Texture2D" uid="uid://bhmsvb2u32p6x" path="res://UI/Icons/loop on.png" id="31_lgrhx"]
 [ext_resource type="StyleBox" uid="uid://cico20v4xewji" path="res://UI/PopupPanelBG.tres" id="32_2hx6r"]
@@ -36,7 +38,36 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_aarq4"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppeiy"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk4uy"]
+bg_color = Color(0.163539, 0.575673, 0.882466, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixia8"]
+bg_color = Color(0.02, 0.02, 0.02, 0.67451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr0lj"]
+bg_color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aarq4"]
+bg_color = Color(0, 0, 0, 0.47451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfw64"]
+bg_color = Color(0.294395, 0.294395, 0.294395, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aarq4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ps8iq"]
+bg_color = Color(0, 0, 0, 0.72549)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kyky"]
 bg_color = Color(0, 0, 0, 0.741176)
@@ -49,6 +80,9 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhq6q"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ecek"]
+bg_color = Color(0, 0, 0, 0.72549)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e13ls"]
 bg_color = Color(0, 0, 0, 0.458824)
@@ -66,26 +100,59 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqbqh"]
+bg_color = Color(0.819608, 0.0980392, 0.486275, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_op337"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cp3q"]
+bg_color = Color(0.00784314, 0.705882, 0.937255, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wjou"]
 bg_color = Color(0, 0, 0, 0.709804)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixia8"]
-bg_color = Color(0.0177324, 0.0177324, 0.0177324, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebo8a"]
+bg_color = Color(0.56073, 0, 0.173822, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ysod"]
-bg_color = Color(0.0475577, 0.0475577, 0.0475576, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bisl"]
+bg_color = Color(0.306046, 0, 0.0784162, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr0lj"]
-bg_color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ie54u"]
+bg_color = Color(0.8, 0, 0.262745, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aarq4"]
-bg_color = Color(0.0687983, 0.0687983, 0.0687982, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5l31f"]
+bg_color = Color(9.62615e-08, 0.416513, 0.236508, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfw64"]
-bg_color = Color(0.294395, 0.294395, 0.294395, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1m1y"]
+bg_color = Color(0, 0.282798, 0.153336, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alckx"]
+bg_color = Color(4.33177e-07, 0.592385, 0.343391, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="Animation" id="Animation_ojmq8"]
 resource_name = "fade_out"
@@ -137,7 +204,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_tqbqh")
 expand_mode = 3
 stretch_mode = 6
 
@@ -193,30 +259,30 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 script = ExtResource("5_ps8iq")
 
-[node name="SavePlaylistButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
-custom_minimum_size = Vector2(110, 0)
+[node name="BundleSavePlaylistButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 tooltip_text = "Save current Playlist"
 focus_mode = 0
 theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
-text = "💾 Save"
+text = "💾"
 
-[node name="SavePlaylistDialog" type="NativeFileDialog" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/SavePlaylistButton"]
-title = "Save Playlist"
+[node name="BundleSavePlaylistDialog" type="NativeFileDialog" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/BundleSavePlaylistButton"]
+title = "Playlist Save Location"
 mode_overrides_title = false
+file_mode = 2
 access = 2
-filters = PackedStringArray("*.exvp")
 unique_name_in_owner = true
 
 [node name="LoadPlaylistButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
-custom_minimum_size = Vector2(110, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 tooltip_text = "Load a saved Playlist"
 focus_mode = 0
 theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
-text = "📁 Load"
+text = "📁"
 
 [node name="LoadPlaylistDialog" type="NativeFileDialog" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/LoadPlaylistButton"]
 title = "Load Playlist"
@@ -228,16 +294,109 @@ unique_name_in_owner = true
 
 [node name="OptionsButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+tooltip_text = "Open Options Panel"
 theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
-text = "⚙️ Options"
+text = "⚙️"
 
 [node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="SavingProgressPopup" type="HBoxContainer" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="SaveSpinner" type="Range" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/MarginContainer/SavingProgressPopup"]
+_import_path = NodePath("")
+unique_name_in_owner = true
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = true
+custom_minimum_size = Vector2(40, 40)
+layout_direction = 0
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 0
+mouse_filter = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+theme = null
+theme_type_variation = &""
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 0.0
+exp_edit = false
+rounded = false
+allow_greater = false
+allow_lesser = false
+script = ExtResource("7_0cp3q")
+border_width = 0.185
+spin_fill_percent = 0.354
+spin_revolution_per_second = 1.5
+color_background = Color(0, 0, 0, 0)
+metadata/_custom_type_script = "uid://0jo27toou14d"
+
+[node name="SaveText" type="Label" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/MarginContainer/SavingProgressPopup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Saving..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SavingProgressBar" type="ProgressBar" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/MarginContainer/SavingProgressPopup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 30)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.592157)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("8_ebo8a")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/background = SubResource("StyleBoxFlat_ppeiy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rk4uy")
+step = 1.0
+value = 50.0
+rounded = true
 
 [node name="MonitorSelector" type="OptionButton" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
 unique_name_in_owner = true
@@ -251,7 +410,7 @@ theme_override_font_sizes/font_size = 35
 alignment = 1
 selected = 0
 allow_reselect = true
-item_count = 10
+item_count = 42
 popup/item_0/text = "1"
 popup/item_0/id = 0
 popup/item_1/text = "2"
@@ -272,6 +431,70 @@ popup/item_8/text = "1"
 popup/item_8/id = 8
 popup/item_9/text = "2"
 popup/item_9/id = 9
+popup/item_10/text = "1"
+popup/item_10/id = 10
+popup/item_11/text = "2"
+popup/item_11/id = 11
+popup/item_12/text = "1"
+popup/item_12/id = 12
+popup/item_13/text = "2"
+popup/item_13/id = 13
+popup/item_14/text = "1"
+popup/item_14/id = 14
+popup/item_15/text = "2"
+popup/item_15/id = 15
+popup/item_16/text = "1"
+popup/item_16/id = 16
+popup/item_17/text = "2"
+popup/item_17/id = 17
+popup/item_18/text = "1"
+popup/item_18/id = 18
+popup/item_19/text = "2"
+popup/item_19/id = 19
+popup/item_20/text = "1"
+popup/item_20/id = 20
+popup/item_21/text = "2"
+popup/item_21/id = 21
+popup/item_22/text = "1"
+popup/item_22/id = 22
+popup/item_23/text = "2"
+popup/item_23/id = 23
+popup/item_24/text = "1"
+popup/item_24/id = 24
+popup/item_25/text = "2"
+popup/item_25/id = 25
+popup/item_26/text = "1"
+popup/item_26/id = 26
+popup/item_27/text = "2"
+popup/item_27/id = 27
+popup/item_28/text = "1"
+popup/item_28/id = 28
+popup/item_29/text = "2"
+popup/item_29/id = 29
+popup/item_30/text = "1"
+popup/item_30/id = 30
+popup/item_31/text = "2"
+popup/item_31/id = 31
+popup/item_32/text = "1"
+popup/item_32/id = 32
+popup/item_33/text = "2"
+popup/item_33/id = 33
+popup/item_34/text = "1"
+popup/item_34/id = 34
+popup/item_35/text = "2"
+popup/item_35/id = 35
+popup/item_36/text = "1"
+popup/item_36/id = 36
+popup/item_37/text = "2"
+popup/item_37/id = 37
+popup/item_38/text = "1"
+popup/item_38/id = 38
+popup/item_39/text = "2"
+popup/item_39/id = 39
+popup/item_40/text = "1"
+popup/item_40/id = 40
+popup/item_41/text = "2"
+popup/item_41/id = 41
 
 [node name="ExtendButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
 unique_name_in_owner = true
@@ -290,14 +513,6 @@ expand_icon = true
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 
-[node name="HelpButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-tooltip_text = "Get Help"
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "?"
-
 [node name="Main" type="HBoxContainer" parent="GuiMargin/GUI"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -309,7 +524,1088 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.399
 theme = ExtResource("6_1ecek")
+
+[node name="SettingsPopup" type="Panel" parent="GuiMargin/GUI/Main/PlaylistPanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 400)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ixia8")
+script = ExtResource("28_a1vo4")
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "Options"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SettingsCloseButton" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 0, 0.35, 1)
+custom_minimum_size = Vector2(45, 30)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("29_08mex")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="AllSettings" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="OptionsOutput" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
+text = "Output"
+
+[node name="OptionsNetwork" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
+text = "Network"
+
+[node name="OptionsAdvanced" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
+text = "Advanced"
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Help" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
+text = "Help"
+
+[node name="About" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
+text = "About"
+
+[node name="Registration" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
+text = "Register"
+
+[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel2" type="Panel" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_aarq4")
+
+[node name="SettingsOptions" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="OutputSettings" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Display Output Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Test Pattern"
+vertical_alignment = 1
+
+[node name="TestPattern" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = " 🔳"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Output Resolution:"
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Width:"
+
+[node name="ResWidth" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
+theme_override_font_sizes/font_size = 30
+text = "1920"
+placeholder_text = "1920"
+alignment = 1
+max_length = 4
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+
+[node name="Label3" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Height"
+
+[node name="ResHeight" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
+theme_override_font_sizes/font_size = 30
+text = "1080"
+placeholder_text = "1080"
+alignment = 1
+max_length = 4
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "FPS:"
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FPS" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
+theme_override_font_sizes/font_size = 30
+text = "60"
+placeholder_text = "60"
+alignment = 1
+max_length = 3
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+
+[node name="NetworkSettings" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Companion Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "TCP Listen"
+vertical_alignment = 1
+
+[node name="TCPListenButton" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = " 🔳"
+alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.517184, 0.517184, 0.517184, 1)
+theme_override_font_sizes/font_size = 25
+text = "IP Address and Port:"
+
+[node name="ServerAddress" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
+theme_override_font_sizes/font_size = 35
+text = "127.0.0.1:4242"
+placeholder_text = "IP Address:Port"
+alignment = 1
+expand_to_text_length = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Companion:"
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.517647, 0.517647, 0.517647, 1)
+theme_override_font_sizes/font_size = 25
+text = "IP Address and Port:"
+
+[node name="CompanionAddress" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("25_nw87p")
+theme_override_font_sizes/font_size = 35
+text = "127.0.0.1:8000"
+placeholder_text = "IP Address:Port"
+alignment = 1
+expand_to_text_length = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "NDI Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
+layout_mode = 2
+
+[node name="NDIMonitor" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 42)
+layout_mode = 2
+theme = ExtResource("30_tt88v")
+theme_override_font_sizes/font_size = 25
+text = "Launch NDI Monitor"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "NDI Output"
+vertical_alignment = 1
+
+[node name="NDIToggle" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = " 🔳"
+alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.517184, 0.517184, 0.517184, 1)
+theme_override_font_sizes/font_size = 25
+text = "NDI Output Name"
+
+[node name="NDIOutputName" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("27_32h1h")
+theme_override_font_sizes/font_size = 35
+text = "EXVP"
+placeholder_text = "Discoverable Name"
+alignment = 1
+expand_to_text_length = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="AdvancedSettings" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Video Decoder Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Playback engine: "
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "FFMPEG"
+popup/item_0/id = 0
+popup/item_1/text = "⚠️VLC"
+popup/item_1/id = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "EXVP UI Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "UI Scale: "
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UIScaleEdit" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1.0"
+placeholder_text = "1.0"
+alignment = 1
+max_length = 3
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="ScaleUpButton" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+
+[node name="ScaleDownButton" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "-"
+
+[node name="Timer" type="Timer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2"]
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "App Background: "
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Image: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResetBG" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+icon = ExtResource("31_lgrhx")
+expand_icon = true
+
+[node name="BGImageLoad" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 2
+text = "📁 Open"
+
+[node name="LoadBGImageDialog" type="NativeFileDialog" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
+title = "Select A Picture File"
+mode_overrides_title = false
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.jpeg", "*.jpg", "*.JPG")
+unique_name_in_owner = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Blur Color: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5"]
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rfw64")
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="BlurColorPicker" type="ColorPickerButton" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5/Panel/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+edit_alpha = false
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Blur Strength: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BlurStrengthSlider" type="HSlider" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 5.0
+step = 0.01
+value = 1.2
+
+[node name="BlurStrengthEdit" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.5"
+placeholder_text = "0.5"
+alignment = 1
+max_length = 3
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Blur Color Strength: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BlurColorMixSlider" type="HSlider" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="BlurColorMixEdit" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.5"
+placeholder_text = "0.5"
+alignment = 1
+max_length = 3
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+
+[node name="InfoDocumentation" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 10
+script = ExtResource("16_u7xgt")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 1
+
+[node name="HelpPlaylist" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Playlists"
+
+[node name="HelpVideos" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Videos"
+
+[node name="HelpTrim" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Trim Videos"
+
+[node name="HelpSlideshows" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Slideshows"
+
+[node name="HelpShortcuts" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Shortcuts"
+
+[node name="HelpCompanion" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Companion"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="HelpTexts" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HelpVideosText" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpVideosText"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HelpTrimText2" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpVideosText"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Not all Video Containers and Codecs are supported.
+
+Generally most MP4's will work fine.
+Some MOV's work.
+
+More testing is needed to determine what containers and codecs play properly.
+Videos containing more than 2 Audio channels will not play the audio from any additional channels.
+This mainly pertains to Surround Sound encoded Audio."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelpPlaylistText" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="HelpPlaylistText1" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpPlaylistText"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "
+You can save a playlist you have setup, it will retain all the individual settings data saved in the individual items.
+
+Playslists are bundled together into one folder along with the playlist.exvp file.
+All files added to your playlist will copied into one location for easy transfering between systems.
+When you press SAVE, you choose or create the folder where everything will be stored.
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Tree" type="Tree" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpPlaylistText"]
+custom_minimum_size = Vector2(400, 550)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+allow_search = false
+hide_folding = true
+enable_recursive_folding = false
+scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
+script = ExtResource("29_tqbqh")
+
+[node name="HelpPlaylistText3" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpPlaylistText"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "
+Removing a playlist item from the queue and then saving will remove the corresponding file from the bundle location
+
+You can either press the load button to navigate to the playlist file, or you can drag and drop the exvp file into the program.
+
+The playlist Items can be reordered without interupting playback.
+
+Tip:
+Right click the .exvp file in your file explorer and set to always open with the EXVP.exe to quickly launch playlists from File Explorer.
+
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelpTrimText" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "
+In the Video item settings panel, drag the green Start Handle and the Red End handle to where you would like the video to start and end at.
+
+You can hold key modifiers to adjust the handle positions more precisely.
+Hold the following key modifiers while dragging to adjust the position in the following increments:
+
+DRAG + CTRL:           1 Sec
+DRAG + SHIFT:          10 Sec 
+DRAG + CTRL + SHIFT:   60 Sec
+
+Right Click the handles to set them back to their last saved positions
+
+Upon making changes press the save button to lock in the new in and out times."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelpSlideshows" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "
+Drag and drop a folder containing images into the Program and it will auto generate a Basic Slideshow with fade transitions.
+
+After selecting a Slideshow from the Playlist, you can hover and select a picture to skip to.
+
+*for now, the only transition type is a crossfade*"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelpShortcuts" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "
+\"Space\" - Play/Pause selected video/slideshow
+
+\"Left/Right\" - Backwards/Forwards 1 second
+
+\"Shift + Left/Right\" - Backwards/Forwards 10 seconds
+
+\"Ctrl + Shift + Left/Right\" - Backwards/Forwards 60 seconds
+
+\"Ctrl + Shift + Alt + X\" - Close Extended Output"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HelpCompanionText" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "
+Manual Companion Support can be configured:
+In options under Network, Enable EXVP Listen (Receives Commands from Companion) and choose your Address and Port or leave at default.
+The Companion Address should be set to whatever Companion is set to (Sends Playback Time and Time Remaining to Companion).
+
+In companion setup a new Generic: HTTP Requests connection. Under Base URL, enter the address in your EXVP Listen Parameter at the top of this window and name the connection label EXVP and save the Connection.
+
+Create a new button and under Press Actions, pick EXVP from the Browse Menu, then select POST. URL stays Blank.
+Set Content Type to \"text/plain\". Under Body, enter the command you want to send to EXVP. Then Name your button Accordingly.
+
+The List of supported commands are: 
+
+play - Toggle this to play/ pause 
+previous, next - selects the corresponding video in the playlist
+VolUp, VolDown - adjust the volume of the selected video
+SetIn, SetOut - Set trim points for the selected video
+
+For Live In and Out Playback Times, Create 2 new buttons and set their title to \"In:\\n$(internal:custom_EXVP_In)\" and \"Out:\\n$(internal:custom_EXVP_Out)\".
+NOTE: you must include the brackets and dollar signs.
+Under the Tab titled \"$ Variables\", add 2 new custom variables to companion called \"EXVP_In\" and \"EXVP_Out\"
+
+They will now live update when a video is selected and playing"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="InfoAbout" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoAbout"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("17_l5517")
+theme_override_font_sizes/font_size = 80
+text = "EXVP"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoAbout"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("18_ys4d7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Version" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoAbout"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 30
+text = "v 0.2.0
+
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="InfoRegistration" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
+visible = false
+layout_mode = 2
+script = ExtResource("29_rk4uy")
+
+[node name="Text" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration"]
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Registration in this version of EXVP is not currently enabled."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Licensing" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.345098)
+layout_mode = 2
+
+[node name="SoftwareId" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "EXVP Id:"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="SoftwareIdValue" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("6_1ecek")
+theme_override_fonts/font = ExtResource("19_5m0b1")
+theme_override_font_sizes/font_size = 30
+text = "XXXXXXXX"
+alignment = 1
+editable = false
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+select_all_on_focus = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SoftwareId2" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing"]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Activation Key:"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LicenseSubmission" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing"]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing/LicenseSubmission"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing/LicenseSubmission"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="LicenseEdit" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing/LicenseSubmission/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("19_5m0b1")
+theme_override_font_sizes/font_size = 25
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="LicenseCheck" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing/LicenseSubmission/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "☑️"
+
+[node name="MarginContainer5" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing/LicenseSubmission"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LicenseStatus" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration/Licensing"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("6_1ecek")
+theme_override_font_sizes/font_size = 25
+text = "Licensed: ❌
+
+"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Playlist" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel"]
 unique_name_in_owner = true
@@ -324,7 +1620,7 @@ script = ExtResource("10_ie54u")
 [node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
@@ -489,415 +1785,20 @@ script = ExtResource("14_vpbto")
 is_vertical = true
 scroll_container = NodePath("../..")
 
-[node name="BoxHandle" type="Control" parent="GuiMargin/GUI/Main"]
-custom_minimum_size = Vector2(8, 0)
+[node name="BoxHandle" type="Panel" parent="GuiMargin/GUI/Main"]
+custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
-script = ExtResource("15_jhlnk")
-handle_size = 8
-handle_color = Color(0, 0, 0, 0.513726)
-metadata/_custom_type_script = "uid://dkpxgtqwnqnal"
+mouse_default_cursor_shape = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_ps8iq")
+script = ExtResource("15_ppeiy")
+metadata/_custom_type_script = "uid://c523op1sm3d4l"
 
 [node name="VideoInterface" type="VBoxContainer" parent="GuiMargin/GUI/Main"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.25
-
-[node name="HelpPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.94
-theme = ExtResource("6_1ecek")
-script = ExtResource("16_u7xgt")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SoftwareInfo" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-
-[node name="VersionAndLicense" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("17_l5517")
-theme_override_font_sizes/font_size = 60
-text = "EXVP"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
-custom_minimum_size = Vector2(200, 168.57)
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("18_ys4d7")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Version" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.75
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 20
-text = "v 0.1.5
-
-"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="MarginContainer5" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 4.04
-
-[node name="Licensing" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="SoftwareId" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 1
-size_flags_stretch_ratio = 0.2
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "EXVP Id:"
-horizontal_alignment = 1
-vertical_alignment = 2
-autowrap_mode = 2
-
-[node name="SoftwareIdValue" type="LineEdit" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_stretch_ratio = 0.2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("19_5m0b1")
-theme_override_font_sizes/font_size = 30
-text = "XXXXXXXX"
-alignment = 1
-editable = false
-expand_to_text_length = true
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-select_all_on_focus = true
-caret_blink = true
-caret_blink_interval = 0.5
-
-[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
-custom_minimum_size = Vector2(0, 15)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="SoftwareId2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
-layout_mode = 2
-size_flags_vertical = 1
-size_flags_stretch_ratio = 0.2
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "Activation Key:"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="LicenseSubmission" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
-layout_mode = 2
-
-[node name="MarginContainer4" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="LicenseEdit" type="LineEdit" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("19_5m0b1")
-theme_override_font_sizes/font_size = 25
-alignment = 1
-caret_blink = true
-caret_blink_interval = 0.5
-
-[node name="LicenseCheck" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "☑️"
-
-[node name="MarginContainer5" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="MarginContainer3" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="License2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 1
-size_flags_stretch_ratio = 0.2
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "Licensed: ❌"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="LicenseStatus" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_vertical = 1
-size_flags_stretch_ratio = 0.2
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "Licensed: ❌
-
-"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Documentation" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_right = 10
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ScrollContainer2" type="ScrollContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-vertical_scroll_mode = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-alignment = 1
-
-[node name="HelpPlaylist" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "Playlists"
-
-[node name="HelpVideos" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "Videos"
-
-[node name="HelpTrim" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "Trim Videos"
-
-[node name="HelpSlideshows" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "Slideshows"
-
-[node name="HelpShortcuts" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "Shortcuts"
-
-[node name="HelpCompanion" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "Companion"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="HelpTexts" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HelpVideosText" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpVideosText"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-
-[node name="HelpTrimText2" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpVideosText"]
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "Not all Video Containers and Codecs are supported.
-
-Generally most MP4's will work fine.
-Some MOV's work.
-
-More testing is needed to determine what containers and codecs play properly.
-Videos containing more than 2 Audio channels will not play the audio from any additional channels.
-This mainly pertains to Surround Sound encoded Audio."
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpPlaylistText" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "
-You can save a playlist you have setup, it will retain all the individual settings data saved in the individual items.
-
-You can either press the load button to navigate to the playlist file, or you can drag and drop the exvp file into the program.
-
-The playlist Items can be reordered without interupting playback.
-
-Tip:
-Right click the .exvp file and set to always open with the EXVP.exe 
-
-"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpTrimText" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "
-To set in and outpoints on videos, enable advanced mode at the top of the screen.
-
-Then select the video you wish to trim. 
-
-Scrub to a point in the video and click the corresponding in or out point button (📝) and then press the save (💾) icon to the right."
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpSlideshows" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "
-Drag and drop a folder containing images into the Program and it will auto generate a Basic Slideshow with fade transitions.
-
-After selecting a Slideshow from the Playlist, you can hover and select a picture to skip to.
-
-*for now, the only transition type is a crossfade*"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpShortcuts" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "
-\"Space\" - Play/Pause selected video/slideshow
-
-\"Left/Right\" - Backwards/Forwards 1 second
-
-\"Shift + Left/Right\" - Backwards/Forwards 10 seconds
-
-\"Ctrl + Shift + Left/Right\" - Backwards/Forwards 60 seconds
-
-\"Ctrl + Shift + Alt + X\" - Close Extended Output"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HelpCompanionText" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer/HelpTexts"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(220, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = "
-Manual Companion Support can be configured:
-In options under Network, Enable EXVP Listen (Receives Commands from Companion) and choose your Address and Port or leave at default.
-The Companion Address should be set to whatever Companion is set to (Sends Playback Time and Time Remaining to Companion).
-
-In companion setup a new Generic: HTTP Requests connection. Under Base URL, enter the address in your EXVP Listen Parameter at the top of this window and name the connection label EXVP and save the Connection.
-
-Create a new button and under Press Actions, pick EXVP from the Browse Menu, then select POST. URL stays Blank.
-Set Content Type to \"text/plain\". Under Body, enter the command you want to send to EXVP. Then Name your button Accordingly.
-
-The List of supported commands are: 
-
-play - Toggle this to play/ pause 
-previous, next - selects the corresponding video in the playlist
-VolUp, VolDown - adjust the volume of the selected video
-SetIn, SetOut - Set trim points for the selected video
-
-For Live In and Out Playback Times, Create 2 new buttons and set their title to \"In:\\n$(internal:custom_EXVP_In)\" and \"Out:\\n$(internal:custom_EXVP_Out)\".
-NOTE: you must include the brackets and dollar signs.
-Under the Tab titled \"$ Variables\", add 2 new custom variables to companion called \"EXVP_In\" and \"EXVP_Out\"
-
-They will now live update when a video is selected and playing"
-horizontal_alignment = 1
-autowrap_mode = 2
+size_flags_stretch_ratio = 0.599
+theme_override_constants/separation = 0
 
 [node name="MainVideoPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
@@ -905,6 +1806,7 @@ self_modulate = Color(1, 1, 1, 0)
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.696
 theme_override_styles/panel = ExtResource("20_gwpwc")
 script = ExtResource("21_lm25d")
 
@@ -1002,12 +1904,20 @@ theme_override_font_sizes/font_size = 20
 text = "Time till Watermark Appears: XX:XX"
 horizontal_alignment = 1
 
+[node name="BoxHandle" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+mouse_default_cursor_shape = 9
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ecek")
+script = ExtResource("15_ppeiy")
+metadata/_custom_type_script = "uid://c523op1sm3d4l"
+
 [node name="ControlsPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 250)
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.4
+size_flags_stretch_ratio = 0.299
 theme = ExtResource("6_1ecek")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel"]
@@ -1143,6 +2053,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("6_1ecek")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_tqbqh")
 rounded = true
 ticks_on_borders = true
 
@@ -1210,7 +2121,7 @@ size_flags_horizontal = 4
 theme = ExtResource("6_1ecek")
 theme_override_font_sizes/font_size = 25
 alignment = 1
-selected = 0
+selected = 3
 item_count = 4
 popup/item_0/text = "Fit Within"
 popup/item_0/id = 0
@@ -1303,7 +2214,7 @@ size_flags_stretch_ratio = 0.5
 
 [node name="VolMute" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/VolumeControls"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -1318,6 +2229,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 focus_mode = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_0cp3q")
 min_value = -80.0
 max_value = 20.0
 tick_count = 21
@@ -1396,669 +2308,10 @@ grow_vertical = 2
 theme = ExtResource("6_1ecek")
 theme_override_styles/panel = SubResource("StyleBoxFlat_8wjou")
 
-[node name="SettingsPopup" type="Panel" parent="BlurPanel"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(1280, 800)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(640, 400)
-theme_override_styles/panel = SubResource("StyleBoxFlat_ixia8")
-script = ExtResource("28_a1vo4")
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_constants/margin_left = 25
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 25
-text = "Options"
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SettingsCloseButton" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(30, 30)
-layout_mode = 2
-icon = ExtResource("29_08mex")
-expand_icon = true
-
-[node name="MarginContainer2" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(5, 0)
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="Panel" type="Panel" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.25
-theme_override_styles/panel = SubResource("StyleBoxFlat_2ysod")
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.3
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="AllSettings" type="VBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel/MarginContainer"]
-layout_mode = 2
-
-[node name="OptionsOutput" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel/MarginContainer/AllSettings"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
-text = "  Output"
-alignment = 0
-
-[node name="OptionsNetwork" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel/MarginContainer/AllSettings"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
-text = "  Network"
-alignment = 0
-
-[node name="OptionsAdvanced" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel/MarginContainer/AllSettings"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
-text = "  Advanced"
-alignment = 0
-
-[node name="Panel2" type="Panel" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.75
-theme_override_styles/panel = SubResource("StyleBoxFlat_aarq4")
-
-[node name="SettingsOptions" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
-
-[node name="OutputSettings" type="VBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
-visible = false
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Display Output Settings"
-horizontal_alignment = 1
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer3"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Test Pattern"
-vertical_alignment = 1
-
-[node name="TestPattern" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer3"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-focus_mode = 0
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = " 🔳"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Output Resolution:"
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Width:"
-
-[node name="ResWidth" type="LineEdit" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 45)
-layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
-theme_override_font_sizes/font_size = 30
-text = "1920"
-placeholder_text = "1920"
-alignment = 1
-max_length = 4
-expand_to_text_length = true
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-drag_and_drop_selection_enabled = false
-select_all_on_focus = true
-
-[node name="Label3" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Height"
-
-[node name="ResHeight" type="LineEdit" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 45)
-layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
-theme_override_font_sizes/font_size = 30
-text = "1080"
-placeholder_text = "1080"
-alignment = 1
-max_length = 4
-expand_to_text_length = true
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-drag_and_drop_selection_enabled = false
-select_all_on_focus = true
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "FPS:"
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="FPS" type="LineEdit" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 45)
-layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
-theme_override_font_sizes/font_size = 30
-text = "60"
-placeholder_text = "60"
-alignment = 1
-max_length = 3
-expand_to_text_length = true
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-drag_and_drop_selection_enabled = false
-select_all_on_focus = true
-
-[node name="NetworkSettings" type="VBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.6
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Companion Settings"
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label2" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "TCP Listen"
-vertical_alignment = 1
-
-[node name="TCPListenButton" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(48, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = " 🔳"
-alignment = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.517184, 0.517184, 0.517184, 1)
-theme_override_font_sizes/font_size = 25
-text = "IP Address and Port:"
-
-[node name="ServerAddress" type="LineEdit" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(220, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
-theme_override_font_sizes/font_size = 35
-text = "127.0.0.1:4242"
-placeholder_text = "IP Address:Port"
-alignment = 1
-expand_to_text_length = true
-caret_blink = true
-caret_blink_interval = 0.5
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Companion:"
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label2" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer2"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.517647, 0.517647, 0.517647, 1)
-theme_override_font_sizes/font_size = 25
-text = "IP Address and Port:"
-
-[node name="CompanionAddress" type="LineEdit" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer2"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(220, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
-theme_override_font_sizes/font_size = 35
-text = "127.0.0.1:8888"
-placeholder_text = "IP Address:Port"
-alignment = 1
-expand_to_text_length = true
-caret_blink = true
-caret_blink_interval = 0.5
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label2" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "NDI Settings"
-horizontal_alignment = 1
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
-layout_mode = 2
-
-[node name="NDIMonitor" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer4"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(260, 42)
-layout_mode = 2
-theme = ExtResource("30_tt88v")
-theme_override_font_sizes/font_size = 25
-text = "Launch NDI Monitor"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
-layout_mode = 2
-
-[node name="Label3" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "NDI Output"
-vertical_alignment = 1
-
-[node name="NDIToggle" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(48, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-text = " 🔳"
-alignment = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.517184, 0.517184, 0.517184, 1)
-theme_override_font_sizes/font_size = 25
-text = "NDI Output Name"
-
-[node name="NDIOutputName" type="LineEdit" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(220, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("27_32h1h")
-theme_override_font_sizes/font_size = 35
-text = "EXVP"
-placeholder_text = "Discoverable Name"
-alignment = 1
-expand_to_text_length = true
-caret_blink = true
-caret_blink_interval = 0.5
-
-[node name="AdvancedSettings" type="VBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Video Decoder Settings"
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Playback engine: "
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="OptionButton" type="OptionButton" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-alignment = 1
-selected = 0
-item_count = 2
-popup/item_0/text = "FFMPEG"
-popup/item_0/id = 0
-popup/item_1/text = "⚠️VLC"
-popup/item_1/id = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label2" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "EXVP UI Settings"
-horizontal_alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "UI Scale: "
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="UIScaleEdit" type="LineEdit" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "1.0"
-placeholder_text = "1.0"
-alignment = 1
-max_length = 3
-expand_to_text_length = true
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-drag_and_drop_selection_enabled = false
-select_all_on_focus = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2"]
-custom_minimum_size = Vector2(25, 0)
-layout_mode = 2
-
-[node name="ScaleUpButton" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "+"
-
-[node name="ScaleDownButton" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "-"
-
-[node name="Timer" type="Timer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2"]
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "App Background: "
-
-[node name="HBoxContainer7" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Image: "
-
-[node name="MarginContainer2" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ResetBG" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-icon = ExtResource("31_lgrhx")
-expand_icon = true
-
-[node name="BGImageLoad" type="Button" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(86, 0)
-layout_mode = 2
-text = "📁 Open"
-
-[node name="LoadBGImageDialog" type="NativeFileDialog" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
-title = "Select A Picture File"
-mode_overrides_title = false
-file_mode = 0
-access = 2
-filters = PackedStringArray("*.png", "*.jpeg", "*.jpg", "*.JPG")
-unique_name_in_owner = true
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Blur Color: "
-
-[node name="MarginContainer2" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Panel" type="Panel" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5"]
-custom_minimum_size = Vector2(86, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rfw64")
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="BlurColorPicker" type="ColorPickerButton" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5/Panel/MarginContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-edit_alpha = false
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Blur Strength: "
-
-[node name="MarginContainer2" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BlurStrengthSlider" type="HSlider" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_vertical = 1
-
-[node name="BlurStrengthEdit" type="LineEdit" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0.5"
-placeholder_text = "0.5"
-alignment = 1
-max_length = 3
-expand_to_text_length = true
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-drag_and_drop_selection_enabled = false
-select_all_on_focus = true
-
-[node name="HBoxContainer6" type="HBoxContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Blur Color Strength: "
-
-[node name="MarginContainer2" type="MarginContainer" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BlurColorMixSlider" type="HSlider" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_vertical = 1
-
-[node name="BlurColorMixEdit" type="LineEdit" parent="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0.5"
-placeholder_text = "0.5"
-alignment = 1
-max_length = 3
-expand_to_text_length = true
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-drag_and_drop_selection_enabled = false
-select_all_on_focus = true
-
 [node name="ExtCloseConfirm" type="Panel" parent="BlurPanel"]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(500, 200)
+custom_minimum_size = Vector2(600, 250)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2083,6 +2336,8 @@ grow_vertical = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="BlurPanel/ExtCloseConfirm/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -2101,38 +2356,46 @@ autowrap_mode = 3
 [node name="MarginContainer" type="MarginContainer" parent="BlurPanel/ExtCloseConfirm/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 20
+size_flags_stretch_ratio = 0.5
+theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BlurPanel/ExtCloseConfirm/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 30
 
 [node name="ConfirmYes" type="Button" parent="BlurPanel/ExtCloseConfirm/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 4
 theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_ebo8a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6bisl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ie54u")
 text = "Yes"
 
 [node name="ConfirmNo" type="Button" parent="BlurPanel/ExtCloseConfirm/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 4
 theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_5l31f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c1m1y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_alckx")
 text = "No
 "
 
 [node name="ErrorMessage" type="Panel" parent="BlurPanel"]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(800, 500)
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2164,7 +2427,7 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("27_32h1h")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Error:"
 horizontal_alignment = 1
 
@@ -2184,6 +2447,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BlurPanel/ErrorMessage/VBoxContainer/MarginContainer"]
 layout_mode = 2
+horizontal_scroll_mode = 0
 
 [node name="ErrorLabel" type="Label" parent="BlurPanel/ErrorMessage/VBoxContainer/MarginContainer/ScrollContainer"]
 unique_name_in_owner = true
@@ -2244,17 +2508,56 @@ wait_time = 0.25
 unique_name_in_owner = true
 wait_time = 1800.0
 
+[connection signal="request_completed" from="NetworkControl/HTTPRequest1" to="NetworkControl" method="_on_http_request_1_request_completed"]
+[connection signal="request_completed" from="NetworkControl/HTTPRequest2" to="NetworkControl" method="_on_http_request_2_request_completed"]
 [connection signal="resized" from="GuiMargin" to="." method="_on_gui_margin_resized"]
 [connection signal="gui_input" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header" to="GuiMargin/GUI/HeaderPanel/MarginContainer/Header" method="_on_TitleBar_gui_input"]
-[connection signal="button_up" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/SavePlaylistButton" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_save_playlist_button_button_up"]
-[connection signal="file_selected" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/SavePlaylistButton/SavePlaylistDialog" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_save_playlist_dialog_file_selected"]
+[connection signal="button_up" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/BundleSavePlaylistButton" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_bundle_save_playlist_button_button_up"]
+[connection signal="dir_selected" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/BundleSavePlaylistButton/BundleSavePlaylistDialog" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_bundle_save_playlist_dialog_dir_selected"]
 [connection signal="button_up" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/LoadPlaylistButton" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_load_playlist_button_button_up"]
 [connection signal="file_selected" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/LoadPlaylistButton/LoadPlaylistDialog" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_load_playlist_dialog_file_selected"]
 [connection signal="button_up" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/OptionsButton" to="." method="_on_options_button_button_up"]
 [connection signal="button_down" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/MonitorSelector" to="." method="_on_monitor_selector_button_down"]
 [connection signal="item_selected" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/MonitorSelector" to="." method="_on_monitor_selector_item_selected"]
 [connection signal="button_up" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/ExtendButton" to="." method="_on_extend_button_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/HelpButton" to="." method="_on_help_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/SettingsCloseButton" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_settings_close_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings/OptionsOutput" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_options_output_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings/OptionsNetwork" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_options_network_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings/OptionsAdvanced" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_options_advanced_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings/Help" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_help_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings/About" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_about_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings/Registration" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_registration_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer3/TestPattern" to="." method="_on_test_pattern_button_up"]
+[connection signal="focus_exited" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer/ResWidth" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_res_width_focus_exited"]
+[connection signal="text_submitted" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer/ResWidth" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_res_width_text_submitted"]
+[connection signal="focus_exited" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer/ResHeight" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_res_height_focus_exited"]
+[connection signal="text_submitted" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer/ResHeight" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_res_height_text_submitted"]
+[connection signal="focus_exited" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2/FPS" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_fps_focus_exited"]
+[connection signal="text_submitted" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2/FPS" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_fps_text_submitted"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer/TCPListenButton" to="NetworkControl" method="_on_tcp_listen_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer4/NDIMonitor" to="." method="_on_ndi_monitor_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3/NDIToggle" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_ndi_toggle_button_up"]
+[connection signal="item_selected" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer/OptionButton" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_option_button_item_selected"]
+[connection signal="text_submitted" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/UIScaleEdit" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_ui_scale_edit_text_submitted"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer/ScaleUpButton" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_scale_up_button_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer/ScaleDownButton" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_scale_down_button_button_up"]
+[connection signal="timeout" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/Timer" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_timer_timeout"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7/ResetBG" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_reset_bg_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7/BGImageLoad" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_bg_image_load_button_up"]
+[connection signal="file_selected" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7/LoadBGImageDialog" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_open_still_file_dialog_file_selected"]
+[connection signal="color_changed" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5/Panel/MarginContainer/BlurColorPicker" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_blur_color_picker_color_changed"]
+[connection signal="value_changed" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4/BlurStrengthSlider" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_blur_strength_slider_value_changed"]
+[connection signal="focus_exited" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4/BlurStrengthEdit" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_blur_strength_edit_focus_exited"]
+[connection signal="text_submitted" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4/BlurStrengthEdit" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_blur_strength_edit_text_submitted"]
+[connection signal="value_changed" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6/BlurColorMixSlider" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_blur_color_mix_slider_value_changed"]
+[connection signal="focus_exited" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6/BlurColorMixEdit" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_blur_color_mix_edit_focus_exited"]
+[connection signal="text_submitted" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6/BlurColorMixEdit" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_blur_color_mix_edit_text_submitted"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpPlaylist" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation" method="_on_help_playlist_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpVideos" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation" method="_on_help_videos_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpTrim" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation" method="_on_help_trim_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpSlideshows" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation" method="_on_help_slideshows_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpShortcuts" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation" method="_on_help_shortcuts_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpCompanion" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation" method="_on_help_companion_button_up"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/AddVideoButton" to="." method="_on_add_video_button_button_up"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/AddSlideshowButton" to="." method="_on_add_slideshow_button_button_up"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/AddStillButton" to="." method="_on_add_still_button_button_up"]
@@ -2266,13 +2569,6 @@ wait_time = 1800.0
 [connection signal="child_entered_tree" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_video_list_child_entered_tree"]
 [connection signal="child_exiting_tree" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_video_list_child_exiting_tree"]
 [connection signal="sort_children" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" method="_on_sort_children"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/SoftwareInfo/VersionAndLicense/Licensing/LicenseSubmission/VBoxContainer/LicenseCheck" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_license_check_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpPlaylist" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_playlist_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpVideos" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_videos_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpTrim" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_trim_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpSlideshows" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_slideshows_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpShortcuts" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_shortcuts_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/HelpPanel/HBoxContainer/Documentation/VBoxContainer2/ScrollContainer2/HBoxContainer/HelpCompanion" to="GuiMargin/GUI/Main/VideoInterface/HelpPanel" method="_on_help_companion_button_up"]
 [connection signal="finished" from="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/AspectPanel/VideoPlayer" to="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel" method="_on_video_player_finished"]
 [connection signal="timeout" from="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/SlideShow/HoldTimer" to="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/SlideShow" method="_on_hold_timer_timeout"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayPause" to="." method="_on_play_pause_button_up"]
@@ -2286,28 +2582,6 @@ wait_time = 1800.0
 [connection signal="value_changed" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/VolumeControls/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="focus_exited" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/VolumeControls/VolumeEdit" to="." method="_on_volume_edit_focus_exited"]
 [connection signal="text_submitted" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/VolumeControls/VolumeEdit" to="." method="_on_volume_edit_text_submitted"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/SettingsCloseButton" to="BlurPanel/SettingsPopup" method="_on_settings_close_button_button_up"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel/MarginContainer/AllSettings/OptionsOutput" to="BlurPanel/SettingsPopup" method="_on_options_output_button_up"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel/MarginContainer/AllSettings/OptionsNetwork" to="BlurPanel/SettingsPopup" method="_on_options_network_button_up"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel/MarginContainer/AllSettings/OptionsAdvanced" to="BlurPanel/SettingsPopup" method="_on_options_advanced_button_up"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer3/TestPattern" to="." method="_on_test_pattern_button_up"]
-[connection signal="focus_exited" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer/ResWidth" to="BlurPanel/SettingsPopup" method="_on_res_width_focus_exited"]
-[connection signal="text_submitted" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer/ResWidth" to="BlurPanel/SettingsPopup" method="_on_res_width_text_submitted"]
-[connection signal="focus_exited" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer/ResHeight" to="BlurPanel/SettingsPopup" method="_on_res_height_focus_exited"]
-[connection signal="text_submitted" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer/ResHeight" to="BlurPanel/SettingsPopup" method="_on_res_height_text_submitted"]
-[connection signal="focus_exited" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2/FPS" to="BlurPanel/SettingsPopup" method="_on_fps_focus_exited"]
-[connection signal="text_submitted" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2/FPS" to="BlurPanel/SettingsPopup" method="_on_fps_text_submitted"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer/TCPListenButton" to="NetworkControl" method="_on_tcp_listen_button_button_up"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer4/NDIMonitor" to="." method="_on_ndi_monitor_button_up"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3/NDIToggle" to="BlurPanel/SettingsPopup" method="_on_ndi_toggle_button_up"]
-[connection signal="item_selected" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer/OptionButton" to="BlurPanel/SettingsPopup" method="_on_option_button_item_selected"]
-[connection signal="text_submitted" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/UIScaleEdit" to="BlurPanel/SettingsPopup" method="_on_ui_scale_edit_text_submitted"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer/ScaleUpButton" to="BlurPanel/SettingsPopup" method="_on_scale_up_button_button_up"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer/ScaleDownButton" to="BlurPanel/SettingsPopup" method="_on_scale_down_button_button_up"]
-[connection signal="timeout" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/Timer" to="BlurPanel/SettingsPopup" method="_on_timer_timeout"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7/ResetBG" to="BlurPanel/SettingsPopup" method="_on_reset_bg_button_up"]
-[connection signal="button_up" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7/BGImageLoad" to="BlurPanel/SettingsPopup" method="_on_bg_image_load_button_up"]
-[connection signal="file_selected" from="BlurPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7/LoadBGImageDialog" to="BlurPanel/SettingsPopup" method="_on_open_still_file_dialog_file_selected"]
 [connection signal="button_up" from="BlurPanel/ExtCloseConfirm/VBoxContainer/MarginContainer/HBoxContainer/ConfirmYes" to="." method="_on_confirm_yes_button_up"]
 [connection signal="button_up" from="BlurPanel/ExtCloseConfirm/VBoxContainer/MarginContainer/HBoxContainer/ConfirmNo" to="." method="_on_confirm_no_button_up"]
 [connection signal="button_up" from="BlurPanel/ErrorMessage/VBoxContainer/HBoxContainer/ErrorCloseButton" to="." method="_on_error_close_button_button_up"]

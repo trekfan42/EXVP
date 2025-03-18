@@ -11,14 +11,13 @@ extends CanvasLayer
 @onready var networkControl: Node = %NetworkControl
 
 @export_tool_button("Options Panel") var optionsPanel = toggle_options
-@export_tool_button("Help Panel") var helpPanel = _on_help_button_button_up
 
 func toggle_options():
 	if %SettingsPopup.visible:
-		%BlurPanel.hide()
+		%Playlist.show()
 		%SettingsPopup.hide()
 	else:
-		%BlurPanel.show()
+		%Playlist.hide()
 		%SettingsPopup.show()
 
 
@@ -75,7 +74,7 @@ func go_to_video(rxCommand):
 			Global.activeIndex = 0
 
 	print(selectedItem)
-	%VideoList.get_child(Global.activeItem)._on_select_video_button_button_up()
+	%VideoList.get_child(Global.activeIndex)._on_select_video_button_button_up()
 	print("next video")
 
 func trim_point(rxCommand):
@@ -120,7 +119,6 @@ func _ready():
 		
 		if !%MainVideoPanel.visible:
 			%MainVideoPanel.visible = true
-			%HelpPanel.visible = false
 		
 		#Disabled Licensing Check
 		#%Trial.start()
@@ -136,21 +134,16 @@ func _ready():
 
 
 func check_cmd_args():
-	var arguments = {}
-	var path
-	print("arguments: " + str(arguments))
-	if arguments != {  }:
-		for argument in OS.get_cmdline_args():
-			if argument.find("=") > -1:
-				var key_value = argument.split("=")
-				arguments[key_value[0].lstrip("--")] = key_value[1]
-			if argument:
-				# Options without an argument will be present in the dictionary,
-				# with the value set to an empty string.
-				if argument != "res://app.tscn":
-					arguments["Playlist File"] = argument.lstrip("--")
-					path = str(argument.lstrip("--"))
-					%Playlist.load_playlist(path)
+	var args = OS.get_cmdline_args()  # Get arguments as an array
+	print("Raw arguments: " + str(args))  # Debugging: See what's actually received
+
+	if args.size() > 0:
+		var path = args[0]  # The first argument is usually the file
+		if path.ends_with(".exvp"):  # Ensure it's a playlist file
+			print("Opening playlist:", path)
+			%Playlist.load_playlist(path)
+
+
 
 
 func check_position(pos):
@@ -236,8 +229,13 @@ func secondsToMMSS(seconds):
 
 
 func _on_options_button_button_up() -> void:
-	%BlurPanel.show()
-	%SettingsPopup.show()
+	if !%SettingsPopup.visible:
+		%SettingsPopup.show()
+		%Playlist.hide()
+		%SettingsPopup._on_options_output_button_up()
+	else:
+		%SettingsPopup.hide()
+		%Playlist.show()
 
 
 
@@ -401,7 +399,8 @@ func queue_item(type,itemData):
 		%VideoTitleLabel.text = path_cut(itemData["path"])
 		networkControl.update_time(itemData["startPoint"],itemData["endPoint"])
 		%VolumeControls.visible = true
-
+		%AspectOptionButton.set_item_disabled(0, false)
+		%AspectOptionButton.select(Global.activeItem.itemData["crop"])
 		%PlayBar.visible = true
 		%VideoControls.visible = true
 		if itemData["endPoint"] != itemData["length"] or itemData["startPoint"] != 0:
@@ -432,13 +431,15 @@ func queue_item(type,itemData):
 		%VideoControls.visible = true
 		trimmed = false
 		%TrimTimes.visible = false
-		
+		%AspectOptionButton.set_item_disabled(0, true)
+		%AspectOptionButton.select(Global.activeItem.itemData["crop"])
 		
 	if type == "still":
 		Signals.stopVideo.emit()
 		%VideoTitleLabel.text = Global.activeItem.title
 		%VolumeControls.visible = false
-
+		%AspectOptionButton.set_item_disabled(0, true)
+		%AspectOptionButton.select(Global.activeItem.itemData["crop"])
 		%PlayBar.visible = false
 		%VideoControls.visible = false
 		trimmed = false
@@ -669,14 +670,6 @@ func _on_confirm_yes_button_up():
 
 func _on_confirm_no_button_up():
 	%BlurPanel.hide()
-
-
-
-func _on_help_button_button_up():
-	%MainVideoPanel.visible = !%MainVideoPanel.visible
-	%HelpPanel.visible = !%HelpPanel.visible
-
-
 
 
 func _on_aspect_option_button_item_selected(index):

@@ -410,7 +410,7 @@ theme_override_font_sizes/font_size = 35
 alignment = 1
 selected = 0
 allow_reselect = true
-item_count = 42
+item_count = 44
 popup/item_0/text = "1"
 popup/item_0/id = 0
 popup/item_1/text = "2"
@@ -495,6 +495,10 @@ popup/item_40/text = "1"
 popup/item_40/id = 40
 popup/item_41/text = "2"
 popup/item_41/id = 41
+popup/item_42/text = "1"
+popup/item_42/id = 42
+popup/item_43/text = "2"
+popup/item_43/id = 43
 
 [node name="ExtendButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
 unique_name_in_owner = true

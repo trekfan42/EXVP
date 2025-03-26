@@ -1,6 +1,12 @@
 # EXVP
- External Video Player app for Windows
+<img src="https://github.com/user-attachments/assets/965dc45e-2f15-4dee-b1e3-8d01faf7c7ec" width=100px alt="EXVP Logo">
 
+__________
+Video:
+[![Watch the video](https://cdn-cf-east.streamable.com/image/3d07ya-screenshot598371.jpg)](https://streamable.com/3d07ya)
+
+
+__________
 
 This is a simple Video Player designed for windows to be used in Live Production. 
 
@@ -8,6 +14,7 @@ It features a simple easy to use interface for playing out Videos, Still images,
 
 It currently supports Fullscreen extended monitor playback as well as NDI output.
 If I can build a plguin for Godot I will also attempt Decklink output.
+
 
 The App supports saving and loading playlists.
 

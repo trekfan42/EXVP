@@ -35,21 +35,27 @@
 			"uuid": "18884567-d4bd-43a9-a561-ecbe0b29dc4e",
 			"title": "Todo",
 			"tasks": [
-				"8090ab83-1007-4485-9bbb-16b52fcffd90",
 				"60111a5d-375e-45e3-aeef-0e84aa85f342",
 				"c07d529a-2f1a-4247-b51b-aad4a0b6e0bd",
-				"bd80f3b0-7654-4612-9abf-b8d76e627963"
+				"bd80f3b0-7654-4612-9abf-b8d76e627963",
+				"8f3514d0-8736-435a-9b53-107c4edbae54"
 			]
 		},
 		{
 			"uuid": "b8718162-60eb-44a6-baf5-e8721efa2336",
 			"title": "WIP",
-			"tasks": []
+			"tasks": [
+				"3775f7e6-2e1a-49a5-99cd-902a1cd3ad89"
+			]
 		},
 		{
 			"uuid": "f989b670-45e5-44a0-94e9-2973ba0c8529",
 			"title": "Done",
-			"tasks": []
+			"tasks": [
+				"6d2b5f88-45d3-47e4-b38e-fc9dcb3a9743",
+				"8090ab83-1007-4485-9bbb-16b52fcffd90",
+				"f8ffb81d-5bb9-453f-86ea-b0f6a15002cb"
+			]
 		}
 	],
 	"tasks": [
@@ -111,7 +117,7 @@
 		},
 		{
 			"uuid": "c07d529a-2f1a-4247-b51b-aad4a0b6e0bd",
-			"title": "remove vlc option from decoder settings",
+			"title": "remove or retest VLC",
 			"description": "",
 			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
 			"steps": []
@@ -135,6 +141,34 @@
 			"title": "OSC Support",
 			"description": "",
 			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "6d2b5f88-45d3-47e4-b38e-fc9dcb3a9743",
+			"title": "Switch to per item based Loop and Auto",
+			"description": "",
+			"category": "8d5ec785-9c6f-498f-8dac-3c14cbe96917",
+			"steps": []
+		},
+		{
+			"uuid": "8f3514d0-8736-435a-9b53-107c4edbae54",
+			"title": "Design system for audio play underneath other items",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "3775f7e6-2e1a-49a5-99cd-902a1cd3ad89",
+			"title": "Fix mp3 waveform generation (FFMPEG probe?)",
+			"description": "",
+			"category": "274ac33c-4f27-4ad9-b9cc-99d9bf28c57f",
+			"steps": []
+		},
+		{
+			"uuid": "f8ffb81d-5bb9-453f-86ea-b0f6a15002cb",
+			"title": "Slideshow thumb auto scroller positioning",
+			"description": "",
+			"category": "76176fba-a7c9-400b-86cc-3ee8a98d660b",
 			"steps": []
 		}
 	],

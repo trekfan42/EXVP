@@ -12,6 +12,7 @@ var title
 # [pics,holdTime,fadeTime,crop,bgColor]
 var itemData = {
 	"path": null,
+	"mode": 0, #Always 0 for stills
 	"crop": 3,
 	"bgColor": Color(0,0,0),
 }
@@ -75,8 +76,6 @@ func _on_select_video_button_button_up():
 	Global.activeIndex = self.get_index()
 	Global.activeItem = self
 	Global.activeType = type
-	
-	var picture = thumb.texture
 	Signals.queueItem.emit(type,itemData)
 
 func still_options(status):
@@ -103,12 +102,12 @@ func _on_timer_timeout():
 	_on_remove_video_button_button_up()
 
 
-func _on_area_2d_area_entered(area):
+func _on_area_2d_area_entered(_area):
 	print("turn red")
 	%DeleteBorder.visible = true
 
 
-func _on_area_2d_area_exited(area):
+func _on_area_2d_area_exited(_area):
 	print("turn normal")
 	if is_instance_valid(%DeleteBorder):
 		%DeleteBorder.visible = false

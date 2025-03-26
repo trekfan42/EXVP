@@ -21,6 +21,7 @@ var title
 	"pics": [],
 	"holdTime": 4.0,
 	"fadeTime": 1.5,
+	"mode": 0,
 	"crop": 3,
 	"bgColor": Color(0,0,0),
 }
@@ -36,7 +37,7 @@ var title
 var id:
 	set(value):
 		id = value
-var total
+var total = 0
 
 var thread: Thread
 
@@ -57,20 +58,33 @@ func _ready():
 			#itemData["pics"].append(itemData["folder"] + "\\" + f)
 			load_thumb(itemData["folder"] + "\\" + f)
 	
-	for t in thumbs.get_children():
-		itemData["pics"] = []
-		itemData["pics"].append(t)
-	tempSettings["pics"] = itemData["pics"]
-	
+	if loaded:
+		for t in thumbs.get_children():
+			var newPos = 0
+			for p in itemData["pics"]:
+				if t.title == p[0]:
+					p[1] = int(p[1])
+					newPos = int(p[1])
+			
+			thumbs.move_child(t,newPos)
+			print("moving pic from: " + str(t.get_index()) + " to: " + str(newPos) )
+
+
 	for k in tempSettings.keys():
 		tempSettings[k] = itemData[k]
 
 func load_thumb(path):
 	var iThumb = slideshowThumb.instantiate()
 	iThumb.picPath = path
+	iThumb.title = path.get_file().get_basename()
 	iThumb.parent = self
 	thumbs.add_child(iThumb)
 	iThumb.load_thumbs()
+	
+	iThumb.id = iThumb.get_index()
+	var picInfo = [ iThumb.title , iThumb.id ]
+	if !loaded:
+		itemData["pics"].append( picInfo )
 
 
 
@@ -85,9 +99,22 @@ func scroll_to_thumb(idDest):
 		var px = 0
 		for p in thumbs.get_children():
 			if p.get_index() < idDest:
-				px += p.get_size().x
+				px += p.get_size().x + 10 
 		var tween = get_tree().create_tween()
 		tween.tween_property(%ThumbsScroll, "scroll_horizontal", px, 0.25)
+
+func _on_mode_toggle_button_up() -> void:
+	if itemData["mode"] < 2:
+		itemData["mode"] += 1
+	elif itemData["mode"] == 2:
+		itemData["mode"] = 0
+	
+	if itemData["mode"] == 0:
+		%ModeToggle.icon = load("res://UI/Icons/loop off.png")
+	elif itemData["mode"] == 1:
+		%ModeToggle.icon = load("res://UI/Icons/loop on.png")
+	elif itemData["mode"] == 2:
+		%ModeToggle.icon = load("res://UI/Icons/auto on.png")
 
 
 
@@ -102,23 +129,19 @@ func _on_remove_video_button_button_up():
 
 
 func _on_select_video_button_button_up():
-	print("crop check 1: " + str(itemData["crop"]))
 	Signals.slideshow.emit(self)
 	Global.activeIndex = self.get_index()
 	Global.activeItem = self
 	Global.activeType = type
 	var grabbedPics = get_thumb_pics()
-	print("crop check 2: " + str(itemData["crop"]))
 	Signals.queueItem.emit(type,grabbedPics)
-	print("crop check 3: " + str(itemData["crop"]))
-	
-	
+
 
 func get_thumb_pics():
-	var pics = []
+	var picTextures = []
 	for p in thumbs.get_children():
-		pics.append(p.texture)
-	return pics
+		picTextures.append(p.texture)
+	return picTextures
 
 
 
@@ -127,19 +150,22 @@ func slideshow_options(status):
 	thumbs.visible = !status
 	%RemoveVideoButton.visible = status
 
+
+
 func _on_shuffle_button_button_up():
-	print(tempSettings["pics"])
-	print(itemData["pics"])
 	print("Shuffling...")
+
 	tempSettings["pics"].shuffle()
+	var picCount = tempSettings["pics"].size()
+	for p in picCount:
+		tempSettings["pics"][p][1] = p
+	
 	for p in tempSettings["pics"]:
-		var newIndex = tempSettings["pics"].find(p)
 		for t in thumbs.get_children():
-			if t.picPath == p.picPath:
-				thumbs.move_child(t,newIndex)
-	print(tempSettings["pics"])
-	print(itemData["pics"])
-	check_new_settings()
+			if t.title == p[0]:
+				thumbs.move_child(t,p[1])
+
+	itemData["pics"] = tempSettings["pics"]
 
 
 
@@ -168,39 +194,30 @@ func _on_gui_input(event):
 			if event.pressed:
 				Signals.deletePopup.emit(true)
 				%Area2D.monitorable = true
-				print("clicked " + title)
 			if event.is_released():
-				print("released " + title)
 				if Global.deleteReady == true:
 					Signals.deletePopup.emit(false)
 					%Timer.start()
 				else:
 					Signals.deletePopup.emit(false)
 					%Area2D.monitorable = false
-					print("changed mind")
 
 func _on_timer_timeout():
 	_on_remove_video_button_button_up()
 
 
 func _on_area_2d_area_entered(_area):
-	print("turn red")
 	%DeleteBorder.visible = true
 
 
 func _on_area_2d_area_exited(_area):
-	print("turn normal")
 	if is_instance_valid(%DeleteBorder):
 		%DeleteBorder.visible = false
 
 
 func _on_save_settings_button_up() -> void:
-	print("Original Still Settings: ")
-	print(itemData)
 	for k in tempSettings.keys():
 		itemData[k] = tempSettings[k]
-	print("New Still Settings: ")
-	print(itemData)
 	%SaveSettings.hide()
 
 
@@ -209,7 +226,7 @@ func _on_toggle_settings_button_up() -> void:
 	if %SlideshowSettings.visible:
 		self.custom_minimum_size.y = 220
 	else:
-		self.custom_minimum_size.y = 120
+		self.custom_minimum_size.y = 140
 	check_new_settings()
 
 
@@ -227,3 +244,15 @@ func check_new_settings():
 func _on_aspect_option_button_item_selected(index: int) -> void:
 	tempSettings["crop"] = index
 	check_new_settings()
+
+
+func _on_thumbs_reordered(from: int, to: int) -> void:
+	print(str(from) + " to " + str(to))
+	for t in thumbs.get_children():
+		if t.id == from:
+			t.id = to
+		for p in itemData["pics"]:
+			if t.title == p[0]:
+				p[1] = t.get_index()
+	itemData["pics"].sort_custom(func(a, b): return a[1] < b[1])
+	scroll_to_thumb(to)

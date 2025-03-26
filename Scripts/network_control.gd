@@ -19,10 +19,10 @@ func _on_tcp_listen_button_button_up():
 func toggle_listener():
 	var address = %ServerAddress.text
 	if listening:
-		%TCPListenButton.text = " ✅"
+		%TCPListenButton.text = "✅"
 		Signals.tcpStatus.emit(true,address)
 	else:
-		%TCPListenButton.text = " 🔳"
+		%TCPListenButton.text = "🔳"
 		Signals.tcpStatus.emit(false,address)
 
 func run_command(rxCommand):

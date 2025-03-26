@@ -6,6 +6,7 @@ extends Panel
 @onready var aspectBox = %AspectPanel
 @onready var slideshowPanel = %SlideShow
 @onready var canvasBG: Panel = %CanvasBG
+@onready var audioPlayer: AudioStreamPlayer = %AudioPlayer
 
 var slideshowPic = preload("res://Scenes/slideshow_pic.tscn")
 
@@ -42,6 +43,10 @@ func _process(_delta):
 		if videoBox.is_playing():
 			var pos = videoBox.stream_position
 			Signals.videoInfo.emit(pos)
+		
+		if audioPlayer.playing:
+			var pos = audioPlayer.get_playback_position()
+			Signals.videoInfo.emit(pos)
 
 
 func stop_video():
@@ -67,7 +72,16 @@ func queue_item(type,itemData): # [path,startPoint,endPoint,length,width,height,
 		videoBox.set_stream_position(itemData["startPoint"])
 		slideshowPanel.stop_timers()
 		slideshowPanel.clear_slideshow()
-	
+		
+	if type == "audio": #unused so far
+		audioPlayer.stream = Global.activeItem.resource
+		audioPlayer.play()
+		audioPlayer.seek(itemData["startPoint"])
+		await get_tree().process_frame
+		audioPlayer.stream_paused = true
+		print("audio ready at: " + Utils.Secs_To_MMSS(audioPlayer.get_playback_position()))
+
+		
 	if type == "slideshow": # [pics,holdTime,fadeTime,crop,bgColor]
 		videoBox.visible = false
 		slideshowPanel.visible = true
@@ -87,6 +101,10 @@ func remove_item(type):
 		print("unloading video")
 		videoBox.stop()
 		videoBox.stream = null
+	if type == "audio":
+		print("unloading audio")
+		audioPlayer.stop()
+		audioPlayer.stream = null
 	if type == "slideshow":
 		print("unloading slideshow")
 		slideshowPanel.stop_timers()
@@ -98,12 +116,9 @@ func remove_item(type):
 
 
 func update_canvas():
-	%VideoSubViewport.size.x = Global.outputResolution.x
-	%VideoSubViewport.size.y = Global.outputResolution.y
-	slideshowPanel.size.x = Global.outputResolution.x
-	slideshowPanel.size.y = Global.outputResolution.y
-	%CanvasBG.size.x = Global.outputResolution.x
-	%CanvasBG.size.y = Global.outputResolution.y
+	%VideoSubViewport.set_deferred("size",Vector2(Global.outputResolution.x,Global.outputResolution.y))
+	slideshowPanel.set_deferred("size",Vector2(Global.outputResolution.x,Global.outputResolution.y))
+	%CanvasBG.set_deferred("size",Vector2(Global.outputResolution.x,Global.outputResolution.y))
 
 
 func set_aspect(aspect):
@@ -117,51 +132,87 @@ func set_crop(cropMode):
 
 
 func pause_toggle():
-	if videoBox.paused == false:
-		videoBox.paused = true
-	else:
-		videoBox.paused = false
-	if !videoBox.is_playing():
-		videoBox.play()
-		videoBox.paused = false
-		print("video started")
+	if Global.activeType == "video":
+		if videoBox.paused:
+			videoBox.paused = false
+		else:
+			videoBox.paused = true
+		
+		if !videoBox.is_playing():
+			videoBox.play()
+			videoBox.paused = false
+			print("video started")
+	
+	if Global.activeType == "audio":
+		if !audioPlayer.playing:
+			audioPlayer.stream_paused = false
+			print("audio resumed")
+		else:
+			audioPlayer.stream_paused = true
+			print("audio paused")
+			
+		
+	
+
 
 func set_pos(pos):
-	videoBox.set_stream_position(pos)
+	if Global.activeType == "video":
+		videoBox.set_stream_position(pos)
+	if Global.activeType == "audio":
+		audioPlayer.seek(pos)
 
 func set_volume(player,value):
+	Global.lastVolume = value
 	if player == self.name:
-		videoBox.volume_db = value
+		if Global.activeType == "video":
+			videoBox.volume_db = value
+		if Global.activeType == "audio":
+			audioPlayer.volume_db = value
 		print("adjusting volume on: " + player)
 
 func mute(status):
 	if status == true:
-		videoBox.volume_db = -80
+		if Global.activeType == "video":
+			Global.lastVolume = videoBox.volume_db
+			videoBox.volume_db = -80
+		if Global.activeType == "audio":
+			Global.lastVolume = audioPlayer.volume_db
+			audioPlayer.volume_db = -80
 	else:
-		videoBox.volume_db = 0
+		if Global.activeType == "video":
+			videoBox.volume_db = Global.lastVolume
+			Global.lastVolume = videoBox.volume_db
+		if Global.activeType == "audio":
+			audioPlayer.volume_db = Global.lastVolume
+			Global.lastVolume = audioPlayer.volume_db
 
-func play_current(currentStream,currentWidth,currentHeight,playPos,volume,paused):
-	videoBox.stream = currentStream
-	var aspect = float(currentWidth)/float(currentHeight)
-	aspectBox.ratio = aspect
+func play_current(extendedData):
 	if self.name == "ExtendedVideoPanel":
-		videoBox.volume_db = volume
-	if paused:
-		videoBox.play()
-		videoBox.set_stream_position(playPos)
-		videoBox.paused = true
-	else:
-		videoBox.play()
-		videoBox.set_stream_position(playPos)
-		videoBox.paused = false
+		
+		if Global.activeType == "video":
+			videoBox.stream = extendedData["stream"]
+			var aspect = float(extendedData["width"])/float(extendedData["height"])
+			aspectBox.ratio = aspect
+			videoBox.volume_db = extendedData["volume"]
+			videoBox.play()
+			videoBox.set_stream_position(extendedData["pos"])
+			videoBox.paused = extendedData["paused"]
+		
+		if Global.activeType == "audio":
+			audioPlayer.stream = extendedData["stream"]
+			audioPlayer.volume_db = extendedData["volume"]
+			audioPlayer.play()
+			audioPlayer.seek(extendedData["pos"])
+			audioPlayer.stream_paused = extendedData["paused"]
 
 
 func _on_video_player_finished():
 	Signals.itemFinished.emit()
 
+func _on_audio_player_finished() -> void:
+	Signals.itemFinished.emit()
 
-
-func _on_tips_gui_input(event: InputEvent) -> void:
+func _on_tips_gui_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click") and %Tips.visible:
 		%Tips.visible = false
 

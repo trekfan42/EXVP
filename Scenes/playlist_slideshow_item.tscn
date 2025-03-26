@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2veaeyny74fg"]
+[gd_scene load_steps=12 format=3 uid="uid://2veaeyny74fg"]
 
 [ext_resource type="Script" uid="uid://dj7282f0cm64r" path="res://Scripts/playlist_slideshow_item.gd" id="1_ofxcs"]
 [ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="2_1rwmq"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://eo4m77ua0lnm" path="res://UI/Icons/Menu white.png" id="3_erhfg"]
 [ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="4_euihb"]
 [ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="5_0ooij"]
+[ext_resource type="Script" uid="uid://bt2v44sgkm45r" path="res://addons/ReorderableContainer/reorderable_hbox.gd" id="5_erhfg"]
+[ext_resource type="Texture2D" uid="uid://bxjstnxgrqhfl" path="res://UI/Icons/loop off.png" id="6_euihb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11ww5"]
 size = Vector2(26, 139)
@@ -101,25 +103,42 @@ size_flags_vertical = 3
 mouse_filter = 0
 vertical_scroll_mode = 0
 
-[node name="Thumbs" type="HBoxContainer" parent="Panel/HBoxContainer/Control/HBoxContainer/TrackInfo/ThumbsScroll"]
+[node name="Thumbs" type="Container" parent="Panel/HBoxContainer/Control/HBoxContainer/TrackInfo/ThumbsScroll" node_paths=PackedStringArray("scroll_container")]
 unique_name_in_owner = true
+process_mode = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("5_erhfg")
+scroll_container = NodePath("..")
+metadata/_custom_type_script = "uid://bt2v44sgkm45r"
 
-[node name="ToggleSettings" type="Button" parent="Panel/HBoxContainer/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Control/HBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="ModeToggle" type="Button" parent="Panel/HBoxContainer/Control/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -50.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Auto Advance to next item when finsihed"
+focus_mode = 0
+theme = ExtResource("2_1rwmq")
+theme_override_font_sizes/font_size = 25
+icon = ExtResource("6_euihb")
+icon_alignment = 2
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ToggleSettings" type="Button" parent="Panel/HBoxContainer/Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 30
 text = "⚙️"
 
@@ -211,6 +230,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+focus_mode = 0
 theme = ExtResource("2_1rwmq")
 theme_override_font_sizes/font_size = 30
 alignment = 1
@@ -296,6 +316,7 @@ size_flags_horizontal = 0
 [node name="ShuffleButton" type="Button" parent="SlideshowSettings/Panel/MarginContainer/OptionsHbox"]
 custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 40
 text = "🔀"
 
@@ -317,7 +338,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_erhfg")
 text = "💾"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="button_up" from="Panel/HBoxContainer/Control/ToggleSettings" to="." method="_on_toggle_settings_button_up"]
+[connection signal="reordered" from="Panel/HBoxContainer/Control/HBoxContainer/TrackInfo/ThumbsScroll/Thumbs" to="." method="_on_thumbs_reordered"]
+[connection signal="sort_children" from="Panel/HBoxContainer/Control/HBoxContainer/TrackInfo/ThumbsScroll/Thumbs" to="Panel/HBoxContainer/Control/HBoxContainer/TrackInfo/ThumbsScroll/Thumbs" method="_on_sort_children"]
+[connection signal="button_up" from="Panel/HBoxContainer/Control/HBoxContainer/VBoxContainer/ModeToggle" to="." method="_on_mode_toggle_button_up"]
+[connection signal="button_up" from="Panel/HBoxContainer/Control/HBoxContainer/VBoxContainer/ToggleSettings" to="." method="_on_toggle_settings_button_up"]
 [connection signal="button_up" from="Panel/HBoxContainer/RemoveVideoButton" to="." method="_on_remove_video_button_button_up"]
 [connection signal="button_up" from="Panel/HBoxContainer/SelectVideoButton" to="." method="_on_select_video_button_button_up"]
 [connection signal="area_entered" from="Panel/Area2D" to="." method="_on_area_2d_area_entered"]

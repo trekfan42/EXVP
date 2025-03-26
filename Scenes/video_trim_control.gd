@@ -1,6 +1,6 @@
 extends Panel
 
-@onready var video = $"../../../../../../../.."
+@onready var itemParent = $"../../../../../../../.."
 @onready var parent_panel := %VideoTrimControl
 @onready var start_handle := %StartTrimHandle
 @onready var end_handle := %EndTrimHandle
@@ -16,13 +16,17 @@ var last_parent_width: float
 var accumulated_movement: float = 0.0
 var movement_threshold: float = 10.0  # Threshold in pixels before a snap step occurs
 
+func _ready():
+	start_handle.mouse_default_cursor_shape = 10
+	end_handle.mouse_default_cursor_shape = 10
+
 func setup_controls():
-	videoLength = video.itemData["length"]
-	start_trim = video.tempSettings["startPoint"]
-	end_trim = video.tempSettings["endPoint"]
-	%StartTrimTime.text = Utils.Secs_To_MMSS(video.tempSettings["startPoint"])
-	%EndTrimTime.text = Utils.Secs_To_MMSS(video.tempSettings["endPoint"])
-	%EndTime.text = Utils.Secs_To_MMSS(video.itemData["length"])
+	videoLength = itemParent.itemData["length"]
+	start_trim = itemParent.tempSettings["startPoint"]
+	end_trim = itemParent.tempSettings["endPoint"]
+	%StartTrimTime.text = Utils.Secs_To_MMSS(itemParent.tempSettings["startPoint"])
+	%EndTrimTime.text = Utils.Secs_To_MMSS(itemParent.tempSettings["endPoint"])
+	%EndTime.text = Utils.Secs_To_MMSS(itemParent.itemData["length"])
 	last_parent_width = parent_panel.size.x
 	position_handles()
 
@@ -43,22 +47,30 @@ func position_handles():
 		start_handle.position.x = 0
 	print("handle positions updated")
 	
-	if !video.itemData["endPoint"]:
-		end_trim = video.itemData["length"]
+	if !itemParent.itemData["endPoint"]:
+		end_trim = itemParent.itemData["length"]
 		end_handle.position.x = parent_panel.size.x - end_handle.size.x 
-	if video.tempSettings["endPoint"]:
-		end_trim = video.tempSettings["endPoint"]
+	if itemParent.tempSettings["endPoint"]:
+		end_trim = itemParent.tempSettings["endPoint"]
 		end_handle.position.x = end_trim * trim_ratio + start_handle.size.x
 
+
 func _process(_delta):
-	if parent_panel.size.x != last_parent_width and %VideoSettings.visible:
+	if parent_panel.size.x != last_parent_width and itemParent.settingsPanel.visible:
 		update_trim_ratio()
 		position_handles()
 		last_parent_width = parent_panel.size.x
-	if %TrimFill.position.x != start_handle.position.x + (start_handle.size.x / 2):
-		%TrimFill.position.x = start_handle.position.x + (start_handle.size.x / 2)
-	if %TrimFill.size.x != end_handle.position.x - start_handle.position.x:
-		%TrimFill.size.x = end_handle.position.x - start_handle.position.x
+	if itemParent.type == "video":
+		if %TrimFill.position.x != start_handle.position.x + (start_handle.size.x / 2):
+			%TrimFill.position.x = start_handle.position.x + (start_handle.size.x / 2)
+		if %TrimFill.size.x != end_handle.position.x - start_handle.position.x:
+			%TrimFill.size.x = end_handle.position.x - start_handle.position.x
+	if itemParent.type == "audio":
+		if %AudioMaskStart.size.x != start_handle.position.x:
+			%AudioMaskStart.size.x = start_handle.position.x
+		if %AudioMaskEnd.size.x != parent_panel.size.x - end_handle.position.x:
+			%AudioMaskEnd.position.x = end_handle.position.x
+			%AudioMaskEnd.size.x = parent_panel.size.x - end_handle.position.x
 
 func _input(event):
 	if event is InputEventMouseMotion and dragging:
@@ -83,15 +95,15 @@ func _input(event):
 					start_trim = clamp(start_trim + snap_steps, 0, end_trim - snap_interval)
 					start_handle.position.x = start_trim * trim_ratio
 					print("start trim: " + str(start_trim))
-					video.tempSettings["startPoint"] = start_trim
-					%StartTrimTime.text = Utils.Secs_To_MMSS(video.tempSettings["startPoint"])
+					itemParent.tempSettings["startPoint"] = start_trim
+					%StartTrimTime.text = Utils.Secs_To_MMSS(itemParent.tempSettings["startPoint"])
 				
 				elif dragging == "end":
 					end_trim = clamp(end_trim + snap_steps, start_trim + snap_interval, videoLength)
 					end_handle.position.x = end_trim * trim_ratio + start_handle.size.x
 					print("end trim: " + str(end_trim))
-					video.tempSettings["endPoint"] = end_trim
-					%EndTrimTime.text = Utils.Secs_To_MMSS(video.tempSettings["endPoint"])
+					itemParent.tempSettings["endPoint"] = end_trim
+					%EndTrimTime.text = Utils.Secs_To_MMSS(itemParent.tempSettings["endPoint"])
 		else:
 			# Move smoothly without snapping when no modifier keys are pressed
 			if dragging == "start":
@@ -100,8 +112,8 @@ func _input(event):
 					start_handle.position.x = 0
 				start_handle.position.x = new_x
 				start_trim = int((new_x) / trim_ratio)
-				video.tempSettings["startPoint"] = start_trim
-				%StartTrimTime.text = Utils.Secs_To_MMSS(video.tempSettings["startPoint"])
+				itemParent.tempSettings["startPoint"] = start_trim
+				%StartTrimTime.text = Utils.Secs_To_MMSS(itemParent.tempSettings["startPoint"])
 				
 			elif dragging == "end":
 				var new_x = clamp(end_handle.position.x + event.relative.x, start_handle.position.x + start_handle_width, parent_panel.size.x - end_handle_width)
@@ -109,8 +121,8 @@ func _input(event):
 					end_handle.position.x = parent_panel.size.x
 				end_handle.position.x = new_x
 				end_trim = int((new_x - start_handle_width) / trim_ratio)
-				video.tempSettings["endPoint"] = end_trim
-				%EndTrimTime.text = Utils.Secs_To_MMSS(video.tempSettings["endPoint"])
+				itemParent.tempSettings["endPoint"] = end_trim
+				%EndTrimTime.text = Utils.Secs_To_MMSS(itemParent.tempSettings["endPoint"])
 
 
 func _on_start_trim_handle_gui_input(event: InputEvent) -> void:
@@ -121,17 +133,17 @@ func _on_start_trim_handle_gui_input(event: InputEvent) -> void:
 				accumulated_movement = 0.0
 			if event.is_released():
 				dragging = null
-				video.check_new_settings()
+				itemParent.check_new_settings()
 				position_handles()
 		
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			if event.is_released():
 				print("reset start handle")
-				start_trim = video.itemData["startPoint"]
-				video.tempSettings["startPoint"] = start_trim
-				video.check_new_settings()
+				start_trim = itemParent.itemData["startPoint"]
+				itemParent.tempSettings["startPoint"] = start_trim
+				itemParent.check_new_settings()
 				position_handles()
-				%StartTrimTime.text = Utils.Secs_To_MMSS(video.tempSettings["startPoint"])
+				%StartTrimTime.text = Utils.Secs_To_MMSS(itemParent.tempSettings["startPoint"])
 
 func _on_end_trim_handle_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -141,14 +153,14 @@ func _on_end_trim_handle_gui_input(event: InputEvent) -> void:
 				accumulated_movement = 0.0
 			if event.is_released():
 				dragging = null
-				video.check_new_settings()
+				itemParent.check_new_settings()
 				position_handles()
 		
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			if event.is_released():
 				print("reset end handle")
-				end_trim = video.itemData["endPoint"]
-				video.tempSettings["endPoint"] = end_trim
-				video.check_new_settings()
+				end_trim = itemParent.itemData["endPoint"]
+				itemParent.tempSettings["endPoint"] = end_trim
+				itemParent.check_new_settings()
 				position_handles()
-				%EndTrimTime.text = Utils.Secs_To_MMSS(video.tempSettings["endPoint"])
+				%EndTrimTime.text = Utils.Secs_To_MMSS(itemParent.tempSettings["endPoint"])

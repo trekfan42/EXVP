@@ -134,6 +134,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_ta6yp")
 
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="ExtendedVideoPanel/VideoSubViewport"]
+unique_name_in_owner = true
+
 [node name="Tips" type="MarginContainer" parent="ExtendedVideoPanel"]
 unique_name_in_owner = true
 layout_mode = 1

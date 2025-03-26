@@ -22,6 +22,9 @@ func populate_dummy_playlist_tree():
 
 	var videos_folder = self.create_item(root)
 	videos_folder.set_text(0, "📂 Videos")
+	
+	var audio_folder = self.create_item(root)
+	audio_folder.set_text(0, "📂 Audio")
 
 	# 🟢 Add Dummy Images
 	for i in range(1, 4):
@@ -42,6 +45,11 @@ func populate_dummy_playlist_tree():
 	for i in range(1, 3):
 		var video_item = self.create_item(videos_folder)
 		video_item.set_text(0, "🎥 Video " + str(i))
+	
+	# 🟢 Add Dummy Audio
+	for i in range(1, 3):
+		var audio_item = self.create_item(audio_folder)
+		audio_item.set_text(0, "🔉 Audio " + str(i))
 
 	# 🟢 Add Playlist File
 	var playlist_item = self.create_item(root)

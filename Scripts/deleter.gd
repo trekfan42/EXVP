@@ -20,11 +20,11 @@ func close():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "custom_minimum_size:y" , 0 , 0.5).set_trans(Tween.TRANS_EXPO)
 
-func _on_area_2d_area_entered(area):
+func _on_area_2d_area_entered(_area):
 	Global.deleteReady = true
 	print("delete ready")
 
 
-func _on_area_2d_area_exited(area):
+func _on_area_2d_area_exited(_area):
 	Global.deleteReady = false
 	print("delete cancelled")

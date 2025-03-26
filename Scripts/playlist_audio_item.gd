@@ -1,42 +1,36 @@
 extends VBoxContainer
 
+@onready var til = %InTime
+@onready var tol = %OutTime
 @onready var videoLabel = %VideoName
-@onready var thumbAspect = %AspectRatioContainer
-@onready var thumbPlayer = %VideoLoaderPlayer
-@onready var settingsPanel = %VideoSettings
+@onready var settingsPanel = %AudioSettings
 @onready var trimControl: Panel = %VideoTrimControl
+@onready var waveform_drawer = %WaveformDrawer
 
 
-var type = "video"
+var type = "audio"
 
 var loaded = false
 
 var title
-var aspect
-var crop
 
 var reset = null
 
-# [path,startPoint,endPoint,length,width,height,volume] 
 var itemData = {
 	"path": null,
 	"startPoint": 0,
 	"endPoint": null,
 	"length": null,
-	"width": null,
-	"height": null,
 	"mode": 0,
 	"volume": 0,
-	"muted": false,
-	"crop": 3
+	"muted": false
 }
 
 var tempSettings = {
 	"startPoint": 0,
 	"endPoint": null,
 	"volume": 0,
-	"muted": false,
-	"crop": 3
+	"muted": false
 }
 
 var id:
@@ -45,63 +39,62 @@ var id:
 
 var total
 
-var frame
+var preview: ImageTexture
 
 var thread: Thread
 
+var peaksData = []
+
 func _ready():
 	%Spinner.status = 1
-	thumbPlayer.visible = false
 	Signals.queueItem.connect(queue_check)
-	videoLabel.text = "🎬 " + title + "." + itemData["path"].get_extension()
-	%VideoSettings.hide()
-	load_thumb()
-
-func load_thumb():
-	thread = Thread.new()
-	thread.start(load_video)
-
-func load_video():
-	thumbPlayer.stream = load(itemData["path"])
-	itemData["length"] = int(ceil(thumbPlayer.get_stream_length()))
-	itemData["height"] = int(thumbPlayer.get_video_texture().get_size().y)
-	itemData["width"] = int(thumbPlayer.get_video_texture().get_size().x)
-	thumbAspect.ratio = itemData["width"] / itemData["height"]
+	videoLabel.text = "🔉 " + title + "." + itemData["path"].get_extension()
+	%AudioSettings.hide()
+	load_preview()
+	
 	%VolumeSlider.value = float(itemData["volume"])
 	%VolumeEdit.text = str(float(itemData["volume"]))
-	thumbPlayer.play()
-	thumbPlayer.volume_db = -80
-	thumbPlayer.set_stream_position(itemData["length"] / 2)
-	var stillFrame = thumbPlayer.get_stream_position()
-	
-	call_deferred("loaded_thumb")
-	return stillFrame
 
-func loaded_thumb():
-	frame = thread.wait_to_finish()
+var resource: AudioStream
+
+func load_preview():
+	var path
+	path = itemData["path"]
+	if path.get_extension() == "mp3":
+		resource = AudioStreamMP3.load_from_file(path)
+	if path.get_extension() == "wav":
+		resource = AudioStreamWAV.load_from_file(path)
 	
-	if !loaded:
+	waveform_drawer.audio_stream = resource
+	
+	waveform_drawer.connect("audio_processed", update_peaks_data)
+	
+	loaded_preview()
+
+func update_peaks_data():
+	peaksData = [
+		waveform_drawer.min_peaks,
+		waveform_drawer.max_peaks
+	]
+	%Loading.hide()
+	%WaveformDrawer.show()
+	%WaveformViewer.set_peak_data(peaksData[0],peaksData[1])
+
+func loaded_preview():
+	if !loaded and resource is AudioStream:
+		itemData["length"] =  int(ceil(resource.get_length()))
+		print("audio length: " + str(itemData["length"]))
+		itemData["endPoint"] = itemData["length"]
 		itemData["endPoint"] = itemData["length"]
 		itemData["startPoint"] = 0
-	
+		tol.text = Utils.Secs_To_MMSS(itemData["length"])
+
 	for k in tempSettings.keys():
 		tempSettings[k] = itemData[k]
-	
+
 	trimControl.setup_controls()
-	
 	print("trim settings: ")
 	print(trimControl.start_trim)
-
-
-
-func _process(_delta):
-	if thumbPlayer.paused == false and frame:
-		if thumbPlayer.get_stream_position() > frame + 0.5:
-			%Spinner.status = 0
-			%Loading.hide()
-			thumbAspect.visible = true
-			thumbPlayer.visible = true
-			thumbPlayer.paused = true
 
 
 func queue_check(_type,_itemData):
@@ -110,6 +103,18 @@ func queue_check(_type,_itemData):
 	else:
 		%SelectVideoButton.text = "🔳"
 
+func _on_mode_toggle_button_up() -> void:
+	if itemData["mode"] < 2:
+		itemData["mode"] += 1
+	elif itemData["mode"] == 2:
+		itemData["mode"] = 0
+	
+	if itemData["mode"] == 0:
+		%ModeToggle.icon = load("res://UI/Icons/loop off.png")
+	elif itemData["mode"] == 1:
+		%ModeToggle.icon = load("res://UI/Icons/loop on.png")
+	elif itemData["mode"] == 2:
+		%ModeToggle.icon = load("res://UI/Icons/auto on.png")
 
 
 func _on_remove_video_button_button_up():
@@ -126,20 +131,6 @@ func _on_select_video_button_button_up():
 	Global.activeItem = self
 	Global.activeType = type
 	Signals.queueItem.emit(type,itemData)
-
-
-func _on_mode_toggle_button_up() -> void:
-	if itemData["mode"] < 2:
-		itemData["mode"] += 1
-	elif itemData["mode"] == 2:
-		itemData["mode"] = 0
-	
-	if itemData["mode"] == 0:
-		%ModeToggle.icon = load("res://UI/Icons/loop off.png")
-	elif itemData["mode"] == 1:
-		%ModeToggle.icon = load("res://UI/Icons/loop on.png")
-	elif itemData["mode"] == 2:
-		%ModeToggle.icon = load("res://UI/Icons/auto on.png")
 
 
 func set_volume(dB):
@@ -160,7 +151,27 @@ func update_vol_icon():
 		%VolIcon.text = "🔉"
 
 
+func _on_trim_in_button_up():
+	til.text = Utils.Secs_To_MMSS(Global.app.playslider.value)
+	tempSettings["startPoint"] = Global.app.playslider.value
 
+	if tempSettings["startPoint"] != 0:
+		%InTime.self_modulate = Color.GREEN
+		%TrimInClear.visible = true
+	else:
+		%InTime.self_modulate = Color.WHITE
+		%TrimInClear.visible = false
+
+func _on_trim_out_button_up():
+	til.text = Utils.Secs_To_MMSS(Global.app.playslider.value)
+	tempSettings["endPoint"] = Global.app.playslider.value
+
+	if tempSettings["endPoint"] != tempSettings["length"]:
+		%OutTime.self_modulate = Color.RED
+		%TrimOutClear.visible = true
+	else:
+		%OutTime.self_modulate = Color.WHITE
+		%TrimOutClear.visible = false
 
 func _on_volume_slider_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -199,11 +210,15 @@ func _on_aspect_option_button_item_selected(index: int) -> void:
 
 
 func update_settings_controls():
-	%AspectOptionButton.selected = itemData["crop"]
 	
 	%VolumeSlider.value = itemData["volume"]
 	%VolumeEdit.text = str(itemData["volume"])
 	set_volume(itemData["volume"])
+	
+	til.text = Utils.Secs_To_MMSS(itemData["startPoint"])
+	tol.text = Utils.Secs_To_MMSS(itemData["endPoint"])
+
+
 
 
 func check_new_settings():
@@ -225,10 +240,10 @@ func _on_save_settings_button_up() -> void:
 
 
 func _on_toggle_settings_button_up() -> void:
-	print(itemData)
-	%VideoSettings.visible = !%VideoSettings.visible
+	
+	%AudioSettings.visible = !%AudioSettings.visible
 	check_new_settings()
-	if %VideoSettings.visible:
+	if %AudioSettings.visible:
 		self.custom_minimum_size.y = 270
 		trimControl.setup_controls()
 	else:

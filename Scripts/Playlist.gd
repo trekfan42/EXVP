@@ -1,8 +1,9 @@
 extends VBoxContainer
 
-var videoItem = preload("res://Scenes/playlist_video_item.tscn")
-var slideshowItem = preload("res://Scenes/playlist_slideshow_item.tscn")
-var stillItem = preload("res://Scenes/playlist_still_item.tscn")
+const videoItem = preload("res://Scenes/playlist_video_item.tscn")
+const slideshowItem = preload("res://Scenes/playlist_slideshow_item.tscn")
+const stillItem = preload("res://Scenes/playlist_still_item.tscn")
+const audioItem = preload("res://Scenes/playlist_audio_item.tscn")
 
 @onready var save_popup: HBoxContainer = %SavingProgressPopup
 @onready var save_progress: ProgressBar = %SavingProgressBar
@@ -36,6 +37,9 @@ func check_file_ext(path):
 	if ext in Global.picExts:
 		print("image loaded")
 		load_image(path)
+	if ext in Global.audioExts:
+		print("audio loaded")
+		load_audio(path)
 	if ext == "exvp":
 		print("loading Playlist")
 		load_playlist(path)
@@ -46,6 +50,8 @@ func check_file_ext(path):
 func load_video(path):
 	Global.app.add_to_playlist("video",path)
 
+func load_audio(path):
+	Global.app.add_to_playlist("audio",path)
 
 func load_folder(path):
 	Global.app.add_to_playlist("slideshow",path)
@@ -78,6 +84,7 @@ func bundle_save(bundle_path):
 	# Define subdirectories
 	var video_dir = bundle_path + "/Videos/"
 	var image_dir = bundle_path + "/Images/"
+	var audio_dir = bundle_path + "/Audio/"
 	var slideshow_dir = bundle_path + "/Slideshows/"
 
 	DirAccess.make_dir_absolute(video_dir)
@@ -90,6 +97,7 @@ func bundle_save(bundle_path):
 		"status": "Starting save operation...",
 		"finished": false,
 		"vids_keep": {},
+		"audio_keep": {},
 		"stills_keep": {},
 		"slideshows_keep": {},
 		"playlist_data": {"items": []}
@@ -108,6 +116,7 @@ func bundle_save(bundle_path):
 	var thread_data = {
 		"bundle_path": bundle_path,
 		"video_dir": video_dir,
+		"audio_dir": audio_dir,
 		"image_dir": image_dir,
 		"slideshow_dir": slideshow_dir,
 		"items": %VideoList.get_children(),
@@ -130,13 +139,12 @@ func _save_thread_function(thread_data):
 	# Load existing playlist data
 	var bundle_path = thread_data["bundle_path"]
 	var video_dir = thread_data["video_dir"]
+	var audio_dir = thread_data["audio_dir"]
 	var image_dir = thread_data["image_dir"]
 	var slideshow_dir = thread_data["slideshow_dir"]
 	var items = thread_data["items"]
 	var total_items = thread_data["total_items"]
 	
-	var existing_files = {}
-	var existing_playlists = []
 	var bundle_playlist_path = bundle_path + "/" + bundle_path.get_file() + ".exvp"
 	
 	var preexisting_playlist_data = false
@@ -154,6 +162,7 @@ func _save_thread_function(thread_data):
 	}
 	var iter = 1
 	var vids_keep = []
+	var audio_keep = []
 	var stills_keep = []
 	var slideshows_keep = {}
 	
@@ -163,22 +172,21 @@ func _save_thread_function(thread_data):
 		var new_relative_path = null
 
 		# Store files in the correct subdirectory
-		if i.type == "video":
+		if i.type == "video" or i.type == "audio" or i.type == "still":
 			if preexisting_playlist_data:
 				original_path = bundle_path + "/" + i.itemData["path"]
 				if !FileAccess.file_exists(original_path):
 					original_path = i.itemData["path"]
 			else:
 				original_path = i.itemData["path"]
-			new_relative_path = copy_to_bundle_if_needed(bundle_path, original_path, video_dir)
-		elif i.type == "still":
-			if preexisting_playlist_data:
-				original_path = bundle_path + "/" + i.itemData["path"]
-				if !FileAccess.file_exists(original_path):
-					original_path = i.itemData["path"]
-			else:
-				original_path = i.itemData["path"]
-			new_relative_path = copy_to_bundle_if_needed(bundle_path, original_path, image_dir)
+			
+			if i.type == "video":
+				new_relative_path = copy_to_bundle_if_needed(original_path, video_dir)
+			if i.type == "audio":
+				new_relative_path = copy_to_bundle_if_needed(original_path, audio_dir)
+			if i.type == "still":
+				new_relative_path = copy_to_bundle_if_needed(original_path, image_dir)
+
 		elif i.type == "slideshow":
 			if preexisting_playlist_data:
 				original_path = bundle_path + "/" + i.itemData["folder"]
@@ -186,7 +194,7 @@ func _save_thread_function(thread_data):
 					original_path = i.itemData["folder"]
 			else:
 				original_path = i.itemData["folder"]
-			new_relative_path = copy_slideshow_to_bundle_if_needed(bundle_path, original_path, slideshow_dir)
+			new_relative_path = copy_slideshow_to_bundle_if_needed(original_path, slideshow_dir)
 			
 		print("ITEM ORIGINAL PATH: " + original_path)
 
@@ -195,6 +203,10 @@ func _save_thread_function(thread_data):
 				new_relative_path = "Videos/" + new_relative_path.get_file()
 				i.itemData["path"] = new_relative_path
 				vids_keep.append(i.title) # Track new files
+			elif i.type == "audio":
+				new_relative_path = "Audio/" + new_relative_path.get_file()
+				i.itemData["path"] = new_relative_path
+				audio_keep.append(i.title) # Track new files
 			elif i.type == "still":
 				new_relative_path = "Images/" + new_relative_path.get_file()
 				i.itemData["path"] = new_relative_path
@@ -221,6 +233,7 @@ func _save_thread_function(thread_data):
 	thread_result["progress"] = 60
 	
 	delete_removed_videos(bundle_path, vids_keep)
+	delete_removed_audio(bundle_path, audio_keep)
 	delete_removed_stills(bundle_path, stills_keep)
 	delete_removed_folders(bundle_path, slideshows_keep)
 	
@@ -243,6 +256,7 @@ func _save_thread_function(thread_data):
 	thread_result["status"] = "Save Complete!"
 	thread_result["finished"] = true
 	thread_result["vids_keep"] = vids_keep
+	thread_result["audio_keep"] = audio_keep
 	thread_result["stills_keep"] = stills_keep
 	thread_result["slideshows_keep"] = slideshows_keep
 	
@@ -287,39 +301,51 @@ func _update_save_progress():
 
 
 
-func copy_to_bundle_if_needed(bundle_path, original_path, target_folder):
+func copy_to_bundle_if_needed(original_path, target_folder):
 	print("checking target: " + target_folder)
 	if not FileAccess.file_exists(original_path):
 		print("⚠ Missing file, skipping:", original_path)
-		return null  # Skip missing files
+		return null
 
 	var filename = original_path.get_file()
 	var new_path = target_folder + filename
 
-	# Check if file exists and is unchanged
-	if FileAccess.file_exists(new_path):
-		var existing_size = FileAccess.open(new_path, FileAccess.READ).get_length()
-		var new_size = FileAccess.open(original_path, FileAccess.READ).get_length()
+	# ✅ Ensure the target folder exists
+	if not DirAccess.dir_exists_absolute(target_folder):
+		DirAccess.make_dir_recursive_absolute(target_folder)
 
-		if existing_size == new_size:
+	# Skip copy if file is unchanged
+	if FileAccess.file_exists(new_path):
+		var existing_file = FileAccess.open(new_path, FileAccess.READ)
+		var original_file = FileAccess.open(original_path, FileAccess.READ)
+		if existing_file and original_file and existing_file.get_length() == original_file.get_length():
 			print("✅ File is unchanged, skipping copy:", new_path)
 			return new_path.replace(target_folder.get_base_dir() + "/", "")
 
 		print("🔄 File changed, overwriting:", new_path)
 
-	# Copy the file only if needed
-	var file = FileAccess.open(original_path, FileAccess.READ)
-	var new_file = FileAccess.open(new_path, FileAccess.WRITE)
-	new_file.store_buffer(file.get_buffer(file.get_length()))
-	file.close()
-	new_file.close()
+	# ✅ Proceed with copy
+	var src = FileAccess.open(original_path, FileAccess.READ)
+	if src == null:
+		print("❌ Failed to open source file:", original_path)
+		return null
+
+	var dst = FileAccess.open(new_path, FileAccess.WRITE)
+	if dst == null:
+		print("❌ Failed to open destination file:", new_path)
+		return null
+
+	dst.store_buffer(src.get_buffer(src.get_length()))
+	src.close()
+	dst.close()
 
 	print("📂 Copied file:", new_path)
 	return new_path.replace(target_folder.get_base_dir() + "/", "")
 
 
 
-func copy_slideshow_to_bundle_if_needed(bundle_path, original_folder, slideshow_dir):
+
+func copy_slideshow_to_bundle_if_needed(original_folder, slideshow_dir):
 	if not DirAccess.dir_exists_absolute(original_folder):
 		print("Missing slideshow folder, skipping:", original_folder)
 		return null
@@ -351,7 +377,7 @@ func copy_slideshow_to_bundle_if_needed(bundle_path, original_folder, slideshow_
 		while file_name != "":
 			var original_path = original_folder + "/" + file_name
 			if FileAccess.file_exists(original_path):
-				copy_to_bundle_if_needed(bundle_path, original_path, new_folder_path + "/")
+				copy_to_bundle_if_needed(original_path, new_folder_path + "/")
 			file_name = dir.get_next()
 		dir.list_dir_end()
 
@@ -375,6 +401,27 @@ func delete_removed_videos(bundle_path, videos_keep):
 				var file_path = file_name.get_basename()  # Relative path
 				var absolute_path = folder_path + "/" + file_name  # Absolute path
 				if path_cut(file_path) not in videos_keep:
+					print("🗑 Removing unused file:", absolute_path)  # DEBUG
+					DirAccess.remove_absolute(absolute_path)
+
+				file_name = dir_access.get_next()
+			dir_access.list_dir_end()
+
+
+func delete_removed_audio(bundle_path, audio_keep):
+	print("🔍 Checking for unnecessary videos to delete...")  # DEBUG
+	print(audio_keep)
+	
+	var folder_path = bundle_path + "/Audio"
+	if DirAccess.dir_exists_absolute(folder_path):
+		var dir_access = DirAccess.open(folder_path)
+		if dir_access:
+			dir_access.list_dir_begin()
+			var file_name = dir_access.get_next()
+			while file_name != "":
+				var file_path = file_name.get_basename()  # Relative path
+				var absolute_path = folder_path + "/" + file_name  # Absolute path
+				if path_cut(file_path) not in audio_keep:
 					print("🗑 Removing unused file:", absolute_path)  # DEBUG
 					DirAccess.remove_absolute(absolute_path)
 
@@ -518,6 +565,10 @@ func load_playlist(path):
 				item_data["height"] = int(item_data["height"])
 				item_data["startPoint"] = int(item_data["startPoint"])
 				item_data["endPoint"] = int(item_data["endPoint"])
+			elif item_type == "audio" and file_check(absolute_path, "Audio"):
+				new_item = audioItem.instantiate()
+				item_data["startPoint"] = int(item_data["startPoint"])
+				item_data["endPoint"] = int(item_data["endPoint"])
 			elif item_type == "still" and file_check(absolute_path, "Still"):
 				new_item = stillItem.instantiate()
 				item_data["crop"] = int(item_data["crop"])
@@ -571,7 +622,7 @@ func file_check(path, type):
 	var dir = path.get_base_dir()  # Use get_base_dir() to ensure a valid directory
 	print("Checking path:", path, "Type:", type)
 
-	if type == "Video" or type == "Still":
+	if type == "Video" or type == "Audio" or type == "Still":
 		var files = DirAccess.get_files_at(dir)
 		if files.has(path.get_file()):
 			return true
@@ -595,9 +646,9 @@ func path_cut(path):
 	return fileName
 
 
-func _on_video_list_child_entered_tree(node: Node) -> void:
+func _on_video_list_child_entered_tree(_node: Node) -> void:
 	check_empty()
 
 
-func _on_video_list_child_exiting_tree(node: Node) -> void:
+func _on_video_list_child_exiting_tree(_node: Node) -> void:
 	check_empty()

@@ -21,18 +21,19 @@ func toggle_options():
 		%SettingsPopup.show()
 
 
-var muted = preload("res://UI/Icons/mute on.png")
-var unmuted = preload("res://UI/Icons/mute off.png")
+const muted = preload("res://UI/Icons/mute on.png")
+const unmuted = preload("res://UI/Icons/mute off.png")
 
-var loopIcon = preload("res://UI/Icons/loop.png")
-var autoIcon = preload("res://UI/Icons/Auto.png")
+const loopIcon = preload("res://UI/Icons/loop.png")
+const autoIcon = preload("res://UI/Icons/Auto.png")
 
-var ider = preload("res://Scenes/identifier.tscn")
-var outputWindow = preload("res://Scenes/extended_window.tscn")
+const ider = preload("res://Scenes/identifier.tscn")
+const outputWindow = preload("res://Scenes/extended_window.tscn")
 
-var videoPlaylistItem = preload("res://Scenes/playlist_video_item.tscn")
-var slideshowPlaylistItem = preload("res://Scenes/playlist_slideshow_item.tscn")
-var stillPlaylistItem = preload("res://Scenes/playlist_still_item.tscn")
+const videoPlaylistItem = preload("res://Scenes/playlist_video_item.tscn")
+const audioPlaylistItem = preload("res://Scenes/playlist_audio_item.tscn")
+const slideshowPlaylistItem = preload("res://Scenes/playlist_slideshow_item.tscn")
+const stillPlaylistItem = preload("res://Scenes/playlist_still_item.tscn")
 
 var extended = false
 
@@ -53,7 +54,7 @@ var server = null
 
 var listening = false
 
-var extMons
+var extMons: int
 var ExtendedMonitor = 1
 
 
@@ -120,12 +121,14 @@ func _ready():
 		if !%MainVideoPanel.visible:
 			%MainVideoPanel.visible = true
 		
-		#Disabled Licensing Check
-		#%Trial.start()
-		#Auth.check_saved_key()
+		if AudioServer.get_speaker_mode() != 0:
+			var warning = "Only Stereo Output Devices are supported!"
+			Signals.errorMsg.emit(warning)
+		
 		Signals.validation.emit(true)
 	
 	if extMons != DisplayServer.get_screen_count():
+		%MonitorSelector.clear()
 		extMons = DisplayServer.get_screen_count()
 		for m in extMons:
 			%MonitorSelector.add_item(str(m + 1))
@@ -148,18 +151,19 @@ func check_cmd_args():
 
 func check_position(pos):
 	if Global.activeItem:
-		if !seeking and Global.activeType == "video":
-			playslider.value = pos
-			elapsed = playslider.value
-			left = Global.activeItem.itemData["length"] - playslider.value
-			ti.text = str( "+" + secondsToMMSS(elapsed))
-			to.text = str( "-" + secondsToMMSS(left))
-			if !videoBox.paused:
-				networkControl.update_time(ti.text,to.text)
+		if Global.activeType == "video" or Global.activeType == "audio":
+			if !seeking :
+				playslider.value = pos
+				elapsed = playslider.value
+				left = Global.activeItem.itemData["length"] - playslider.value
+				ti.text = str( "+" + secondsToMMSS(elapsed))
+				to.text = str( "-" + secondsToMMSS(left))
+				if !videoBox.paused:
+					networkControl.update_time(ti.text,to.text)
 
-		if Global.activeType == "video" and playslider.value >= Global.activeItem.itemData["endPoint"]:
-			print("video reached end point: " + str(playslider.value) + " - " + str(Global.activeItem.itemData["endPoint"]))
-			_on_video_player_finished()
+			if playslider.value >= Global.activeItem.itemData["endPoint"]:
+				print("video reached end point: " + str(playslider.value) + " - " + str(Global.activeItem.itemData["endPoint"]))
+				_on_video_player_finished()
 
 func _process(_delta):
 	if not Engine.is_editor_hint():
@@ -259,6 +263,16 @@ func set_play_icon():
 		if %VideoPlayer.is_playing() and !%VideoPlayer.paused:
 			%PlayPause.icon = load("res://UI/Icons/pause on.png")
 			Global.playIcon = false
+	
+	if Global.activeType == "audio":
+		Signals.pauseToggle.emit()
+		if %AudioPlayer.playing and %AudioPlayer.stream_paused:
+			%PlayPause.icon = load("res://UI/Icons/play on.png")
+			Global.playIcon = true
+		if %AudioPlayer.playing and !%AudioPlayer.stream_paused:
+			%PlayPause.icon = load("res://UI/Icons/pause on.png")
+			Global.playIcon = false
+	
 	if Global.activeType == "slideshow":
 		Global.slideshowRunning = !Global.slideshowRunning
 		if !Global.playIcon:
@@ -349,7 +363,12 @@ func add_to_playlist(type,path):
 			iVideo.title = path_cut(path)
 			iVideo.itemData["path"] = path
 			%VideoList.add_child(iVideo)
-
+		
+		if type == "audio":
+			var iAudio = audioPlaylistItem.instantiate()
+			iAudio.title = path_cut(path)
+			iAudio.itemData["path"] = path
+			%VideoList.add_child(iAudio)
 		
 		if type == "slideshow":
 			var iSlideshow = slideshowPlaylistItem.instantiate()
@@ -399,6 +418,8 @@ func queue_item(type,itemData):
 		%VideoTitleLabel.text = path_cut(itemData["path"])
 		networkControl.update_time(itemData["startPoint"],itemData["endPoint"])
 		%VolumeControls.visible = true
+		%AspectOptionButton.show()
+		%WaveformRect.hide()
 		%AspectOptionButton.set_item_disabled(0, false)
 		%AspectOptionButton.select(Global.activeItem.itemData["crop"])
 		%PlayBar.visible = true
@@ -413,6 +434,49 @@ func queue_item(type,itemData):
 			print("video not trimmed")
 			trimmed = false
 			%TrimTimes.visible = false
+	
+	if type == "audio":
+		playslider.value = 0
+		playslider.max_value = itemData["length"] - 1
+		playslider.min_value = 0
+
+		if itemData["length"] < 600:
+			playslider.tick_count = itemData["length"] / 2
+		elif itemData["length"] > 3600:
+			playslider.tick_count = itemData["length"] / 120
+		else:
+			playslider.tick_count = itemData["length"] / 60
+		
+		ti.text = "00:00"
+		to.text = str( "-" + secondsToMMSS(itemData["length"]))
+		if itemData["muted"]:
+			%Volume.value = -80
+		else:
+			%Volume.value = itemData["volume"]
+		
+		_on_volume_drag_ended(%Volume.value)
+		%VideoTitleLabel.text = path_cut(itemData["path"])
+		networkControl.update_time(itemData["startPoint"],itemData["endPoint"])
+		%VolumeControls.visible = true
+		%PlayBar.visible = true
+		%VideoControls.visible = true
+		%PlaySlider.value = itemData["startPoint"]
+		%AspectOptionButton.hide()
+		%WaveformRect.show()
+		if Global.activeItem.peaksData != []:
+			%WaveformRect.set_peak_data(Global.activeItem.peaksData[0],Global.activeItem.peaksData[1])
+		
+		if itemData["endPoint"] != itemData["length"] or itemData["startPoint"] != 0:
+			print("audio trimmed")
+			trimmed = true
+			%TrimTimes.visible = true
+			%TimeTrimIn.text = secondsToMMSS(itemData["startPoint"])
+			%TimeTrimOut.text = secondsToMMSS(itemData["endPoint"])
+		else:
+			print("video not trimmed")
+			trimmed = false
+			%TrimTimes.visible = false
+	
 	
 	if type == "slideshow":
 		Signals.stopVideo.emit()
@@ -431,6 +495,8 @@ func queue_item(type,itemData):
 		%VideoControls.visible = true
 		trimmed = false
 		%TrimTimes.visible = false
+		%AspectOptionButton.show()
+		%WaveformRect.hide()
 		%AspectOptionButton.set_item_disabled(0, true)
 		%AspectOptionButton.select(Global.activeItem.itemData["crop"])
 		
@@ -438,6 +504,8 @@ func queue_item(type,itemData):
 		Signals.stopVideo.emit()
 		%VideoTitleLabel.text = Global.activeItem.title
 		%VolumeControls.visible = false
+		%AspectOptionButton.show()
+		%WaveformRect.hide()
 		%AspectOptionButton.set_item_disabled(0, true)
 		%AspectOptionButton.select(Global.activeItem.itemData["crop"])
 		%PlayBar.visible = false
@@ -477,7 +545,7 @@ func _on_open_still_file_dialog_file_selected(path):
 	add_to_playlist(type,path)
 
 func _on_play_slider_drag_ended(_value_changed):
-	if Global.activeType == "video":
+	if Global.activeType == "video" or Global.activeType == "audio" :
 		Signals.setPos.emit(playslider.value)
 	#	videoBox.set_stream_position(playslider.value)
 		seeking = false
@@ -486,12 +554,12 @@ func _on_play_slider_drag_ended(_value_changed):
 		%SliderLabel.hide()
 	if Global.activeType == "slideshow":
 		if Global.playIcon:
-			Signals.setSlide.emit(playslider.value - 1,true)
+			Signals.setSlide.emit(int(playslider.value) - 1,true)
 		else:
-			Signals.setSlide.emit(playslider.value - 1,false)
+			Signals.setSlide.emit(int(playslider.value) - 1,false)
 
 func _on_play_slider_drag_started():
-	if Global.activeType == "video":
+	if Global.activeType == "video" or Global.activeType == "audio" :
 		%SliderLabel.show()
 		#Signals.pauseToggle.emit()
 
@@ -499,34 +567,10 @@ func _on_play_slider_drag_started():
 	if Global.activeType == "slideshow":
 		Signals.pauseSlides.emit()
 
-func _on_play_slider_value_changed(value: float) -> void:
+func _on_play_slider_value_changed(_value: float) -> void:
 	pass
 
-func _on_loop_toggle_button_up():
-	Global.loop = !Global.loop
-	print("loop: " + str(Global.loop))
-	set_loop_icon()
 
-func set_loop_icon():
-	if Global.loop:
-		%LoopToggle.icon = load("res://UI/Icons/loop on.png")
-		Global.auto = false
-		set_auto_icon()
-	else:
-		%LoopToggle.icon = load("res://UI/Icons/loop off.png")
-
-func _on_auto_toggle_button_up():
-	Global.auto = !Global.auto
-	print("auto: " + str(Global.auto))
-	set_auto_icon()
-
-func set_auto_icon():
-	if Global.auto:
-		%AutoToggle.icon = load("res://UI/Icons/auto on.png")
-		Global.loop = false
-		set_loop_icon()
-	else:
-		%AutoToggle.icon = load("res://UI/Icons/auto off.png")
 
 func check_next_video():
 	var videosAmount = %VideoList.get_child_count()
@@ -553,10 +597,10 @@ func check_next_video():
 
 func _on_video_player_finished():
 	print("finished")
-	if Global.loop:
+	if Global.activeItem.itemData["mode"] == 1:
 		print("please loop")
 		print(Global.activeType)
-		if Global.activeType == "video":
+		if Global.activeType == "video" or Global.activeType == "audio":
 			Global.activeItem._on_select_video_button_button_up()
 			_on_play_pause_button_up()
 			print("looping video")
@@ -564,7 +608,7 @@ func _on_video_player_finished():
 			print("looping slideshow")
 			Signals.setSlide.emit(0,false)
 
-	elif Global.auto:
+	elif Global.activeItem.itemData["mode"] == 2:
 		print("please auto advance")
 		print("checking for next video in list")
 		if check_next_video():
@@ -587,13 +631,19 @@ func _on_timer_timeout():
 func _on_monitor_selector_button_down():
 	print(extended)
 	if !extended:
+		
 		for c in ExtMonPar.get_children():
 			c.queue_free()
+			
 		if extMons != DisplayServer.get_screen_count():
-			%MonitorSelector.clear()
 			extMons = DisplayServer.get_screen_count()
+			%MonitorSelector.clear()
 			for m in extMons:
-				%MonitorSelector.add_item(str(m + 1))
+				print("adding ext mon option...")
+				%MonitorSelector.add_item(str(m + 1),m)
+		
+		
+		
 			
 		for m in extMons: # Starts at 0
 			var iIder = ider.instantiate()
@@ -617,33 +667,48 @@ func _on_extend_button_button_up():
 		%ErrorMessage.hide()
 		
 	else:
+		var extendData = {}
 		
-		if Global.activeType == "video":
-			%VideoPlayer.volume_db = -100
-			if %VideoPlayer.is_playing():
-				var e = outputWindow.instantiate()
-				var playPos = %VideoPlayer.get_stream_position()
-				var volume = %Volume.value
-				var paused
-				if %VideoPlayer.paused:
-					paused = true
-				else:
-					paused = false
-				spawn_window(e)
-				Signals.videoExtended.emit(%VideoPlayer.stream,Global.activeItem.itemData["width"],Global.activeItem.itemData["height"],playPos,volume,paused)
+		if Global.activeType == "video" or Global.activeType == "audio":
+			if Global.activeType == "video":
 				
-		
+				extendData = {
+					"stream": %VideoPlayer.stream,
+					"width": Global.activeItem.itemData["width"],
+					"height": Global.activeItem.itemData["height"],
+					"pos": %VideoPlayer.get_stream_position(),
+					"volume": %VideoPlayer.volume_db,
+					"paused": %VideoPlayer.paused
+				}
+				
+			if Global.activeType == "audio":
+				extendData = {
+					"stream": %AudioPlayer.stream,
+					"pos": %AudioPlayer.get_playback_position(),
+					"volume": %AudioPlayer.volume_db,
+					"paused": %AudioPlayer.stream_paused
+				}
+				
+			var e = outputWindow.instantiate()
+			spawn_window(e)
+			Signals.videoExtended.emit(extendData)
+			
+		elif Global.activeType == "still":
+			pass
+			
 		elif Global.activeType == "slideshow":
 			var e = outputWindow.instantiate()
 			if Global.slideshowRunning:
 				spawn_window(e)
 				Signals.slideshow.emit(Global.activeItem)
 				Signals.setSlide.emit(Global.activeSlide,true)
-		
+			
 		else:
 			var e = outputWindow.instantiate()
 			spawn_window(e)
-		
+			
+		%AudioPlayer.volume_db = -80
+		%VideoPlayer.volume_db = -80
 
 
 func spawn_window(instance):
@@ -663,6 +728,7 @@ func _on_confirm_yes_button_up():
 		c.queue_free()
 	extended = false
 	%VideoPlayer.volume_db = %Volume.value
+	%AudioPlayer.volume_db = %Volume.value
 	%BlurPanel.hide()
 	%ExtendButton.icon = load("res://UI/Icons/Output.png")
 	get_tree().get_root().always_on_top = false
@@ -736,31 +802,3 @@ func _on_error_close_button_button_up():
 
 func _on_gui_margin_resized() -> void:
 	pass
-
-func _on_ndi_monitor_button_up() -> void:
-	find_and_run_exe("C:/Program Files/NDI", "StudioMonitor")
-	
-func find_and_run_exe(directory: String, search_string: String):
-	# Get the File and Directory access API
-	var dir := DirAccess.open(directory)
-	if dir == null:
-		print("Failed to open directory: ", directory)
-		return
-	
-	# Scan directory
-	dir.list_dir_begin()
-	var file_name := dir.get_next()
-	while file_name != "":
-		var full_path := directory + "/" + file_name # Correct path concatenation
-		
-		# Check if it's a directory and recursively search inside
-		if dir.current_is_dir():
-			find_and_run_exe(full_path, search_string)
-		else:
-			# Check if it's an executable and contains the search string
-			if file_name.ends_with(".exe") and search_string in file_name:
-				print("Found executable: ", full_path)
-				OS.create_process(full_path, [])
-				return # Exit after running the first match
-		
-		file_name = dir.get_next()

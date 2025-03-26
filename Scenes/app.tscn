@@ -1,40 +1,55 @@
-[gd_scene load_steps=66 format=3 uid="uid://bsh644wahgog1"]
+[gd_scene load_steps=67 format=3 uid="uid://bsh644wahgog1"]
 
-[ext_resource type="Script" uid="uid://c5a4exqhv1vm2" path="res://Scripts/App.gd" id="1_ppeiy"]
-[ext_resource type="Script" uid="uid://bvhr7xs4d4y5n" path="res://Scripts/network_control.gd" id="2_rk4uy"]
-[ext_resource type="Material" uid="uid://de57w5nfql88n" path="res://UI/Blur_Panel.tres" id="4_0cp3q"]
-[ext_resource type="Script" uid="uid://dn5xjbyaj00he" path="res://Scripts/Header.gd" id="5_ps8iq"]
-[ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="6_1ecek"]
-[ext_resource type="Script" uid="uid://0jo27toou14d" path="res://addons/tattomoosa.spinner/spinner.gd" id="7_0cp3q"]
-[ext_resource type="Theme" uid="uid://badl71unfh8t8" path="res://UI/Blur UI Theme_digi_popup.tres" id="7_v6puv"]
-[ext_resource type="FontFile" uid="uid://plebch4bpsf7" path="res://UI/Fonts/digital-7 (mono).ttf" id="8_ebo8a"]
-[ext_resource type="Texture2D" uid="uid://by6hpm1vi7wim" path="res://UI/Icons/Output.png" id="9_6bisl"]
-[ext_resource type="Script" uid="uid://bikc1i02sthhk" path="res://Scripts/Playlist.gd" id="10_ie54u"]
-[ext_resource type="Texture2D" uid="uid://bxjstnxgrqhfl" path="res://UI/Icons/loop off.png" id="11_5l31f"]
-[ext_resource type="Texture2D" uid="uid://oh7hp12kh874" path="res://UI/Icons/auto off.png" id="12_c1m1y"]
-[ext_resource type="PackedScene" uid="uid://cyecs3e3rri12" path="res://Scenes/deleter.tscn" id="13_alckx"]
-[ext_resource type="Script" uid="uid://cjfpni6vdw5bg" path="res://addons/ReorderableContainer/reorderable_vbox.gd" id="14_vpbto"]
-[ext_resource type="Script" uid="uid://c523op1sm3d4l" path="res://addons/BoxHandle/handle.gd" id="15_ppeiy"]
-[ext_resource type="Script" uid="uid://bqqtwuif7cfn0" path="res://Scripts/HelpPanel.gd" id="16_u7xgt"]
-[ext_resource type="FontFile" uid="uid://lfva2bj268gt" path="res://UI/Fonts/Quapox.otf" id="17_l5517"]
-[ext_resource type="Texture2D" uid="uid://bblymoej002b4" path="res://UI/LogoDS.png" id="18_ys4d7"]
-[ext_resource type="FontFile" uid="uid://cwaruj73w8llk" path="res://UI/Fonts/OCR A Std Regular.ttf" id="19_5m0b1"]
-[ext_resource type="StyleBox" uid="uid://fkdqfgpwqg38" path="res://UI/TealPanelSemi.tres" id="20_gwpwc"]
-[ext_resource type="Script" uid="uid://doxfvaxqbt2tn" path="res://Scripts/video_panel.gd" id="21_lm25d"]
-[ext_resource type="Script" uid="uid://crx7j3snaarxx" path="res://Scripts/SlideShow.gd" id="22_6w6x4"]
-[ext_resource type="PackedScene" uid="uid://dkecct1lxik27" path="res://Scenes/test_pattern.tscn" id="23_eo77p"]
-[ext_resource type="Texture2D" uid="uid://344jxy082shd" path="res://UI/Icons/play on.png" id="24_qikn8"]
-[ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="25_nw87p"]
-[ext_resource type="Script" uid="uid://fyk2pl01y4" path="res://addons/SliderLabel/SliderLabel.gd" id="26_baxwu"]
-[ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="27_32h1h"]
-[ext_resource type="Script" uid="uid://b67sxgvwxs7sa" path="res://Scripts/settings_popup.gd" id="28_a1vo4"]
-[ext_resource type="Texture2D" uid="uid://b3yx41hdirdkt" path="res://UI/Icons/quitIcon.png" id="29_08mex"]
-[ext_resource type="Script" uid="uid://c7nh2dksayrcs" path="res://UI/registration.gd" id="29_rk4uy"]
-[ext_resource type="Script" uid="uid://pyiiaatc44w6" path="res://UI/tree_test.gd" id="29_tqbqh"]
-[ext_resource type="Theme" uid="uid://cdbrut6wovxlv" path="res://UI/Pink_Button_theme.tres" id="30_tt88v"]
-[ext_resource type="Texture2D" uid="uid://bhmsvb2u32p6x" path="res://UI/Icons/loop on.png" id="31_lgrhx"]
-[ext_resource type="StyleBox" uid="uid://cico20v4xewji" path="res://UI/PopupPanelBG.tres" id="32_2hx6r"]
-[ext_resource type="Script" uid="uid://ci7xk2do2ymju" path="res://Scripts/SplashAnimationPlayer.gd" id="33_j3pm5"]
+[ext_resource type="Script" uid="uid://c5a4exqhv1vm2" path="res://Scripts/App.gd" id="1_d2ne5"]
+[ext_resource type="Script" uid="uid://bvhr7xs4d4y5n" path="res://Scripts/network_control.gd" id="2_xy7j3"]
+[ext_resource type="Texture2D" uid="uid://b2ugpxq1704r4" path="res://UI/AppBG.jpg" id="3_mubpi"]
+[ext_resource type="Material" uid="uid://de57w5nfql88n" path="res://UI/Blur_Panel.tres" id="4_2dtl4"]
+[ext_resource type="Shader" uid="uid://dlvt2w7nsosue" path="res://Scenes/BG.gdshader" id="4_mubpi"]
+[ext_resource type="Script" uid="uid://dn5xjbyaj00he" path="res://Scripts/Header.gd" id="5_fknx3"]
+[ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="6_ar0mo"]
+[ext_resource type="Script" uid="uid://0jo27toou14d" path="res://addons/tattomoosa.spinner/spinner.gd" id="7_cglme"]
+[ext_resource type="FontFile" uid="uid://plebch4bpsf7" path="res://UI/Fonts/digital-7 (mono).ttf" id="8_rq7s0"]
+[ext_resource type="Theme" uid="uid://badl71unfh8t8" path="res://UI/Blur UI Theme_digi_popup.tres" id="9_0ra26"]
+[ext_resource type="Texture2D" uid="uid://by6hpm1vi7wim" path="res://UI/Icons/Output.png" id="10_4t6ep"]
+[ext_resource type="Script" uid="uid://b67sxgvwxs7sa" path="res://Scripts/settings_popup.gd" id="11_8qr2f"]
+[ext_resource type="Texture2D" uid="uid://b3yx41hdirdkt" path="res://UI/Icons/quitIcon.png" id="12_ql8aw"]
+[ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="13_2hggf"]
+[ext_resource type="Theme" uid="uid://cdbrut6wovxlv" path="res://UI/Pink_Button_theme.tres" id="14_8nxtl"]
+[ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="15_iy3fc"]
+[ext_resource type="Texture2D" uid="uid://bhmsvb2u32p6x" path="res://UI/Icons/loop on.png" id="16_agas7"]
+[ext_resource type="Script" uid="uid://bqqtwuif7cfn0" path="res://Scripts/HelpPanel.gd" id="17_x7pvd"]
+[ext_resource type="Script" uid="uid://pyiiaatc44w6" path="res://UI/tree_test.gd" id="18_2cgqg"]
+[ext_resource type="FontFile" uid="uid://lfva2bj268gt" path="res://UI/Fonts/Quapox.otf" id="19_h1kmr"]
+[ext_resource type="Texture2D" uid="uid://bblymoej002b4" path="res://UI/LogoDS.png" id="20_0jyo7"]
+[ext_resource type="Script" uid="uid://c7nh2dksayrcs" path="res://UI/registration.gd" id="21_c2i5k"]
+[ext_resource type="FontFile" uid="uid://cwaruj73w8llk" path="res://UI/Fonts/OCR A Std Regular.ttf" id="22_fyf6s"]
+[ext_resource type="Script" uid="uid://bikc1i02sthhk" path="res://Scripts/Playlist.gd" id="23_f5r7q"]
+[ext_resource type="PackedScene" uid="uid://cyecs3e3rri12" path="res://Scenes/deleter.tscn" id="26_fy3fq"]
+[ext_resource type="Script" uid="uid://cjfpni6vdw5bg" path="res://addons/ReorderableContainer/reorderable_vbox.gd" id="27_lt8b8"]
+[ext_resource type="Script" uid="uid://c523op1sm3d4l" path="res://addons/BoxHandle/handle.gd" id="28_lmvn1"]
+[ext_resource type="StyleBox" uid="uid://fkdqfgpwqg38" path="res://UI/TealPanelSemi.tres" id="29_rvmh3"]
+[ext_resource type="Script" uid="uid://doxfvaxqbt2tn" path="res://Scripts/video_panel.gd" id="30_r37lb"]
+[ext_resource type="Script" uid="uid://crx7j3snaarxx" path="res://Scripts/SlideShow.gd" id="31_lcp38"]
+[ext_resource type="PackedScene" uid="uid://dkecct1lxik27" path="res://Scenes/test_pattern.tscn" id="32_hr75c"]
+[ext_resource type="Texture2D" uid="uid://344jxy082shd" path="res://UI/Icons/play on.png" id="33_l7psf"]
+[ext_resource type="Script" uid="uid://fyk2pl01y4" path="res://addons/SliderLabel/SliderLabel.gd" id="34_cy34f"]
+[ext_resource type="StyleBox" uid="uid://cico20v4xewji" path="res://UI/PopupPanelBG.tres" id="35_23i4o"]
+[ext_resource type="Script" uid="uid://cy6dfaq5fwu3h" path="res://Scenes/waveform_viewer.gd" id="35_xy7j3"]
+[ext_resource type="Script" uid="uid://ci7xk2do2ymju" path="res://Scripts/SplashAnimationPlayer.gd" id="36_pdavf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2dtl4"]
+shader = ExtResource("4_mubpi")
+shader_parameter/color1 = Color(0.147327, 0.837822, 1, 1)
+shader_parameter/color2 = Color(0, 0.0705882, 0.894118, 1)
+shader_parameter/color3 = Color(0.377806, 0.0944304, 0.562249, 1)
+shader_parameter/color4 = Color(0, 0.043, 0.385, 1)
+shader_parameter/speed = 0.4
+shader_parameter/frequency = 0.505
+shader_parameter/amplitude = 14.31
+shader_parameter/rotation_strength = 1080.0
+shader_parameter/scale = 1.105
+shader_parameter/use_bg_color = true
+shader_parameter/bg_color = Color(0.05, 0.05, 0.1, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_aarq4"]
 
@@ -99,9 +114,6 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqbqh"]
-bg_color = Color(0.819608, 0.0980392, 0.486275, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_op337"]
 bg_color = Color(1, 1, 1, 1)
@@ -181,13 +193,13 @@ corner_radius_top_left = 20
 corner_radius_bottom_left = 20
 
 [node name="APP" type="CanvasLayer"]
-script = ExtResource("1_ppeiy")
+script = ExtResource("1_d2ne5")
 
 [node name="ExtMon" type="Node" parent="."]
 
 [node name="NetworkControl" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("2_rk4uy")
+script = ExtResource("2_xy7j3")
 
 [node name="HTTPRequest1" type="HTTPRequest" parent="NetworkControl"]
 unique_name_in_owner = true
@@ -204,13 +216,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_mubpi")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="BGShader" type="TextureRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2dtl4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_mubpi")
 expand_mode = 3
 stretch_mode = 6
 
 [node name="BGBlur" type="TextureRect" parent="."]
 unique_name_in_owner = true
 self_modulate = Color(0.579423, 0.579423, 0.579423, 1)
-material = ExtResource("4_0cp3q")
+material = ExtResource("4_2dtl4")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -257,14 +282,14 @@ theme_override_constants/margin_bottom = 4
 [node name="Header" type="HBoxContainer" parent="GuiMargin/GUI/HeaderPanel/MarginContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-script = ExtResource("5_ps8iq")
+script = ExtResource("5_fknx3")
 
 [node name="BundleSavePlaylistButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 tooltip_text = "Save current Playlist"
 focus_mode = 0
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "💾"
 
@@ -280,7 +305,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 tooltip_text = "Load a saved Playlist"
 focus_mode = 0
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "📁"
 
@@ -297,7 +322,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 tooltip_text = "Open Options Panel"
-theme = ExtResource("6_1ecek")
+focus_mode = 0
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "⚙️"
 
@@ -308,6 +334,7 @@ size_flags_horizontal = 3
 
 [node name="SavingProgressPopup" type="HBoxContainer" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header/MarginContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -366,7 +393,7 @@ exp_edit = false
 rounded = false
 allow_greater = false
 allow_lesser = false
-script = ExtResource("7_0cp3q")
+script = ExtResource("7_cglme")
 border_width = 0.185
 spin_fill_percent = 0.354
 spin_revolution_per_second = 1.5
@@ -377,7 +404,7 @@ metadata/_custom_type_script = "uid://0jo27toou14d"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Saving..."
 horizontal_alignment = 1
@@ -390,7 +417,7 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.592157)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("8_ebo8a")
+theme_override_fonts/font = ExtResource("8_rq7s0")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/background = SubResource("StyleBoxFlat_ppeiy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rk4uy")
@@ -404,101 +431,17 @@ custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 tooltip_text = "Select the External Monitor for Playback"
 focus_mode = 0
-theme = ExtResource("7_v6puv")
-theme_override_fonts/font = ExtResource("8_ebo8a")
+theme = ExtResource("9_0ra26")
+theme_override_fonts/font = ExtResource("8_rq7s0")
 theme_override_font_sizes/font_size = 35
 alignment = 1
 selected = 0
 allow_reselect = true
-item_count = 44
+item_count = 2
 popup/item_0/text = "1"
 popup/item_0/id = 0
 popup/item_1/text = "2"
 popup/item_1/id = 1
-popup/item_2/text = "1"
-popup/item_2/id = 2
-popup/item_3/text = "2"
-popup/item_3/id = 3
-popup/item_4/text = "1"
-popup/item_4/id = 4
-popup/item_5/text = "2"
-popup/item_5/id = 5
-popup/item_6/text = "1"
-popup/item_6/id = 6
-popup/item_7/text = "2"
-popup/item_7/id = 7
-popup/item_8/text = "1"
-popup/item_8/id = 8
-popup/item_9/text = "2"
-popup/item_9/id = 9
-popup/item_10/text = "1"
-popup/item_10/id = 10
-popup/item_11/text = "2"
-popup/item_11/id = 11
-popup/item_12/text = "1"
-popup/item_12/id = 12
-popup/item_13/text = "2"
-popup/item_13/id = 13
-popup/item_14/text = "1"
-popup/item_14/id = 14
-popup/item_15/text = "2"
-popup/item_15/id = 15
-popup/item_16/text = "1"
-popup/item_16/id = 16
-popup/item_17/text = "2"
-popup/item_17/id = 17
-popup/item_18/text = "1"
-popup/item_18/id = 18
-popup/item_19/text = "2"
-popup/item_19/id = 19
-popup/item_20/text = "1"
-popup/item_20/id = 20
-popup/item_21/text = "2"
-popup/item_21/id = 21
-popup/item_22/text = "1"
-popup/item_22/id = 22
-popup/item_23/text = "2"
-popup/item_23/id = 23
-popup/item_24/text = "1"
-popup/item_24/id = 24
-popup/item_25/text = "2"
-popup/item_25/id = 25
-popup/item_26/text = "1"
-popup/item_26/id = 26
-popup/item_27/text = "2"
-popup/item_27/id = 27
-popup/item_28/text = "1"
-popup/item_28/id = 28
-popup/item_29/text = "2"
-popup/item_29/id = 29
-popup/item_30/text = "1"
-popup/item_30/id = 30
-popup/item_31/text = "2"
-popup/item_31/id = 31
-popup/item_32/text = "1"
-popup/item_32/id = 32
-popup/item_33/text = "2"
-popup/item_33/id = 33
-popup/item_34/text = "1"
-popup/item_34/id = 34
-popup/item_35/text = "2"
-popup/item_35/id = 35
-popup/item_36/text = "1"
-popup/item_36/id = 36
-popup/item_37/text = "2"
-popup/item_37/id = 37
-popup/item_38/text = "1"
-popup/item_38/id = 38
-popup/item_39/text = "2"
-popup/item_39/id = 39
-popup/item_40/text = "1"
-popup/item_40/id = 40
-popup/item_41/text = "2"
-popup/item_41/id = 41
-popup/item_42/text = "1"
-popup/item_42/id = 42
-popup/item_43/text = "2"
-popup/item_43/id = 43
 
 [node name="ExtendButton" type="Button" parent="GuiMargin/GUI/HeaderPanel/MarginContainer/Header"]
 unique_name_in_owner = true
@@ -507,9 +450,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 tooltip_text = "Enable or Disable External Output"
 focus_mode = 0
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
-icon = ExtResource("9_6bisl")
+icon = ExtResource("10_4t6ep")
 icon_alignment = 1
 expand_icon = true
 
@@ -525,15 +468,14 @@ theme_override_constants/separation = 0
 
 [node name="PlaylistPanel" type="Panel" parent="GuiMargin/GUI/Main"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(800, 0)
+custom_minimum_size = Vector2(850, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.399
-theme = ExtResource("6_1ecek")
+size_flags_stretch_ratio = 0.458
+theme = ExtResource("6_ar0mo")
 
 [node name="SettingsPopup" type="Panel" parent="GuiMargin/GUI/Main/PlaylistPanel"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -542,7 +484,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(640, 400)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ixia8")
-script = ExtResource("28_a1vo4")
+script = ExtResource("11_8qr2f")
 
 [node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup"]
 layout_mode = 1
@@ -579,10 +521,11 @@ size_flags_horizontal = 3
 [node name="SettingsCloseButton" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 self_modulate = Color(1, 0, 0.35, 1)
-custom_minimum_size = Vector2(45, 30)
+custom_minimum_size = Vector2(40, 35)
 layout_mode = 2
 size_flags_vertical = 4
-icon = ExtResource("29_08mex")
+focus_mode = 0
+icon = ExtResource("12_ql8aw")
 icon_alignment = 1
 expand_icon = true
 
@@ -603,23 +546,23 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="OptionsOutput" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
-custom_minimum_size = Vector2(80, 40)
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
 text = "Output"
 
 [node name="OptionsNetwork" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
 text = "Network"
 
 [node name="OptionsAdvanced" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
-custom_minimum_size = Vector2(120, 40)
+custom_minimum_size = Vector2(140, 40)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
 text = "Advanced"
 
@@ -628,23 +571,23 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Help" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
-custom_minimum_size = Vector2(60, 40)
+custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
 text = "Help"
 
 [node name="About" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
-custom_minimum_size = Vector2(80, 40)
+custom_minimum_size = Vector2(90, 40)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
 text = "About"
 
 [node name="Registration" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer3/AllSettings"]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_fr0lj")
 text = "Register"
 
@@ -675,11 +618,12 @@ theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
 [node name="OutputSettings" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Display Output Settings"
 horizontal_alignment = 1
 
@@ -695,12 +639,12 @@ vertical_alignment = 1
 
 [node name="TestPattern" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer3"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(60, 50)
 layout_mode = 2
 focus_mode = 0
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
-text = " 🔳"
+text = "🔳"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings"]
 layout_mode = 2
@@ -724,10 +668,10 @@ text = "Width:"
 
 [node name="ResWidth" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(80, 45)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 30
 text = "1920"
 placeholder_text = "1920"
@@ -740,6 +684,10 @@ middle_mouse_paste_enabled = false
 drag_and_drop_selection_enabled = false
 select_all_on_focus = true
 
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
 [node name="Label3" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
@@ -747,10 +695,10 @@ text = "Height"
 
 [node name="ResHeight" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(80, 45)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 30
 text = "1080"
 placeholder_text = "1080"
@@ -769,7 +717,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "FPS:"
+text = "FrameRate:"
 
 [node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2"]
 layout_mode = 2
@@ -777,15 +725,15 @@ size_flags_horizontal = 3
 
 [node name="FPS" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(80, 45)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 30
-text = "60"
-placeholder_text = "60"
+text = "60.0"
+placeholder_text = "60.0"
 alignment = 1
-max_length = 3
+max_length = 5
 expand_to_text_length = true
 context_menu_enabled = false
 virtual_keyboard_enabled = false
@@ -801,7 +749,7 @@ size_flags_stretch_ratio = 0.6
 
 [node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Companion Settings"
 horizontal_alignment = 1
 
@@ -818,13 +766,13 @@ vertical_alignment = 1
 
 [node name="TCPListenButton" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(48, 50)
+custom_minimum_size = Vector2(60, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
+focus_mode = 0
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
-text = " 🔳"
-alignment = 0
+text = "🔳"
 
 [node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer"]
 layout_mode = 2
@@ -841,8 +789,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 35
 text = "127.0.0.1:4242"
 placeholder_text = "IP Address:Port"
@@ -874,8 +822,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 35
 text = "127.0.0.1:8000"
 placeholder_text = "IP Address:Port"
@@ -891,58 +839,98 @@ size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "NDI Settings"
 horizontal_alignment = 1
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
+[node name="NDIDetection" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
-[node name="NDIMonitor" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer4"]
+[node name="DownloadVBox" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDIDetection"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="NDINotDetected" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDIDetection/DownloadVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "At least V6 of the NDI Runtime is required for NDI Ouput in EXVP. It was not detected on your system.
+After installing, restart EXVP."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NDIDownload" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDIDetection/DownloadVBox"]
+custom_minimum_size = Vector2(250, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("14_8nxtl")
+theme_override_font_sizes/font_size = 25
+text = "Download Runtime"
+
+[node name="NDIDownload2" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDIDetection/DownloadVBox"]
+custom_minimum_size = Vector2(250, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("14_8nxtl")
+theme_override_font_sizes/font_size = 25
+text = "Download Tools"
+
+[node name="NDISettings" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDISettings"]
+layout_mode = 2
+
+[node name="NDIMonitor" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDISettings/HBoxContainer4"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 42)
 layout_mode = 2
-theme = ExtResource("30_tt88v")
+focus_mode = 0
+theme = ExtResource("14_8nxtl")
 theme_override_font_sizes/font_size = 25
 text = "Launch NDI Monitor"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDISettings"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
+[node name="Label3" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDISettings/HBoxContainer3"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "NDI Output"
 vertical_alignment = 1
 
-[node name="NDIToggle" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
+[node name="NDIToggle" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDISettings/HBoxContainer3"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(48, 50)
+custom_minimum_size = Vector2(60, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
+focus_mode = 0
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
-text = " 🔳"
-alignment = 0
+text = "🔳"
 
-[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDISettings/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDISettings/HBoxContainer3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.517184, 0.517184, 0.517184, 1)
 theme_override_font_sizes/font_size = 25
 text = "NDI Output Name"
 
-[node name="NDIOutputName" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3"]
+[node name="NDIOutputName" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDISettings/HBoxContainer3"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("27_32h1h")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("15_iy3fc")
 theme_override_font_sizes/font_size = 35
 text = "EXVP"
 placeholder_text = "Discoverable Name"
@@ -957,7 +945,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Video Decoder Settings"
 horizontal_alignment = 1
 
@@ -976,14 +964,13 @@ size_flags_horizontal = 3
 [node name="OptionButton" type="OptionButton" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 25
 alignment = 1
 selected = 0
-item_count = 2
+item_count = 1
 popup/item_0/text = "FFMPEG"
 popup/item_0/id = 0
-popup/item_1/text = "⚠️VLC"
-popup/item_1/id = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
 custom_minimum_size = Vector2(0, 50)
@@ -992,7 +979,7 @@ size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "EXVP UI Settings"
 horizontal_alignment = 1
 
@@ -1029,11 +1016,13 @@ layout_mode = 2
 [node name="ScaleUpButton" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 text = "+"
 
 [node name="ScaleDownButton" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 text = "-"
 
 [node name="Timer" type="Timer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2"]
@@ -1056,27 +1045,53 @@ layout_mode = 2
 [node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
+text = "Ambient: "
+
+[node name="AmbientMode" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme = ExtResource("6_ar0mo")
+theme_override_font_sizes/font_size = 25
+text = "✅"
+
+[node name="BGImageSettings" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/BGImageSettings"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/BGImageSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "Image: "
 
-[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
+[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/BGImageSettings"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ResetBG" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
+[node name="ResetBG" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/BGImageSettings"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-icon = ExtResource("31_lgrhx")
+focus_mode = 0
+icon = ExtResource("16_agas7")
 expand_icon = true
 
-[node name="BGImageLoad" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
+[node name="BGImageLoad" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/BGImageSettings"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(86, 0)
 layout_mode = 2
+focus_mode = 0
 text = "📁 Open"
 
-[node name="LoadBGImageDialog" type="NativeFileDialog" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7"]
+[node name="LoadBGImageDialog" type="NativeFileDialog" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/BGImageSettings"]
 title = "Select A Picture File"
 mode_overrides_title = false
 file_mode = 0
@@ -1122,6 +1137,7 @@ theme_override_constants/margin_bottom = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+focus_mode = 0
 edit_alpha = false
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings"]
@@ -1146,15 +1162,16 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 1
+focus_mode = 0
 max_value = 5.0
-step = 0.01
-value = 1.2
+step = 0.1
+value = 2.0
 
 [node name="BlurStrengthEdit" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "0.5"
-placeholder_text = "0.5"
+text = "2.0"
+placeholder_text = "1.0"
 alignment = 1
 max_length = 3
 expand_to_text_length = true
@@ -1186,13 +1203,15 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 1
+focus_mode = 0
 max_value = 1.0
 step = 0.01
+value = 0.4
 
 [node name="BlurColorMixEdit" type="LineEdit" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer6"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "0.5"
+text = "0.4"
 placeholder_text = "0.5"
 alignment = 1
 max_length = 3
@@ -1204,11 +1223,10 @@ drag_and_drop_selection_enabled = false
 select_all_on_focus = true
 
 [node name="InfoDocumentation" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_right = 10
-script = ExtResource("16_u7xgt")
+script = ExtResource("17_x7pvd")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation"]
 layout_mode = 2
@@ -1227,42 +1245,42 @@ alignment = 1
 [node name="HelpPlaylist" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Playlists"
 
 [node name="HelpVideos" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Videos"
 
 [node name="HelpTrim" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Trim Videos"
 
 [node name="HelpSlideshows" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Slideshows"
 
 [node name="HelpShortcuts" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Shortcuts"
 
 [node name="HelpCompanion" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Companion"
 
@@ -1290,7 +1308,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Not all Video Containers and Codecs are supported.
 
@@ -1305,7 +1323,6 @@ autowrap_mode = 2
 
 [node name="HelpPlaylistText" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="HelpPlaylistText1" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpPlaylistText"]
@@ -1313,7 +1330,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "
 You can save a playlist you have setup, it will retain all the individual settings data saved in the individual items.
@@ -1335,14 +1352,14 @@ hide_folding = true
 enable_recursive_folding = false
 scroll_horizontal_enabled = false
 scroll_vertical_enabled = false
-script = ExtResource("29_tqbqh")
+script = ExtResource("18_2cgqg")
 
 [node name="HelpPlaylistText3" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts/HelpPlaylistText"]
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "
 Removing a playlist item from the queue and then saving will remove the corresponding file from the bundle location
@@ -1360,11 +1377,12 @@ autowrap_mode = 2
 
 [node name="HelpTrimText" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoDocumentation/VBoxContainer2/ScrollContainer/HelpTexts"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "
 In the Video item settings panel, drag the green Start Handle and the Red End handle to where you would like the video to start and end at.
@@ -1389,12 +1407,14 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "
 Drag and drop a folder containing images into the Program and it will auto generate a Basic Slideshow with fade transitions.
 
-After selecting a Slideshow from the Playlist, you can hover and select a picture to skip to.
+After selecting a Slideshow from the Playlist, you can scroll, hover and select a picture to skip to.
+
+Picture order can be shuffled via the button in the item settings, or individual pictures can be dragged and dropped into different orders.
 
 *for now, the only transition type is a crossfade*"
 horizontal_alignment = 1
@@ -1407,7 +1427,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "
 \"Space\" - Play/Pause selected video/slideshow
@@ -1429,7 +1449,7 @@ custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "
 Manual Companion Support can be configured:
@@ -1464,28 +1484,30 @@ layout_mode = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("17_l5517")
+theme_override_fonts/font = ExtResource("19_h1kmr")
 theme_override_font_sizes/font_size = 80
 text = "EXVP"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoAbout"]
+[node name="AppLogo" type="TextureRect" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoAbout"]
+texture_filter = 4
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("18_ys4d7")
+texture = ExtResource("20_0jyo7")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Version" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoAbout"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 30
-text = "v 0.2.0
+text = "v x.x.x
 
 "
 horizontal_alignment = 1
@@ -1494,14 +1516,14 @@ autowrap_mode = 2
 [node name="InfoRegistration" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions"]
 visible = false
 layout_mode = 2
-script = ExtResource("29_rk4uy")
+script = ExtResource("21_c2i5k")
 
 [node name="Text" type="Label" parent="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/InfoRegistration"]
 custom_minimum_size = Vector2(500, 120)
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Registration in this version of EXVP is not currently enabled."
 horizontal_alignment = 1
@@ -1517,7 +1539,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "EXVP Id:"
 horizontal_alignment = 1
@@ -1529,8 +1551,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("19_5m0b1")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("22_fyf6s")
 theme_override_font_sizes/font_size = 30
 text = "XXXXXXXX"
 alignment = 1
@@ -1551,7 +1573,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Activation Key:"
 horizontal_alignment = 1
@@ -1575,7 +1597,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("19_5m0b1")
+theme_override_fonts/font = ExtResource("22_fyf6s")
 theme_override_font_sizes/font_size = 25
 alignment = 1
 caret_blink = true
@@ -1603,7 +1625,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Licensed: ❌
 
@@ -1613,13 +1635,14 @@ autowrap_mode = 2
 
 [node name="Playlist" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("10_ie54u")
+script = ExtResource("23_f5r7q")
 
 [node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist"]
 custom_minimum_size = Vector2(0, 60)
@@ -1632,17 +1655,13 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-
 [node name="AddVideoButton" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 4
 tooltip_text = "Load 1 or multiple videos"
 focus_mode = 0
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "🎬"
 
@@ -1652,7 +1671,7 @@ layout_mode = 2
 size_flags_vertical = 4
 tooltip_text = "Load a folder of pictures as a slideshow"
 focus_mode = 0
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "🎞️"
 
@@ -1662,7 +1681,7 @@ layout_mode = 2
 size_flags_vertical = 4
 tooltip_text = "Load a single image as a hold slide"
 focus_mode = 0
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "🖼️"
 
@@ -1693,43 +1712,15 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 35
 text = "Playlist"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(1, 0)
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="LoopToggle" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-tooltip_text = "Repeat currently selected item when finished"
-focus_mode = 0
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-icon = ExtResource("11_5l31f")
-icon_alignment = 2
-expand_icon = true
-
-[node name="AutoToggle" type="Button" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-tooltip_text = "Auto Advance to next item when finsihed"
-focus_mode = 0
-theme = ExtResource("6_1ecek")
-theme_override_font_sizes/font_size = 25
-icon = ExtResource("12_c1m1y")
-icon_alignment = 2
-expand_icon = true
 
 [node name="PlaylistScroller" type="ScrollContainer" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist"]
 unique_name_in_owner = true
@@ -1773,7 +1764,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Deleter" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox" instance=ExtResource("13_alckx")]
+[node name="Deleter" parent="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox" instance=ExtResource("26_fy3fq")]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
@@ -1785,7 +1776,7 @@ custom_minimum_size = Vector2(0, 270)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("14_vpbto")
+script = ExtResource("27_lt8b8")
 is_vertical = true
 scroll_container = NodePath("../..")
 
@@ -1794,25 +1785,27 @@ custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 10
 theme_override_styles/panel = SubResource("StyleBoxFlat_ps8iq")
-script = ExtResource("15_ppeiy")
+script = ExtResource("28_lmvn1")
 metadata/_custom_type_script = "uid://c523op1sm3d4l"
 
 [node name="VideoInterface" type="VBoxContainer" parent="GuiMargin/GUI/Main"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.599
+size_flags_stretch_ratio = 0.539
 theme_override_constants/separation = 0
 
 [node name="MainVideoPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 clip_contents = true
+custom_minimum_size = Vector2(0, 700)
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.696
-theme_override_styles/panel = ExtResource("20_gwpwc")
-script = ExtResource("21_lm25d")
+size_flags_stretch_ratio = 0.71
+theme_override_styles/panel = ExtResource("29_rvmh3")
+script = ExtResource("30_r37lb")
 
 [node name="Panel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel"]
 layout_mode = 1
@@ -1885,14 +1878,17 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_xhq6q")
-script = ExtResource("22_6w6x4")
+script = ExtResource("31_lcp38")
 
 [node name="HoldTimer" type="Timer" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/SlideShow"]
 unique_name_in_owner = true
 wait_time = 4.0
 
-[node name="TestPattern" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport" instance=ExtResource("23_eo77p")]
+[node name="TestPattern" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport" instance=ExtResource("32_hr75c")]
 visible = false
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport"]
+unique_name_in_owner = true
 
 [node name="TrialTimeLabel" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel"]
 unique_name_in_owner = true
@@ -1913,16 +1909,16 @@ custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 mouse_default_cursor_shape = 9
 theme_override_styles/panel = SubResource("StyleBoxFlat_1ecek")
-script = ExtResource("15_ppeiy")
+script = ExtResource("28_lmvn1")
 metadata/_custom_type_script = "uid://c523op1sm3d4l"
 
 [node name="ControlsPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(500, 250)
+custom_minimum_size = Vector2(800, 300)
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.299
-theme = ExtResource("6_1ecek")
+size_flags_stretch_ratio = 0.286
+theme = ExtResource("6_ar0mo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel"]
 layout_mode = 1
@@ -1938,7 +1934,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = "Item Title"
 horizontal_alignment = 1
@@ -1947,6 +1943,7 @@ autowrap_mode = 3
 
 [node name="PlayBar" type="HBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
@@ -1957,16 +1954,16 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
-icon = ExtResource("24_qikn8")
+icon = ExtResource("33_l7psf")
 icon_alignment = 1
 expand_icon = true
 
 [node name="PlayHead" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_styles/panel = SubResource("StyleBoxFlat_e13ls")
 
 [node name="SlideHoldBar" type="ProgressBar" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead"]
@@ -2006,8 +2003,8 @@ unique_name_in_owner = true
 self_modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 40
 text = "+00:00"
 horizontal_alignment = 1
@@ -2025,8 +2022,8 @@ unique_name_in_owner = true
 self_modulate = Color(1, 0, 0, 1)
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 40
 text = "-00:00"
 horizontal_alignment = 1
@@ -2043,25 +2040,57 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 40
 text = "+00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlaySlider" type="HSlider" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
+[node name="Control" type="Control" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="WaveformRect" type="TextureRect" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/Control/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+script = ExtResource("35_xy7j3")
+
+[node name="Panel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/Control/MarginContainer/WaveformRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlaySlider" type="HSlider" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
-theme = ExtResource("6_1ecek")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_tqbqh")
+theme = ExtResource("6_ar0mo")
 rounded = true
 ticks_on_borders = true
 
-[node name="SliderLabel" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/PlaySlider"]
+[node name="SliderLabel" type="Label" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/Control/PlaySlider"]
 unique_name_in_owner = true
 visible = false
 z_index = 1
@@ -2071,13 +2100,13 @@ offset_top = 7.0
 offset_right = 962.0
 offset_bottom = 33.0
 size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 30
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("26_baxwu")
+script = ExtResource("34_cy34f")
 visibility_rule = 2
 metadata/_edit_initialized_ = true
 
@@ -2085,8 +2114,8 @@ metadata/_edit_initialized_ = true
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 40
 text = "-00:00"
 horizontal_alignment = 1
@@ -2119,10 +2148,11 @@ alignment = 1
 
 [node name="AspectOptionButton" type="OptionButton" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/SizeOptions"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
+focus_mode = 0
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 alignment = 1
 selected = 3
@@ -2146,8 +2176,8 @@ alignment = 1
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 40
 placeholder_text = "X"
 alignment = 2
@@ -2163,7 +2193,7 @@ caret_blink_interval = 0.5
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 40
 text = ":"
 horizontal_alignment = 1
@@ -2173,8 +2203,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 40
 placeholder_text = "y"
 max_length = 2
@@ -2188,13 +2218,13 @@ caret_blink_interval = 0.5
 [node name="SetAspect" type="Button" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/SizeOptions/AspectRatioEdit"]
 custom_minimum_size = Vector2(80, 60)
 layout_mode = 2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 25
 text = " Set Ratio "
 
 [node name="MarginContainer3" type="MarginContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="ControlsDivider" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -2204,6 +2234,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_op337")
 
 [node name="VideoControls" type="VBoxContainer" parent="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
@@ -2223,7 +2254,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 40
 text = "🔊"
 
@@ -2256,14 +2287,14 @@ offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme = ExtResource("6_1ecek")
-theme_override_fonts/font = ExtResource("25_nw87p")
+theme = ExtResource("6_ar0mo")
+theme_override_fonts/font = ExtResource("13_2hggf")
 theme_override_font_sizes/font_size = 35
 text = "0
 "
 horizontal_alignment = 2
 vertical_alignment = 1
-script = ExtResource("26_baxwu")
+script = ExtResource("34_cy34f")
 visibility_rule = 2
 placement = 1
 separation = 2
@@ -2275,7 +2306,7 @@ custom_minimum_size = Vector2(88, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("8_ebo8a")
+theme_override_fonts/font = ExtResource("8_rq7s0")
 theme_override_font_sizes/font_size = 45
 text = "0"
 placeholder_text = "0"
@@ -2291,7 +2322,7 @@ select_all_on_focus = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("27_32h1h")
+theme_override_fonts/font = ExtResource("15_iy3fc")
 theme_override_font_sizes/font_size = 30
 text = "dB"
 vertical_alignment = 1
@@ -2309,7 +2340,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_styles/panel = SubResource("StyleBoxFlat_8wjou")
 
 [node name="ExtCloseConfirm" type="Panel" parent="BlurPanel"]
@@ -2328,7 +2359,7 @@ offset_right = 250.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("32_2hx6r")
+theme_override_styles/panel = ExtResource("35_23i4o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BlurPanel/ExtCloseConfirm"]
 layout_mode = 1
@@ -2376,7 +2407,7 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_ebo8a")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6bisl")
@@ -2388,7 +2419,7 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme = ExtResource("6_1ecek")
+theme = ExtResource("6_ar0mo")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_5l31f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_c1m1y")
@@ -2412,7 +2443,7 @@ offset_right = 250.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("32_2hx6r")
+theme_override_styles/panel = ExtResource("35_23i4o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BlurPanel/ErrorMessage"]
 layout_mode = 1
@@ -2430,7 +2461,7 @@ alignment = 2
 [node name="Label" type="Label" parent="BlurPanel/ErrorMessage/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("27_32h1h")
+theme_override_fonts/font = ExtResource("15_iy3fc")
 theme_override_font_sizes/font_size = 30
 text = "Error:"
 horizontal_alignment = 1
@@ -2466,7 +2497,7 @@ root_node = NodePath("../Splash")
 libraries = {
 &"": SubResource("AnimationLibrary_s4pd2")
 }
-script = ExtResource("33_j3pm5")
+script = ExtResource("36_pdavf")
 
 [node name="Splash" type="Panel" parent="."]
 unique_name_in_owner = true
@@ -2492,7 +2523,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Splash/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("17_l5517")
+theme_override_fonts/font = ExtResource("19_h1kmr")
 theme_override_font_sizes/font_size = 150
 text = "EXVP"
 horizontal_alignment = 1
@@ -2500,7 +2531,7 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Splash/CenterContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("18_ys4d7")
+texture = ExtResource("20_0jyo7")
 expand_mode = 5
 stretch_mode = 5
 
@@ -2539,16 +2570,19 @@ wait_time = 1800.0
 [connection signal="focus_exited" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2/FPS" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_fps_focus_exited"]
 [connection signal="text_submitted" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/OutputSettings/HBoxContainer2/FPS" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_fps_text_submitted"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer/TCPListenButton" to="NetworkControl" method="_on_tcp_listen_button_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer4/NDIMonitor" to="." method="_on_ndi_monitor_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/HBoxContainer3/NDIToggle" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_ndi_toggle_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDIDetection/DownloadVBox/NDIDownload" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_ndi_download_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDIDetection/DownloadVBox/NDIDownload2" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_ndi_download_2_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDISettings/HBoxContainer4/NDIMonitor" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_ndi_monitor_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/NetworkSettings/NDISettings/HBoxContainer3/NDIToggle" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_ndi_toggle_button_up"]
 [connection signal="item_selected" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer/OptionButton" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_option_button_item_selected"]
 [connection signal="text_submitted" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/UIScaleEdit" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_ui_scale_edit_text_submitted"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer/ScaleUpButton" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_scale_up_button_button_up"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/VBoxContainer/ScaleDownButton" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_scale_down_button_button_up"]
 [connection signal="timeout" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer2/Timer" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_timer_timeout"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7/ResetBG" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_reset_bg_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7/BGImageLoad" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_bg_image_load_button_up"]
-[connection signal="file_selected" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7/LoadBGImageDialog" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_open_still_file_dialog_file_selected"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer7/AmbientMode" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_ambient_mode_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/BGImageSettings/ResetBG" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_reset_bg_button_up"]
+[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/BGImageSettings/BGImageLoad" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_bg_image_load_button_up"]
+[connection signal="file_selected" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/BGImageSettings/LoadBGImageDialog" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_open_still_file_dialog_file_selected"]
 [connection signal="color_changed" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer5/Panel/MarginContainer/BlurColorPicker" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_blur_color_picker_color_changed"]
 [connection signal="value_changed" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4/BlurStrengthSlider" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_blur_strength_slider_value_changed"]
 [connection signal="focus_exited" from="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Panel2/SettingsOptions/AdvancedSettings/HBoxContainer4/BlurStrengthEdit" to="GuiMargin/GUI/Main/PlaylistPanel/SettingsPopup" method="_on_blur_strength_edit_focus_exited"]
@@ -2568,17 +2602,16 @@ wait_time = 1800.0
 [connection signal="dir_selected" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/OpenSlideshowFileDialog2" to="." method="_on_open_slideshow_file_dialog_2_dir_selected"]
 [connection signal="file_selected" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/OpenVideoFileDialog" to="." method="_on_open_video_file_dialog_file_selected"]
 [connection signal="file_selected" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/OpenStillFileDialog" to="." method="_on_open_still_file_dialog_file_selected"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/LoopToggle" to="." method="_on_loop_toggle_button_up"]
-[connection signal="button_up" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/MarginContainer/HBoxContainer/AutoToggle" to="." method="_on_auto_toggle_button_up"]
 [connection signal="child_entered_tree" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_video_list_child_entered_tree"]
 [connection signal="child_exiting_tree" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist" method="_on_video_list_child_exiting_tree"]
 [connection signal="sort_children" from="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" to="GuiMargin/GUI/Main/PlaylistPanel/Playlist/PlaylistScroller/vBox/VideoList" method="_on_sort_children"]
 [connection signal="finished" from="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/AspectPanel/VideoPlayer" to="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel" method="_on_video_player_finished"]
 [connection signal="timeout" from="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/SlideShow/HoldTimer" to="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/SlideShow" method="_on_hold_timer_timeout"]
+[connection signal="finished" from="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel/VideoSubViewport/AudioPlayer" to="GuiMargin/GUI/Main/VideoInterface/MainVideoPanel" method="_on_audio_player_finished"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayPause" to="." method="_on_play_pause_button_up"]
-[connection signal="drag_ended" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/PlaySlider" to="." method="_on_play_slider_drag_ended"]
-[connection signal="drag_started" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/PlaySlider" to="." method="_on_play_slider_drag_started"]
-[connection signal="value_changed" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/PlaySlider" to="." method="_on_play_slider_value_changed"]
+[connection signal="drag_ended" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/Control/PlaySlider" to="." method="_on_play_slider_drag_ended"]
+[connection signal="drag_started" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/Control/PlaySlider" to="." method="_on_play_slider_drag_started"]
+[connection signal="value_changed" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/PlayBar/PlayHead/VBoxContainer/HBoxContainer/Control/PlaySlider" to="." method="_on_play_slider_value_changed"]
 [connection signal="item_selected" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/SizeOptions/AspectOptionButton" to="." method="_on_aspect_option_button_item_selected"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/SizeOptions/AspectRatioEdit/SetAspect" to="." method="_on_set_aspect_button_up"]
 [connection signal="button_up" from="GuiMargin/GUI/Main/VideoInterface/ControlsPanel/VBoxContainer/HBoxContainer/VideoControls/VolumeControls/VolMute" to="." method="_on_vol_mute_button_up"]

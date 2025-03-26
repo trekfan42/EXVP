@@ -49,4 +49,6 @@ signal errorMsg
 signal validation
 signal watermarkEnable
 
+signal streamLoaded
+
 signal setPlaybackEngine

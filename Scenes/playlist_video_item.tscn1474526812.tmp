@@ -261,8 +261,8 @@ icon_alignment = 2
 expand_icon = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="ToggleSettings" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)

@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bp5x2q16d0dp1"]
+
+[ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="1_pvc1j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56nk7"]
+bg_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+
+[resource]
+default_font = ExtResource("1_pvc1j")
+default_font_size = 20
+AcceptDialog/constants/buttons_separation = 10
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_56nk7")

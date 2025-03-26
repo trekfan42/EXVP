@@ -8,7 +8,7 @@ func _ready():
 	Signals.tcpStatus.connect(listening_toggle)
 
 
-func _process(delta):
+func _process(_delta):
 	# Check for new connections
 	check_connection()
 

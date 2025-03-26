@@ -3,6 +3,7 @@ extends TextureRect
 var picPath
 var id
 var parent
+var title
 
 var thread: Thread
 
@@ -29,12 +30,19 @@ func draw_thumbs():
 
 func image_loaded(imageTexture):
 	texture = imageTexture
+	var ratio = texture.get_height() / size.y
+	custom_minimum_size.x = float(texture.get_width() / ratio)
+	size.x = float(texture.get_width() / ratio)
 	thread.wait_to_finish()
 
 
 func _on_button_button_up():
-	if Global.playIcon:
-		Signals.setSlide.emit(self.get_index(),true)
-		Global.slideshowRunning = !Global.slideshowRunning
-	else:
-		Signals.setSlide.emit(self.get_index(),false)
+	if Global.activeItem == parent:
+		if Global.playIcon: 
+			Signals.setSlide.emit(self.get_index(),true)
+			Global.slideshowRunning = !Global.slideshowRunning
+		else:
+			Signals.pauseSlides.emit()
+			Signals.setSlide.emit(self.get_index(),false)
+
+	print(self.get_index())

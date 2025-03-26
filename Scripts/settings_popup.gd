@@ -10,6 +10,62 @@ func _ready() -> void:
 	Signals.changedBG.connect(_on_open_still_file_dialog_file_selected)
 	_on_reset_bg_button_up()
 	%ResetBG.hide()
+	%Version.text = "v " + Global.version
+	detect_ndi()
+
+
+
+func detect_ndi():
+	if DirAccess.dir_exists_absolute("C://Program Files/NDI/NDI 6 Runtime/v6"):
+		print("NDI Installation found")
+		%NDIDetection.hide()
+		%NDISettings.show()
+	else:
+		%NDIDetection.show()
+		%NDISettings.hide()
+
+func _on_ndi_download_button_up() -> void:
+	OS.shell_open("http://ndi.link/NDIRedistV6")
+
+func _on_ndi_download_2_button_up() -> void:
+	OS.shell_open("https://ndi.video/tools/")
+
+
+func _on_ndi_monitor_button_up() -> void:
+	if DirAccess.dir_exists_absolute("C://Program Files/NDI/NDI 6 Tools/Studio Monitor"):
+		find_and_run_exe("C:/Program Files/NDI", "StudioMonitor")
+	else:
+		_on_ndi_download_2_button_up()
+
+
+func find_and_run_exe(directory: String, search_string: String):
+	# Get the File and Directory access API
+	var dir := DirAccess.open(directory)
+	if dir == null:
+		print("Failed to open directory: ", directory)
+		return
+	
+	# Scan directory
+	dir.list_dir_begin()
+	var file_name := dir.get_next()
+	while file_name != "":
+		var full_path := directory + "/" + file_name # Correct path concatenation
+		
+		# Check if it's a directory and recursively search inside
+		if dir.current_is_dir():
+			find_and_run_exe(full_path, search_string)
+		else:
+			# Check if it's an executable and contains the search string
+			if file_name.ends_with(".exe") and search_string in file_name:
+				print("Found executable: ", full_path)
+				OS.create_process(full_path, [])
+				return # Exit after running the first match
+		
+		file_name = dir.get_next()
+
+
+
+
 
 func _on_settings_close_button_button_up() -> void:
 	Global.app.toggle_options()
@@ -56,10 +112,10 @@ func _on_ndi_toggle_button_up() -> void:
 			ndiOutput.name = %NDIOutputName.text
 			ndiNode = ndiOutput
 		%VideoSubViewport.add_child(ndiOutput)
-		%NDIToggle.text = " ✅" #✅🔳
+		%NDIToggle.text = "✅" #✅🔳
 		%NDIOutputName.editable = false
 	else:
-		%NDIToggle.text = " 🔳" #✅🔳
+		%NDIToggle.text = "🔳" #✅🔳
 		ndiNode.queue_free()
 		%NDIOutputName.editable = true
 
@@ -131,7 +187,11 @@ func _on_res_width_focus_exited() -> void:
 
 
 func _on_fps_text_submitted(new_text: String) -> void:
-	Global.outputFPS = int(new_text)
+	if float(new_text):
+		if float(new_text) <= 60 and float(new_text) >= 20:
+			Global.outputFPS = float(new_text)
+	else:
+		%FPS.text = str(float(Global.outputFPS))
 
 
 func _on_fps_focus_exited() -> void:
@@ -150,7 +210,7 @@ func _on_bg_image_load_button_up() -> void:
 
 
 func _on_reset_bg_button_up() -> void:
-	_on_open_still_file_dialog_file_selected(Global.defaultBG)
+	%BGPic.texture = Global.defaultBG
 	%ResetBG.hide()
 
 
@@ -196,3 +256,14 @@ func _on_blur_color_mix_edit_focus_exited() -> void:
 		%BlurColorMixSlider.value = float(%BlurColorMixEdit.text)
 	else:
 		%BlurColorMixEdit.text = %BGBlur.material.get_shader_parameter("mix_amount")
+
+
+func _on_ambient_mode_button_up() -> void:
+	if %BGShader.visible:
+		%AmbientMode.text = "🔳" #✅🔳
+		%BGShader.hide()
+		%BGImageSettings.show()
+	else:
+		%AmbientMode.text = "✅" #✅🔳
+		%BGShader.show()
+		%BGImageSettings.hide()

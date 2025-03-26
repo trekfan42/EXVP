@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://csibngyhwep6v"]
+
+[ext_resource type="Script" uid="uid://b57kkjk101p6k" path="res://test.gd" id="1_37kl0"]
+
+[sub_resource type="VideoStreamVLC" id="VideoStreamVLC_8uh7m"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_37kl0")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = SubResource("VideoStreamVLC_8uh7m")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 190.0
+offset_bottom = 65.0
+text = "open video"
+
+[node name="NativeFileDialog" type="NativeFileDialog" parent="."]
+title = "Open a File"
+file_mode = 0
+access = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="file_selected" from="NativeFileDialog" to="." method="_on_native_file_dialog_file_selected"]

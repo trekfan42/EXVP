@@ -4,19 +4,15 @@
 [ext_resource type="StyleBox" uid="uid://b7tacdwdhonq6" path="res://UI/slide_thumb_hover.tres" id="3_bdfh5"]
 [ext_resource type="StyleBox" uid="uid://chhwxf0kpnds2" path="res://UI/slide_thumb_pressed.tres" id="4_x4f22"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wktaa"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_humdd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_obfyv"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_humdd"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wktaa"]
 
 [node name="SlideshowThumb" type="TextureRect"]
 custom_minimum_size = Vector2(0, 55)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_bottom = 55.0
 expand_mode = 3
 stretch_mode = 5
 script = ExtResource("2_qss4i")
@@ -30,11 +26,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wktaa")
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_humdd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_obfyv")
 theme_override_styles/hover = ExtResource("3_bdfh5")
 theme_override_styles/pressed = ExtResource("4_x4f22")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_obfyv")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_humdd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wktaa")
 disabled = true
 
 [connection signal="timeout" from="HoldTimer" to="." method="_on_hold_timer_timeout"]

@@ -1,4 +1,4 @@
-# EXVP
+## EXVP
  External Video Player app for Windows
 
 
@@ -14,3 +14,16 @@ The App supports saving and loading playlists.
 Currently FFMPEG is used to decode videos. A VLC plugin was tested, but found to be rather buggy.
 
 This codebase is exteremely messy, I was learning Godot at the same time I built this, caution ye who fork...
+
+
+#Requirements:
+
+You will need the following addons to open the project:
+
+- https://github.com/Tattomoosa/Spinner/
+- https://github.com/KoBeWi/Godot-Slider-Label
+- https://github.com/FoolLin/ReorderableContainer
+- https://github.com/98teg/NativeDialogs
+- https://github.com/unvermuthet/godot-ndi
+- https://github.com/EIRTeam/EIRTeam.FFmpeg
+- https://github.com/trekfan42/BoxHandle

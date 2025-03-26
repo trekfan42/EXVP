@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://c4k7gs6l6h4ms"]
 
-[ext_resource type="Script" uid="uid://c7tuwo476ikfo" path="res://Scenes/ndi_output_scene.gd" id="1_lym1c"]
+[ext_resource type="Script" uid="uid://c7tuwo476ikfo" path="res://Scripts/ndi_output_scene.gd" id="1_lym1c"]
+
 
 [node name="NDIOutput" type="NDIOutput"]
 audio_bus = &"Master"

@@ -9,7 +9,8 @@
 [ext_resource type="FontFile" uid="uid://plebch4bpsf7" path="res://UI/Fonts/digital-7 (mono).ttf" id="28_5gba1"]
 [ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="29_feeei"]
 [ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="30_5gba1"]
-[ext_resource type="Script" uid="uid://c7b52a0n5ee8a" path="res://Scenes/video_trim_control.gd" id="31_feeei"]
+[ext_resource type="Script" uid="uid://c7b52a0n5ee8a" path="res://Scripts/video_trim_control.gd" id="31_feeei"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5m6c"]
 size = Vector2(36, 120)

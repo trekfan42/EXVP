@@ -10,9 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bxjstnxgrqhfl" path="res://UI/Icons/loop off.png" id="7_qxmfg"]
 [ext_resource type="Script" uid="uid://0jo27toou14d" path="res://addons/tattomoosa.spinner/spinner.gd" id="7_r5kwa"]
 [ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="8_r5kwa"]
-[ext_resource type="Script" uid="uid://c7b52a0n5ee8a" path="res://Scenes/video_trim_control.gd" id="9_qxmfg"]
-[ext_resource type="Script" uid="uid://cy6dfaq5fwu3h" path="res://Scenes/waveform_viewer.gd" id="11_b1o6k"]
-
+[ext_resource type="Script" uid="uid://c7b52a0n5ee8a" path="res://Scripts/video_trim_control.gd" id="9_qxmfg"]
+[ext_resource type="Script" uid="uid://cy6dfaq5fwu3h" path="res://Scripts/waveform_viewer.gd" id="11_b1o6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5m6c"]
 size = Vector2(36, 120)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bvhr7xs4d4y5n" path="res://Scripts/network_control.gd" id="2_xy7j3"]
 [ext_resource type="Texture2D" uid="uid://b2ugpxq1704r4" path="res://UI/AppBG.jpg" id="3_mubpi"]
 [ext_resource type="Material" uid="uid://de57w5nfql88n" path="res://UI/Blur_Panel.tres" id="4_2dtl4"]
-[ext_resource type="Shader" uid="uid://dlvt2w7nsosue" path="res://Scenes/BG.gdshader" id="4_mubpi"]
+[ext_resource type="Shader" uid="uid://dlvt2w7nsosue" path="res://Shaders/BG.gdshader" id="4_mubpi"]
 [ext_resource type="Script" uid="uid://dn5xjbyaj00he" path="res://Scripts/Header.gd" id="5_fknx3"]
 [ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="6_ar0mo"]
 [ext_resource type="Script" uid="uid://0jo27toou14d" path="res://addons/tattomoosa.spinner/spinner.gd" id="7_cglme"]
@@ -34,7 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://344jxy082shd" path="res://UI/Icons/play on.png" id="33_l7psf"]
 [ext_resource type="Script" uid="uid://fyk2pl01y4" path="res://addons/SliderLabel/SliderLabel.gd" id="34_cy34f"]
 [ext_resource type="StyleBox" uid="uid://cico20v4xewji" path="res://UI/PopupPanelBG.tres" id="35_23i4o"]
-[ext_resource type="Script" uid="uid://cy6dfaq5fwu3h" path="res://Scenes/waveform_viewer.gd" id="35_xy7j3"]
+[ext_resource type="Script" uid="uid://cy6dfaq5fwu3h" path="res://Scripts/waveform_viewer.gd" id="35_xy7j3"]
 [ext_resource type="Script" uid="uid://ci7xk2do2ymju" path="res://Scripts/SplashAnimationPlayer.gd" id="36_pdavf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2dtl4"]

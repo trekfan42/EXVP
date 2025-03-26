@@ -26,7 +26,7 @@
 [ext_resource type="Script" uid="uid://bikc1i02sthhk" path="res://Scripts/Playlist.gd" id="23_f5r7q"]
 [ext_resource type="PackedScene" uid="uid://cyecs3e3rri12" path="res://Scenes/deleter.tscn" id="26_fy3fq"]
 [ext_resource type="Script" uid="uid://cjfpni6vdw5bg" path="res://addons/ReorderableContainer/reorderable_vbox.gd" id="27_lt8b8"]
-[ext_resource type="Script" uid="uid://sf30xrjv1sfy" path="res://addons/BoxHandle/handle.gd" id="28_lmvn1"]
+[ext_resource type="Script" uid="uid://d1ev2b1auckol" path="res://addons/BoxHandle/handle.gd" id="28_lmvn1"]
 [ext_resource type="StyleBox" uid="uid://fkdqfgpwqg38" path="res://UI/TealPanelSemi.tres" id="29_rvmh3"]
 [ext_resource type="Script" uid="uid://doxfvaxqbt2tn" path="res://Scripts/video_panel.gd" id="30_r37lb"]
 [ext_resource type="Script" uid="uid://crx7j3snaarxx" path="res://Scripts/SlideShow.gd" id="31_lcp38"]
@@ -476,6 +476,7 @@ theme = ExtResource("6_ar0mo")
 
 [node name="SettingsPopup" type="Panel" parent="GuiMargin/GUI/Main/PlaylistPanel"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1635,7 +1636,6 @@ autowrap_mode = 2
 
 [node name="Playlist" type="VBoxContainer" parent="GuiMargin/GUI/Main/PlaylistPanel"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1786,7 +1786,6 @@ layout_mode = 2
 mouse_default_cursor_shape = 10
 theme_override_styles/panel = SubResource("StyleBoxFlat_ps8iq")
 script = ExtResource("28_lmvn1")
-metadata/_custom_type_script = "uid://c523op1sm3d4l"
 
 [node name="VideoInterface" type="VBoxContainer" parent="GuiMargin/GUI/Main"]
 unique_name_in_owner = true
@@ -1803,7 +1802,7 @@ clip_contents = true
 custom_minimum_size = Vector2(0, 700)
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.697
+size_flags_stretch_ratio = 0.696
 theme_override_styles/panel = ExtResource("29_rvmh3")
 script = ExtResource("30_r37lb")
 
@@ -1910,7 +1909,6 @@ layout_mode = 2
 mouse_default_cursor_shape = 9
 theme_override_styles/panel = SubResource("StyleBoxFlat_1ecek")
 script = ExtResource("28_lmvn1")
-metadata/_custom_type_script = "uid://c523op1sm3d4l"
 
 [node name="ControlsPanel" type="Panel" parent="GuiMargin/GUI/Main/VideoInterface"]
 unique_name_in_owner = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://csibngyhwep6v"]
 
-[ext_resource type="Script" uid="uid://b57kkjk101p6k" path="res://test.gd" id="1_37kl0"]
+[ext_resource type="Script" uid="uid://b57kkjk101p6k" path="res://testing/vlc_test.gd" id="1_37kl0"]
 
 [sub_resource type="VideoStreamVLC" id="VideoStreamVLC_8uh7m"]
 

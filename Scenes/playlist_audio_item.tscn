@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://biugeqswhpu4v" path="res://UI/Blur UI Theme.tres" id="2_w0jpw"]
 [ext_resource type="StyleBox" uid="uid://dlrvrktbno7fs" path="res://UI/UI_Panel_Dark_Rounded.tres" id="3_8ijs6"]
 [ext_resource type="Texture2D" uid="uid://eo4m77ua0lnm" path="res://UI/Icons/Menu white.png" id="4_fq4jc"]
-[ext_resource type="Script" uid="uid://m8gs1dxaet3e" path="res://waveform_line_drawer.gd" id="6_140id"]
+[ext_resource type="Script" uid="uid://m8gs1dxaet3e" path="res://Scripts/waveform_line_drawer.gd" id="6_140id"]
 [ext_resource type="FontFile" uid="uid://plebch4bpsf7" path="res://UI/Fonts/digital-7 (mono).ttf" id="6_b1o6k"]
 [ext_resource type="FontFile" uid="uid://c53ca3oash2kn" path="res://UI/Fonts/zekton rg.otf" id="7_oq5wm"]
 [ext_resource type="Texture2D" uid="uid://bxjstnxgrqhfl" path="res://UI/Icons/loop off.png" id="7_qxmfg"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://d4gphknvwjgqb" path="res://UI/Fonts/digital-7.ttf" id="8_r5kwa"]
 [ext_resource type="Script" uid="uid://c7b52a0n5ee8a" path="res://Scenes/video_trim_control.gd" id="9_qxmfg"]
 [ext_resource type="Script" uid="uid://cy6dfaq5fwu3h" path="res://Scenes/waveform_viewer.gd" id="11_b1o6k"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5m6c"]
 size = Vector2(36, 120)
